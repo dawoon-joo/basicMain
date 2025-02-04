@@ -1,5 +1,5 @@
-import Device from './common/js/device.js';
-import Header from './common/js/header.js';
+import Device from './device.js';
+import Header from './header.js';
 const revealOption = { duration: 1200, distance: '60px', opacity: 0, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', reset: false, beforeReveal: (el) => { el.classList.add('sr-animate') }, beforeReset: (el) => { el.classList.remove('sr-animate') } }
 const fadeIn = { ...revealOption, distance: 0 }
 const fadeUp = { ...revealOption, origin: 'bottom' }

@@ -1,5 +1,5 @@
 // header.js
-import Device from './common/js/device.js';
+import Device from './device.js';
 
 class Header {
   constructor() {
