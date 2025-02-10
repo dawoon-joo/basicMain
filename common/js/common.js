@@ -1,5 +1,3 @@
-import Device from '/common/js/device.js';
-import Header from '/common/js/header.js';
 const revealOption = { duration: 1200, distance: '60px', opacity: 0, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', reset: false, beforeReveal: (el) => { el.classList.add('sr-animate') }, beforeReset: (el) => { el.classList.remove('sr-animate') } }
 const fadeIn = { ...revealOption, distance: 0 }
 const fadeUp = { ...revealOption, origin: 'bottom' }
@@ -14,6 +12,7 @@ let lenis, rafId;
 document.addEventListener('DOMContentLoaded', () => {
   const device = new Device();
   const header = new Header();
+  gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
   handleLenis(!device.isTablet && !device.isMobile);
   language();
   footerDropDown();
@@ -44,7 +43,7 @@ function handleLenis(isDesktop) {
 
   if (isDesktop) {
     lenis = new Lenis({
-      duration: 1.2,
+      duration: 0.6,
       infinite: false,
       easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
       gestureOrientation: "vertical",
@@ -165,3 +164,28 @@ function scrollBtn() {
 		window.requestAnimationFrame(scrollAnimation);
 	});
 }
+
+const splitText = () => {
+  const textElements = document.querySelectorAll('.split');
+  textElements.forEach(textElement => {
+    const nodes = Array.from(textElement.childNodes);
+    let newHtml = '';
+
+    nodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const chars = node.textContent.split('');
+        newHtml += chars.map(char =>
+          char === ' ' ?
+            '<span class="word">&nbsp;</span>' :
+            `<span class="word">${char}</span>`
+        ).join('');
+      } else if (node.nodeName === 'BR') {
+        // 기존 br의 클래스 유지
+        const className = node.className;
+        newHtml += `<br${className ? ` class="${className}"` : ''}>`;
+      }
+    });
+
+    textElement.innerHTML = newHtml;
+  });
+};

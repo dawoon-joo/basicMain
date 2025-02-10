@@ -1,6 +1,4 @@
 // header.js
-import Device from '/common/js/device.js';
-
 class Header {
   constructor() {
     this.GNB = document.querySelector('.gnb');
@@ -212,5 +210,4 @@ class Header {
   }
 }
 
-export default Header;
 
