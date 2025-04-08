@@ -141,6 +141,7 @@ function floating(){
   }
 }
 
+// 스크롤 TOP 버튼 애니메이션
 function scrollBtn() {
 	const scroll_btn = document.querySelector('.scroll-top');
   if (!scroll_btn) return;
@@ -165,6 +166,7 @@ function scrollBtn() {
 	});
 }
 
+// 텍스트 분리 애니메이션
 const splitText = () => {
   const textElements = document.querySelectorAll('.split');
   textElements.forEach(textElement => {
@@ -188,4 +190,46 @@ const splitText = () => {
 
     textElement.innerHTML = newHtml;
   });
+};
+
+// 카운트 애니메이션
+const createNumberRolling = (selector = '.number_motion .year') => {
+  const tl = gsap.timeline();
+  const $element = $(selector);
+  const fromYear = $element.html();
+  const toYear = $element.attr('data-to');
+  
+  $element.html('');
+  
+  for (let i = 0; i < fromYear.length; i++) {
+    let toNumber = parseInt(fromYear.charAt(i));
+    let fromNumber = parseInt(toYear.charAt(i));
+    
+    let chars = [];
+    
+    // 같은 숫자면 한바퀴 돌기
+    if (fromNumber === toNumber) {
+      for (let n = fromNumber; n >= 0; n--) chars.push(n);
+      for (let n = 9; n >= fromNumber; n--) chars.push(n);
+    } else {
+      // 다른 숫자면 목표까지 감소
+      while (true) {
+        chars.push(fromNumber);
+        if (fromNumber === toNumber) break;
+        fromNumber = (fromNumber - 1 + 10) % 10;
+      }
+    }
+    
+    // 요소 생성 및 애니메이션 설정
+    let digitEl = $('<span></span>').html(chars.join('<br>')).appendTo(selector);
+    let duration = 3 + i * 0.4;
+    
+    tl.from(digitEl, duration, {
+      y: -(chars.length - 1) + 'em', 
+      ease: Power3.easeInOut, 
+      delay: (fromYear.length - i - 1) * 0.7
+    }, 0);
+  }
+  
+  return tl;
 };

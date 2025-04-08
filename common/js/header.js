@@ -88,6 +88,7 @@ class Header {
   }
 
   toggleHeader() {
+    window.headerControlEnabled = true;
     const isMainPage = document.querySelector('.wrap.main') !== null;
     if (isMainPage && !window.headerControlEnabled) return;
     if (window.scrollY > this.option.scrollY) {
