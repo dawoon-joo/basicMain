@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   footerDropDown();
   scrollBtn();
   sublinkWrap();
+  initDragScroll();
 });
 
 window.addEventListener('scroll', ()=> {
@@ -233,3 +234,73 @@ const createNumberRolling = (selector = '.number_motion .year') => {
   
   return tl;
 };
+
+// 가로스크롤 생길때 drag 안내(swiper 대응)
+function initDragScroll() {
+  const dragElements = document.querySelectorAll(`[data-scroll='drag']`);
+  if (!dragElements.length) return;
+
+  dragElements.forEach(dragEl => {
+    const parent = dragEl.parentElement;
+
+    // 드래그 표시기 제거 함수
+    const removeDragIndicator = (indicator) => {
+      if (!indicator) return;
+      gsap.to(indicator, {
+        opacity: 0,
+        duration: 0.3,
+        onComplete: () => indicator.remove()
+      });
+    };
+
+    // 이벤트 핸들러
+    const handleInteraction = () => {
+      const dragIndicator = dragEl.nextElementSibling?.classList.contains('dragwrap')
+        ? dragEl.nextElementSibling
+        : null;
+      removeDragIndicator(dragIndicator);
+    };
+
+    // 스크롤 가능 여부 확인 및 표시기 처리
+    const updateDragIndicator = () => {
+      const isScrollable = parent.scrollWidth > parent.clientWidth;
+      const nextElement = dragEl.nextElementSibling;
+      const hasIndicator = nextElement?.classList.contains('dragwrap');
+      const isSwiper = parent.classList.contains('swiper');
+
+      // 스크롤 가능하고 표시기가 없는 경우 - 추가
+      if (isScrollable && !hasIndicator) {
+        dragEl.insertAdjacentHTML('afterend', `
+          <div class="dragwrap">
+            <div class="drag">
+              <div class="ico_touch">
+                <img src="/images/ico_touch_help.png" alt="슬라이드,드래그 버튼">
+              </div>
+            </div>
+          </div>
+        `);
+
+        // 이벤트 리스너 등록
+        parent.addEventListener('scroll', handleInteraction, { once: true });
+        parent.addEventListener('touchmove', handleInteraction, { once: true });
+
+        // Swiper 이벤트 처리
+        if (isSwiper) {
+          const swiperInstance = parent.swiper || parent.closest('.swiper')?.swiper;
+          if (swiperInstance) {
+            ['slideChange', 'touchStart', 'touchMove'].forEach(event => {
+              swiperInstance.on(event, handleInteraction);
+            });
+          }
+        }
+      }
+      // 스크롤 불가능하고 표시기가 있는 경우 - 제거
+      else if (!isScrollable && hasIndicator) {
+        removeDragIndicator(nextElement);
+      }
+    };
+
+    updateDragIndicator();
+    window.addEventListener('resize', updateDragIndicator);
+  });
+}
