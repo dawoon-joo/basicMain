@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   scrollBtn();
   sublinkWrap();
   initDragScroll();
+  splitText
 });
 
 window.addEventListener('scroll', ()=> {

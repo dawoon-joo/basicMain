@@ -50,6 +50,9 @@ class Header {
         this.option.ticking = true;
       }
     });
+    window.addEventListener('load', ()=> {
+      this.variableHeader();
+    })
   }
 
   // GNB 관련 메서드
@@ -91,13 +94,13 @@ class Header {
     window.headerControlEnabled = true;
     const isMainPage = document.querySelector('.wrap.main') !== null;
     if (isMainPage && !window.headerControlEnabled) return;
-    if (window.scrollY > this.option.scrollY) {
-      if (window.scrollY < 10) {
-        gsap.to('.header', { y: 0 });
-      } else {
-        gsap.to('.header', { y: -170, duration: 0.2 });
-      }
-    }
+    // if (window.scrollY > this.option.scrollY) {
+    //   if (window.scrollY < 10) {
+    //     gsap.to('.header', { y: 0 });
+    //   } else {
+    //     gsap.to('.header', { y: -170, duration: 0.2 });
+    //   }
+    // }
 
     if (window.scrollY < this.option.scrollY) {
       gsap.to('.header', { y: 0 });
@@ -119,6 +122,37 @@ class Header {
       this.HEADER.setAttribute('data-header-sticky', isSticky.toString());
     } catch (error) {
       console.error('Error setting header sticky state:', error);
+    }
+  }
+
+  variableHeader(){
+    const sections = document.querySelectorAll('[data-section-header]');
+
+    if(sections === undefined){
+      return;
+    }
+
+    sections.forEach((section, i) => {
+      let theme = section.dataset.sectionHeader;
+
+      if(theme === ''){
+        theme = 'light';
+      }
+      ScrollTrigger.create({
+        trigger: section,
+        start: `-${this.headerMinHeight / 2}px top`,
+        end: `bottom ${this.headerMinHeight / 2}px`,
+        // markers: true,
+        onEnter: () => changeTheme(theme),
+        onEnterBack: () => changeTheme(theme),
+        onLeave: () => changeTheme('light'),
+        onLeaveBack: () => changeTheme('light')
+      });
+
+    });
+
+    function changeTheme(name){
+      header.dataset.label = name;
     }
   }
 

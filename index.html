@@ -11,6 +11,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="/common/css/base.css">
   <link rel="stylesheet" href="/common/css/sub.css">
+  <link rel="stylesheet" href="/common/css/main.css">
   <link rel="stylesheet" href="/common/css/common.css">
   <script src="/common/js/gsap.min.js"></script>
   <script src="/common/js/ScrollTrigger.min.js"></script>
@@ -30,7 +31,7 @@
 </head>
 
 <body>
-  <header id="header" class="header" data-header-type="white">
+  <header id="header" class="header">
     <h1>
       <a href="/" class="logo">
         <span class="blind">Test Logo</span>
@@ -40,42 +41,68 @@
       <nav class="nav">
         <ul class="depth1" data-lenis-prevent>
           <li>
-            <a href="#">Menu 1</a>
+            <a href="#">About Us</a>
             <ul class="depth2">
-              <li><a href="#">Sub Menu 1-1</a></li>
-              <li><a href="#">Sub Menu 1-2</a></li>
-              <li><a href="#">Sub Menu 1-3</a></li>
-              <li><a href="#">Sub Menu 1-4</a></li>
-              <li><a href="#">Sub Menu 1-5</a></li>
-              <li><a href="#">Sub Menu 1-6</a></li>
+              <li><a href="#">소개</a></li>
+              <li><a href="#">연혁</a></li>
+              <li><a href="#">수상</a></li>
+              <li><a href="#">오시는 길</a></li>
+              <li><a href="#">Careers</a></li>
             </ul>
           </li>
           <li>
-            <a href="#">Menu 2</a>
+            <a href="#">Global Competence</a>
             <ul class="depth2">
-              <li><a href="#">Sub Menu 2-1</a></li>
-              <li><a href="#">Sub Menu 2-2</a></li>
-              <li><a href="#">Sub Menu 2-3</a></li>
-              <li><a href="#">Sub Menu 2-4</a></li>
-              <li><a href="#">Sub Menu 2-5</a></li>
+              <li><a href="#">미국</a></li>
+              <li><a href="#">캐나다</a></li>
+              <li><a href="#">독일</a></li>
+              <li><a href="#">중국</a></li>
+              <li><a href="#">베트남</a></li>
+              <li><a href="#">미얀마</a></li>
+              <li><a href="#">캄보디아</a></li>
+              <li><a href="#">태국</a></li>
+              <li><a href="#">몽골</a></li>
+              <li><a href="#">Asia Practice Circle</a></li>
             </ul>
           </li>
           <li>
-            <a href="#">Menu 3</a>
+            <a href="#">Expertise</a>
             <ul class="depth2">
-              <li><a href="#">Sub Menu 3-1</a></li>
-              <li><a href="#">Sub Menu 3-2</a></li>
+              <li><a href="#">분야별</a></li>
+              <li><a href="#">산업별</a></li>
+              <li><a href="#">센터</a></li>
             </ul>
           </li>
           <li>
-            <a href="#">Menu 4</a>
+            <a href="#">Professionals</a>
             <ul class="depth2">
-              <li><a href="#">Sub Menu 4-1</a></li>
-              <li><a href="#">Sub Menu 4-2</a></li>
+              <li><a href="#">변호사</a></li>
+              <li><a href="#">외국변호사</a></li>
+              <li><a href="#">고문</a></li>
+              <li><a href="#">전문위원</a></li>
             </ul>
           </li>
           <li>
-            <a href="#">Menu 5</a>
+            <a href="#">Insights</a>
+            <ul class="depth2">
+              <li><a href="#">최근 업무사례</a></li>
+              <li><a href="#">콘텐츠 아카이브</a></li>
+              <li><a href="#">언론보도</a></li>
+              <li><a href="#">법인소식</a></li>
+              <li><a href="#">뉴스레터</a></li>
+              <li><a href="#">Seminar</a></li>
+              <li><a href="#">발간자료</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Social Impact</a>
+            <ul class="depth2">
+              <li><a href="#">사회공헌</a></li>
+              <li><a href="#">D-TECH</a></li>
+              <li><a href="#">D’CHANGE</a></li>
+              <li><a href="#">TIME BANK</a></li>
+              <li><a href="#">B-Corp</a></li>
+            </ul>
           </li>
         </ul>
       </nav>
@@ -87,6 +114,14 @@
       </div>
     </div>
     <div class="header-right">
+      <div class="site-wrap">
+        <button type="button" class="btn-site">Family Site 바로가기</button>
+        <div class="ico ico-arrow-drop"><span class="hide">Arrow</span></div>
+        <ul class="familyLink">
+          <li><a href="#" target="_blank" title="새창으로 열림">Family Site 1</a></li>
+          <li><a href="#" target="_blank" title="새창으로 열림">Family Site 2</a></li>
+        </ul>
+      </div>
       <div class="header-language">
         <button class="current" aria-pressed="false"><span class="text">KR</span></button>
         <ul>
@@ -106,8 +141,56 @@
     </div>
   </header>
   <div class="wrap">
-    <section class="sec"></section>
-    <section class="sec"></section>
+    <section class="main-visual">
+      <div class="sticky">
+        <div class="line"></div>
+        <div class="col left">
+          <h2 class="heading split">DLG offers innovative <br class="pc">legal solutions.</h2>
+        </div>
+        <div class="col right">
+          <div class="line vertical"></div>
+          <div class="swiper visual-sw">
+            <div class="swiepr-wrapper">
+              <div class="swiper-slide">
+                <div class="slide-bg">
+                  <img src="/images/main/visual-img.jpg" alt="">
+                  <div class="line bottom right"></div>
+                </div>
+                <div class="slide-text">
+                  <h2 class="heading">
+                    Reaching out <br>
+                    to people in need.
+                  </h2>
+                  <p class="desc">
+                    법무법인 디엘지는 전문성과 혁신으로 산업의 Frontier에서 고객을 도우며 <br class="pc">
+                    글로벌한 업무능력과 산업에 대한 깊은 통찰력으로 사회 변화를 위한 <br class="pc">
+                    Shared Value를 함께 만들어 갑니다.
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slide-bg">
+                  <img src="/images/main/visual-img.jpg" alt="">
+                  <div class="line bottom right"></div>
+                </div>
+                <div class="slide-text">
+                  <h2 class="heading">
+                    Reaching out <br>
+                    to people in need.
+                  </h2>
+                  <p class="desc">
+                    법무법인 디엘지는 전문성과 혁신으로 산업의 Frontier에서 고객을 도우며 <br class="pc">
+                    글로벌한 업무능력과 산업에 대한 깊은 통찰력으로 사회 변화를 위한 <br class="pc">
+                    Shared Value를 함께 만들어 갑니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sec" data-section-header="dark"></section>
     <section class="sec"></section>
     <div class="floating-container">
       <div class="scroll-to">
@@ -188,17 +271,118 @@
           <img src="/common/images/logo.png" alt="Test Logo">
         </div>
         <p class="copyright">©<span id="copyYear">2024</span> Test Company.</p>
-        <div class="site-wrap">
-          <button type="button" class="btn-site">Family Sites</button>
-          <div class="ico ico-arrow-drop"><span class="hide">Arrow</span></div>
-          <ul class="familyLink">
-            <li><a href="#" target="_blank" title="새창으로 열림">Family Site 1</a></li>
-            <li><a href="#" target="_blank" title="새창으로 열림">Family Site 2</a></li>
-          </ul>
-        </div>
       </div>
     </div>
   </footer>
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', ()=> {
+    gsapMotion();
+  })
+  const mainVisualMotion = (triggerClass, isMobile,) => {
+    const section = document.querySelector(triggerClass);
+    const header = document.querySelector('.header');
+    const colLeft = section.querySelector('.col.left');
+    const colRight = section.querySelector('.col.right');
+    const heading = colLeft.querySelector('.heading');
+    const headingSplit = heading.querySelectorAll('.split .word');
+    const headerLine = header.querySelector('.header .line');
+    let headingHeight = heading.offsetHeight;
+    const line = section.querySelectorAll('.line');
+    const slideBg = section.querySelectorAll('.slide-bg');
+    const slideText = section.querySelectorAll('.slide-text');
+    const intro = gsap.timeline();
+    const tl = gsap.timeline();
+    const tl2 = gsap.timeline();
+    lenis.stop();
+    document.body.style.overflow = 'hidden';
+    // disableSwiper(mySwiper);
+    gsap.set(header, { autoAlpha: 0});
+    gsap.set(slideBg[0].querySelector('img'), { autoAlpha: 0});
+    gsap.set(slideText[0].querySelectorAll('.heading'), { autoAlpha: 0, y: 50});
+    gsap.set(slideText[0].querySelectorAll('.desc'), { autoAlpha: 0, y: 50});
+    intro.to(heading, { top: `calc(100% - ${headingHeight}px)`, duration: 1})
+    .to(heading, { top: '0%', duration: 0.8, ease: 'power2.inOut'})
+    .to(headerLine, { scale: 1, duration: 0.5, ease: 'power2.inOut'})
+    .to(line, { scale: 1, duration: 0.8, ease: 'power2.inOut'}, '<')
+    .to(header, { autoAlpha: 1, duration: 1}, '<+=0.5')
+    .to(slideText[0].querySelector('.heading'), { autoAlpha: 1, y: 0, duration: 1}, '<')
+    .to(slideText[0].querySelector('.desc'), { autoAlpha: 1, y: 0, duration: 1}, '<+=0.2')
+    .to(slideBg[0].querySelector('img'), { autoAlpha: 1, duration: 2, onComplate: () => {
+      lenis.start();
+      document.body.style.overflow = 'auto';
+    }}, '<+=0.1')
 
+    ScrollTrigger.create({
+      trigger: triggerClass,
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 1,
+      animation: tl,
+      markers: true,
+    });
+    tl.to(colRight, { flex: '0 0 100%', duration: 1}, 'motion')
+      .to(colLeft, { xPercent: -100, duration: 1}, 'motion')
+      .to(slideBg[0], { height: '100%', padding: 0, duration: 1}, 'motion')
+      .to(slideText[0], { height: '100%', padding: '150px 60px', duration: 1}, 'motion')
+      .to(slideText[0].querySelector('.heading'), { marginBottom: '5vh', fontSize: '96px', duration: 1, onComplete: () => {
+        // enableSwiper(mySwiper);
+      }}, 'motion')
+    
+    
+    ScrollTrigger.create({
+      trigger: triggerClass,
+      start: "10% 30%",
+      end: "+=100%",
+      scrub: 1,
+      animation: tl2,
+      // markers: true,
+    })
+    tl2.to(slideText, { color: '#fff'}, 'motion')
+    document.addEventListener('resize', () => {
+      headerHeight = header.offsetHeight;
+    })
+
+    // function disableSwiper(swiper) {
+    //   swiper.autoplay.stop();
+    //   swiper.allowTouchMove = false;
+    //   // 네비게이션/페이지네이션 비활성화
+    //   if (swiper.pagination && swiper.pagination.$el) {
+    //     swiper.pagination.$el[0].style.pointerEvents = 'none';
+    //   }
+    //   if (swiper.navigation && swiper.navigation.$nextEl && swiper.navigation.$prevEl) {
+    //     swiper.navigation.$nextEl[0].style.pointerEvents = 'none';
+    //     swiper.navigation.$prevEl[0].style.pointerEvents = 'none';
+    //     swiper.navigation.$nextEl[0].classList.add('swiper-button-disabled');
+    //     swiper.navigation.$prevEl[0].classList.add('swiper-button-disabled');
+    //   }
+    // }
+    
+    // function enableSwiper(swiper) {
+    //   swiper.autoplay.start();
+    //   swiper.allowTouchMove = true;
+    //   if (swiper.pagination && swiper.pagination.$el) {
+    //     swiper.pagination.$el[0].style.pointerEvents = 'auto';
+    //   }
+    //   if (swiper.navigation && swiper.navigation.$nextEl && swiper.navigation.$prevEl) {
+    //     swiper.navigation.$nextEl[0].style.pointerEvents = 'auto';
+    //     swiper.navigation.$prevEl[0].style.pointerEvents = 'auto';
+    //     swiper.navigation.$nextEl[0].classList.remove('swiper-button-disabled');
+    //     swiper.navigation.$prevEl[0].classList.remove('swiper-button-disabled');
+    //   }
+    // }
+  }
+  const gsapMotion= () => {
+    let mm = gsap.matchMedia();
+  
+    mm.add({
+      isMobile: "(max-width: 767px)",
+      isDesktop: "(min-width: 768px)"
+    }, (context) => {
+      let { isMobile, isDesktop } = context.conditions;
+  
+      mainVisualMotion('.main-visual', isMobile);
+    });
+  }
+</script>
 </html>

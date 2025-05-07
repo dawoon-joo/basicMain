@@ -1,0 +1,12 @@
+.main-visual { width: 100%; height: 500vh; padding-top: 100px; position: relative;}
+.main-visual .sticky { top: 100px; width: 100%; height: calc(100vh - 100px); overflow: hidden; display: flex; justify-content: flex-end;}
+.main-visual .col { position: relative;}
+.main-visual .col.left { position: absolute; left: 0; width: 65.5%; height: 100%;}
+.main-visual .col.left .heading { font-weight: 480; line-height: 1.25; padding-top: 80px; padding-bottom: 30px; position: absolute; top: 100%; left: 60px;}
+.main-visual .col.right { flex: 0 0 34.5%; height: 100%;}
+.main-visual .visual-sw, 
+.main-visual .swiepr-wrapper { height: 100%;}
+.main-visual .slide-bg { padding: 30px; position: absolute; top: 0; right: 0; width: 100%; height: 44.5%;}
+.main-visual .slide-bg img { width: 100%; height: 100%; object-fit: cover;}
+.main-visual .slide-text { padding: 30px; position: absolute; bottom: 0; right: 0; width: 100%; height: 55.5%;}
+.main-visual .slide-text .heading { font-size: 40px; margin-bottom: 20vh; font-weight: 480;}
