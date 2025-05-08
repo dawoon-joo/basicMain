@@ -20,7 +20,7 @@
   <script src="/common/js/scrollreveal.min.js"></script>
   <script src="/common/js/lenis.min.js"></script>
   <script src="/common/js/swiper-bundle.min.js"></script>
-  <script src="/common/js/jquery-3.7.1.min.js"></script>
+  <!-- <script src="/common/js/jquery-3.7.1.min.js"></script> -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="/common/js/main.js"></script>
@@ -99,7 +99,7 @@
             <ul class="depth2">
               <li><a href="#">사회공헌</a></li>
               <li><a href="#">D-TECH</a></li>
-              <li><a href="#">D’CHANGE</a></li>
+              <li><a href="#">D'CHANGE</a></li>
               <li><a href="#">TIME BANK</a></li>
               <li><a href="#">B-Corp</a></li>
             </ul>
@@ -150,7 +150,7 @@
         <div class="col right">
           <div class="line vertical"></div>
           <div class="swiper visual-sw">
-            <div class="swiepr-wrapper">
+            <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <div class="slide-bg">
                   <img src="/images/main/visual-img.jpg" alt="">
@@ -176,7 +176,7 @@
                 <div class="slide-text">
                   <h2 class="heading">
                     Reaching out <br>
-                    to people in need.
+                    to people in need.2
                   </h2>
                   <p class="desc">
                     법무법인 디엘지는 전문성과 혁신으로 산업의 Frontier에서 고객을 도우며 <br class="pc">
@@ -184,6 +184,13 @@
                     Shared Value를 함께 만들어 갑니다.
                   </p>
                 </div>
+              </div>
+            </div>
+            <div class="control-wrap">
+              <div class="pagination"></div>
+              <div class="button-group">
+                <div class="button-prev"></div>
+                <div class="button-next"></div>
               </div>
             </div>
           </div>
@@ -279,56 +286,63 @@
   document.addEventListener('DOMContentLoaded', ()=> {
     gsapMotion();
   })
-  const mainVisualMotion = (triggerClass, isMobile,) => {
+  const mainVisualMotion = (triggerClass, isMobile) => {
     const section = document.querySelector(triggerClass);
     const header = document.querySelector('.header');
     const colLeft = section.querySelector('.col.left');
     const colRight = section.querySelector('.col.right');
     const heading = colLeft.querySelector('.heading');
     const headingSplit = heading.querySelectorAll('.split .word');
-    const headerLine = header.querySelector('.header .line');
+    const headerLine = header.querySelector('.line');
     let headingHeight = heading.offsetHeight;
     const line = section.querySelectorAll('.line');
     const slideBg = section.querySelectorAll('.slide-bg');
     const slideText = section.querySelectorAll('.slide-text');
+    const allHeadings = gsap.utils.toArray(slideText).map(text => text.querySelector('.heading'));
+    const allDescs = gsap.utils.toArray(slideText).map(text => text.querySelector('.desc'));
+    const allImages = gsap.utils.toArray(slideBg).map(bg => bg.querySelector('img'));
+    const controlWrap = section.querySelector('.control-wrap');
+    
     const intro = gsap.timeline();
     const tl = gsap.timeline();
     const tl2 = gsap.timeline();
+    
     lenis.stop();
     document.body.style.overflow = 'hidden';
-    // disableSwiper(mySwiper);
-    gsap.set(header, { autoAlpha: 0});
-    gsap.set(slideBg[0].querySelector('img'), { autoAlpha: 0});
-    gsap.set(slideText[0].querySelectorAll('.heading'), { autoAlpha: 0, y: 50});
-    gsap.set(slideText[0].querySelectorAll('.desc'), { autoAlpha: 0, y: 50});
-    intro.to(heading, { top: `calc(100% - ${headingHeight}px)`, duration: 1})
-    .to(heading, { top: '0%', duration: 0.8, ease: 'power2.inOut'})
-    .to(headerLine, { scale: 1, duration: 0.5, ease: 'power2.inOut'})
-    .to(line, { scale: 1, duration: 0.8, ease: 'power2.inOut'}, '<')
-    .to(header, { autoAlpha: 1, duration: 1}, '<+=0.5')
-    .to(slideText[0].querySelector('.heading'), { autoAlpha: 1, y: 0, duration: 1}, '<')
-    .to(slideText[0].querySelector('.desc'), { autoAlpha: 1, y: 0, duration: 1}, '<+=0.2')
-    .to(slideBg[0].querySelector('img'), { autoAlpha: 1, duration: 2, onComplate: () => {
-      lenis.start();
-      document.body.style.overflow = 'auto';
-    }}, '<+=0.1')
-
+    
+    gsap.set(header, { autoAlpha: 0 });
+    gsap.set(allHeadings, { autoAlpha: 0, y: 50 });
+    gsap.set(allDescs, { autoAlpha: 0, y: 50 });
+    gsap.set(allImages, { autoAlpha: 0 });
+    
+    intro.to(heading, { top: `calc(100% - ${headingHeight}px)`, duration: 1 })
+    .to(heading, { top: '0%', duration: 0.8, ease: 'power2.inOut' })
+    .to(headerLine, { scale: 1, duration: 0.5, ease: 'power2.inOut' })
+    .to(line, { scale: 1, duration: 0.8, ease: 'power2.inOut' }, '<')
+    .to(header, { autoAlpha: 1, duration: 1 }, '<+=0.5')
+    .to(allHeadings, { autoAlpha: 1, y: 0, duration: 1 }, '<')
+    .to(allDescs, { autoAlpha: 1, y: 0, duration: 1 }, '<+=0.2')
+    .to(allImages, { autoAlpha: 1, duration: 2, onComplete: () => { 
+      lenis.start(); 
+      document.body.style.overflow = 'auto'; 
+    } }, '<');
+    
+    // 메인 모션 타임라인 ScrollTrigger
     ScrollTrigger.create({
       trigger: triggerClass,
       start: "top top",
       end: "bottom bottom",
       scrub: 1,
       animation: tl,
-      markers: true,
+      // markers: true
     });
-    tl.to(colRight, { flex: '0 0 100%', duration: 1}, 'motion')
-      .to(colLeft, { xPercent: -100, duration: 1}, 'motion')
-      .to(slideBg[0], { height: '100%', padding: 0, duration: 1}, 'motion')
-      .to(slideText[0], { height: '100%', padding: '150px 60px', duration: 1}, 'motion')
-      .to(slideText[0].querySelector('.heading'), { marginBottom: '5vh', fontSize: '96px', duration: 1, onComplete: () => {
-        // enableSwiper(mySwiper);
-      }}, 'motion')
-    
+    gsap.set(controlWrap, { autoAlpha: 0, y:30 });
+    tl.to(colRight, { flex: '0 0 100%', duration: 1 }, 'motion')
+    .to(colLeft, { xPercent: -100, duration: 1 }, 'motion')
+    .to(slideBg, { height: '100%', padding: 0, duration: 1 }, 'motion')
+    .to(slideText, { height: '100%', padding: '100px 60px', duration: 1 }, 'motion')
+    .to(allDescs, { fontSize: '24px', duration: 1 }, 'motion')
+    .to(allHeadings, { marginBottom: '8vh', fontSize: '96px', duration: 1 }, 'motion')
     
     ScrollTrigger.create({
       trigger: triggerClass,
@@ -336,42 +350,115 @@
       end: "+=100%",
       scrub: 1,
       animation: tl2,
-      // markers: true,
-    })
-    tl2.to(slideText, { color: '#fff'}, 'motion')
-    document.addEventListener('resize', () => {
-      headerHeight = header.offsetHeight;
-    })
-
-    // function disableSwiper(swiper) {
-    //   swiper.autoplay.stop();
-    //   swiper.allowTouchMove = false;
-    //   // 네비게이션/페이지네이션 비활성화
-    //   if (swiper.pagination && swiper.pagination.$el) {
-    //     swiper.pagination.$el[0].style.pointerEvents = 'none';
-    //   }
-    //   if (swiper.navigation && swiper.navigation.$nextEl && swiper.navigation.$prevEl) {
-    //     swiper.navigation.$nextEl[0].style.pointerEvents = 'none';
-    //     swiper.navigation.$prevEl[0].style.pointerEvents = 'none';
-    //     swiper.navigation.$nextEl[0].classList.add('swiper-button-disabled');
-    //     swiper.navigation.$prevEl[0].classList.add('swiper-button-disabled');
-    //   }
-    // }
+    });
+    tl2.to(slideText, { color: '#fff' }, 'motion');
     
-    // function enableSwiper(swiper) {
-    //   swiper.autoplay.start();
-    //   swiper.allowTouchMove = true;
-    //   if (swiper.pagination && swiper.pagination.$el) {
-    //     swiper.pagination.$el[0].style.pointerEvents = 'auto';
-    //   }
-    //   if (swiper.navigation && swiper.navigation.$nextEl && swiper.navigation.$prevEl) {
-    //     swiper.navigation.$nextEl[0].style.pointerEvents = 'auto';
-    //     swiper.navigation.$prevEl[0].style.pointerEvents = 'auto';
-    //     swiper.navigation.$nextEl[0].classList.remove('swiper-button-disabled');
-    //     swiper.navigation.$prevEl[0].classList.remove('swiper-button-disabled');
-    //   }
-    // }
-  }
+    document.addEventListener('resize', () => {
+      headingHeight = heading.offsetHeight;
+    });
+    
+    const videoAutoplaySwiper = () => {
+      const delay = 4;
+      const speed = 1;
+      let swiper;
+      const controlWrap = document.querySelector('.control-wrap');
+      
+      const initSwiper = () => {
+        swiper = new Swiper('.visual-sw', {
+          loop: true,
+          speed: speed * 1000,
+          effect: 'fade',
+          fadeEffect: {
+            crossFade: true
+          },
+          autoplay: {
+            delay: delay * 1000,
+            disableOnInteraction: false,
+            waitForTransition: false,
+            enabled: false 
+          },
+          pagination: {
+            el: '.pagination',
+            type: 'custom',
+            renderCustom: function(swiper, current, total) {
+              return `<span class="current">${current < 10 ? '0' + current : current}</span><span class="bar"><span class="progress"></span></span><span class="total">${total < 10 ? '0' + total : total}</span>`;
+            }
+          },
+          navigation: {
+            nextEl: '.button-next',
+            prevEl: '.button-prev',
+          },
+          on: {
+            init: (swiper) => {
+              swiper.on('paginationRender', function() {
+                setTimeout(() => animate(swiper), 50);
+                swiper.autoplay.start();
+              });
+            },
+            slideChangeTransitionStart: (swiper) => {
+              animate(swiper);
+              let currentSlide = swiper.slides[swiper.activeIndex];
+              let video = currentSlide.querySelector('video');
+              if (video) {
+                video.currentTime = 0;
+                video.play();
+              }
+            }
+          }
+        });
+        
+        // 컨트롤 영역 표시
+        gsap.to(controlWrap, { autoAlpha: 1, delay: 0.5, y:0, duration: 0.5 });
+        return swiper;
+      };
+      
+      const resetSwiper = () => {
+        const existingSwiper = document.querySelector('.visual-sw')?.swiper;
+        if (existingSwiper) {
+          if (existingSwiper.autoplay) existingSwiper.autoplay.stop();
+          existingSwiper.destroy(true, true);
+        }
+        gsap.to(controlWrap, { autoAlpha: 0, y: 20, duration: 0.3 });
+      };
+      
+      const animate = (swiper) => {
+        if (!swiper || !swiper.el) return;
+        const slide = swiper.el.querySelector('.swiper-slide-active');
+        let index = swiper.realIndex;
+        let total = swiper.slides.length;
+        if (swiper.params.loop) total = total - swiper.loopedSlides * 2;
+        
+        const progressBar = document.querySelector('.pagination .progress');
+        if (!progressBar) return;
+        gsap.killTweensOf(progressBar);
+        gsap.set(progressBar, { width: 0 });
+        gsap.to(progressBar, {
+          width: '100%',
+          duration: delay,
+          ease: 'none'
+        });
+      };
+      
+      // 스와이퍼 컨트롤을 위한 별도의 ScrollTrigger
+      ScrollTrigger.create({
+        trigger: triggerClass,
+        start: "80% bottom",
+        end: "bottom bottom",
+        markers: {
+          startColor: "green",
+          endColor: "red",
+          fontSize: "12px"
+        },
+        onEnter: () => {
+          initSwiper();
+        },
+        onLeaveBack: () => {
+          resetSwiper();
+        }
+      });
+    };
+    videoAutoplaySwiper();
+  };
   const gsapMotion= () => {
     let mm = gsap.matchMedia();
   

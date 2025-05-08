@@ -125,8 +125,8 @@ function floating(){
   const scrollTo = document.querySelector('.floating-container');
   if(!scrollTo) return;
   const footer = document.querySelector('footer');
-  console.log(scrollTo);
-  console.log(window.innerHeight);
+  // console.log(scrollTo);
+  // console.log(window.innerHeight);
   // 브라우저 창의 하단이 footer에 닿았는지 확인
   if (window.innerHeight >= footer.getBoundingClientRect().top) {
     // footer에 닿았을 때 position을 'absolute'로 설정

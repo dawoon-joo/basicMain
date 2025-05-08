@@ -12,6 +12,7 @@
   --accent2-color: #3A7BEE;
   --bg-sub-color: #f7f7f7;
 }
+html { scrollbar-gutter: stable;}
 .wrap { position: relative;}
 .inner { max-width: 1800px; margin: 0 auto; width: 90%; }
 .inner.large { max-width: 1610px;}
@@ -100,10 +101,10 @@ figure img { display: block;}
 .header .header-inner { max-width: 1800px; width: 95%; height: 100%; margin: 0 auto; position: relative;}
 .header .logo { position: absolute; top: 50%; left: 60px; transform: translateY(-50%); width: 84px; height: 30px; background: url(/images/logo-hd.svg) no-repeat center/cover; z-index: 3;}
 .header .gnb { position: absolute; top: 0; display: flex; justify-content: center; width: 100%; height: 100%; overflow: hidden; z-index: 2; transition: background 0.3s; background: #fff;}
-.header .gnb::before { content:''; display: none; position: absolute; top: 100px; left: 0; width: 100%; height: 1px; background: #ddd;}
+.header::before { content:''; display: block; position: absolute; top: 100px; left: 0; width: 100%; height: 1px; background: #000;}
 .header .gnb .depth1 { display: flex;}
 .header .gnb a { padding: 10px 30px; font-weight: 500; display: flex;}
-.header .gnb .depth1 > li > a { padding: 15px 30px; position: relative; height: 100px; display: flex; align-items: center; justify-content: center; font-weight: 480; white-space: nowrap;}
+.header .gnb .depth1 > li > a { padding: 15px 30px; position: relative; height: 100px; display: flex; align-items: center; justify-content: center; font-weight: 500; white-space: nowrap;}
 .header .gnb .depth1 > li > a::before { content: ''; display: none; width: 20px; height: 20px; position: absolute; right: 5%; top: 50%; transform: translateY(-50%); background: url(/images/ico-arrow.png) no-repeat center/cover; filter: invert(1);}
 .header .gnb .depth2{ position: relative; padding:20px 0 40px;}
 .header .gnb .depth2::before { content: ''; display: block; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 0%; height: 2px; background: var(--accent-color); transition: 0.2s;}
