@@ -19,8 +19,8 @@ span { vertical-align:middle; }
 /* default setting */
 html { width:100%; margin:0; padding:0; }
 * html * { zoom:1; }
-body { width:100%; height:auto; font-family:'Pretendard','Noto Sans KR',Dotum,Helvetica,AppleGothic,Gulim,'Roboto','굴림',Sans-serif; color:#000; -webkit-text-size-adjust:none; letter-spacing: -0.025em; font-size: 18px;}
-* {line-height:1.5;font-family:'Pretendard','Noto Sans KR',Dotum,Helvetica,AppleGothic,Gulim,'Roboto','굴림',Sans-serif;word-break:keep-all;white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+body { width:100%; height:auto; font-family:'Pretendard','Noto Sans KR',Dotum,Helvetica,AppleGothic,Gulim,'Roboto','굴림',Sans-serif; color:#000; -webkit-text-size-adjust:none; letter-spacing: -0.025em; font-size: 18px; font-weight: 500;}
+* {line-height:1.5;font-family:'Pretendard','Noto Sans KR',Dotum,Helvetica,AppleGothic,Gulim,'Roboto','굴림',Sans-serif;white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
 white-space: -pre-wrap; /* Opera 4-6 */
 white-space: -o-pre-wrap; /* Opera 7 */
 word-wrap: break-word; /* Internet Explorer 5.5+ */

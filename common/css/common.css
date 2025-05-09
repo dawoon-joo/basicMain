@@ -14,7 +14,7 @@
 }
 html { scrollbar-gutter: stable;}
 .wrap { position: relative;}
-.inner { max-width: 1800px; margin: 0 auto; width: 90%; }
+.inner { padding: 0 60px; }
 .inner.large { max-width: 1610px;}
 .inner-left { padding-left: calc(max((100vw - 1500px) / 2, 5vw)) !important;}
 .inner-right { padding-right: calc(max((100vw - 1500px) / 2, 5vw)) !important;}
@@ -22,7 +22,7 @@ html { scrollbar-gutter: stable;}
 .hide { position: absolute; left: -9999%; font-size: 0; height: 0; line-height: 0; text-indent: -9999px;}
 h1 { font-size: 80px; font-weight: bold; line-height: normal; }
 h2 { font-size: 96px; font-weight: bold; line-height: 1.25; }
-h3 { font-size: 48px; font-weight: bold; line-height: normal;}
+h3 { font-size: 36px; font-weight: 500; line-height: 1.3;}
 h4 { font-size: 32px; font-weight: bold;}
 .mo { display: none;}
 .dot { width: 4px; height: 4px; border-radius: 50%; vertical-align: middle; margin-right: 10px; background: #000; }
@@ -85,7 +85,7 @@ figure img { display: block;}
 .ico-siren { width: 24px; height: 24px; background: url(/images/ico-siren.png) no-repeat center/auto 100%; display: inline-block; margin-right: 8px;}
 .ico-screen { width: 24px; height: 24px; background: url(/images/ico-screen.png) no-repeat center/auto 100%; display: inline-block; margin-right: 8px;}
 .ico-paper { width: 18px; height: 18px; background: url(/images/ico-paper.png) no-repeat center/auto 100%; display: inline-block; margin-left: 6px;}
-.ico-arrow-link { width: 16px; height: 16px; background: url(/images/ico-arrow-link.png) no-repeat center/auto 100%; display: inline-block; margin-left: 6px;}
+.ico-link-arrow { width: 30px; height: 30px; background: url(/images/ico-link-arrow.svg) no-repeat center/auto 100%; display: inline-block;}
 @media screen and (max-width: 767px) {
   .ico-down-green { width: 30px; height: 30px; margin-left: 10px;}
 }
@@ -95,6 +95,7 @@ figure img { display: block;}
 .line.vertical { width: 1px; height: 100%; transform-origin: top; transform: scaleY(0) scaleX(1);}
 .line.bottom { bottom: 0; top: auto;}
 .line.right { right: 0; left: auto; transform-origin: right;}
+.line.aos-animate { transform: scale(1); transition: transform 0.8s !important;}
 
 /* header */
 .header { position: fixed; width: 100%; height: 100px; z-index: 10;}

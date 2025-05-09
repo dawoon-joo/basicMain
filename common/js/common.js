@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   sublinkWrap();
   initDragScroll();
   splitText
+  AOS.init();
 });
 
 window.addEventListener('scroll', ()=> {
@@ -136,7 +137,7 @@ function floating(){
     scrollTo.style.position = 'fixed';
   }
 
-  if (scrollPosition >= window.innerHeight / 2) {
+  if (scrollPosition >= window.innerHeight * 2.5) {
     scrollTo.classList.add('active');
   } else {
     scrollTo.classList.remove('active');
@@ -197,41 +198,65 @@ const splitText = () => {
 // 카운트 애니메이션
 const createNumberRolling = (selector = '.number_motion .year') => {
   const tl = gsap.timeline();
-  const $element = $(selector);
-  const fromYear = $element.html();
-  const toYear = $element.attr('data-to');
+  const elements = document.querySelectorAll(selector);
   
-  $element.html('');
-  
-  for (let i = 0; i < fromYear.length; i++) {
-    let toNumber = parseInt(fromYear.charAt(i));
-    let fromNumber = parseInt(toYear.charAt(i));
+  elements.forEach(element => {
+    const fromYear = element.innerHTML;
+    const toYear = element.getAttribute('data-to');
+
+    // 숫자만 추출하여 개수 확인
+    const numericDigits = toYear.replace(/[^0-9]/g, '').length;    
+    const isLongNumber = numericDigits >= 4;
     
-    let chars = [];
+    element.innerHTML = '';
     
-    // 같은 숫자면 한바퀴 돌기
-    if (fromNumber === toNumber) {
-      for (let n = fromNumber; n >= 0; n--) chars.push(n);
-      for (let n = 9; n >= fromNumber; n--) chars.push(n);
-    } else {
-      // 다른 숫자면 목표까지 감소
-      while (true) {
-        chars.push(fromNumber);
-        if (fromNumber === toNumber) break;
-        fromNumber = (fromNumber - 1 + 10) % 10;
+    for (let i = 0; i < fromYear.length; i++) {
+      // 숫자가 아닌 경우 (쉼표, 소수점 등) 정적 요소로 추가
+      if (isNaN(parseInt(fromYear.charAt(i))) || fromYear.charAt(i) === ' ') {
+        const staticChar = document.createElement('span');
+        staticChar.textContent = fromYear.charAt(i);
+        element.appendChild(staticChar);
+        continue;
       }
+      
+      // 숫자인 경우 처리
+      let toNumber = parseInt(fromYear.charAt(i)) || 0;
+      let fromNumber = parseInt(toYear.charAt(i)) || 0;
+      
+      let chars = [];
+      
+      // 같은 숫자면 한바퀴 돌기
+      if (fromNumber === toNumber) {
+        for (let n = fromNumber; n >= 0; n--) chars.push(n);
+        for (let n = 9; n >= fromNumber; n--) chars.push(n);
+      } else {
+        // 다른 숫자면 목표까지 감소
+        let count = 0;
+        const maxIterations = 15; // 안전 장치
+        
+        while (count < maxIterations) {
+          chars.push(fromNumber);
+          if (fromNumber === toNumber) break;
+          fromNumber = (fromNumber - 1 + 10) % 10;
+          count++;
+        }
+      }
+      
+      // 요소 생성 및 애니메이션 설정
+      const digitEl = document.createElement('span');
+      digitEl.innerHTML = chars.join('<br>');
+      element.appendChild(digitEl);
+      
+      const duration = 3 + i * (isLongNumber ? 0 : 0.1);
+      const delayFactor = isLongNumber ? 0.2 : 0.7; 
+      // GSAP 3 문법으로 수정
+      tl.from(digitEl, duration, {
+        y: -(chars.length - 1) + 'em', 
+        ease: Power3.easeInOut, 
+        delay: (fromYear.length - i - 1) * delayFactor
+      }, 0);
     }
-    
-    // 요소 생성 및 애니메이션 설정
-    let digitEl = $('<span></span>').html(chars.join('<br>')).appendTo(selector);
-    let duration = 3 + i * 0.4;
-    
-    tl.from(digitEl, duration, {
-      y: -(chars.length - 1) + 'em', 
-      ease: Power3.easeInOut, 
-      delay: (fromYear.length - i - 1) * 0.7
-    }, 0);
-  }
+  });
   
   return tl;
 };
