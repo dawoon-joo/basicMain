@@ -46,7 +46,7 @@ function handleLenis(isDesktop) {
 
   if (isDesktop) {
     lenis = new Lenis({
-      duration: 0.6,
+      duration: 1.2,
       infinite: false,
       easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
       gestureOrientation: "vertical",
@@ -132,9 +132,11 @@ function floating(){
   if (window.innerHeight >= footer.getBoundingClientRect().top) {
     // footer에 닿았을 때 position을 'absolute'로 설정
     scrollTo.style.position = 'absolute';
+    scrollTo.classList.add('ab');
   } else {
     // 그 외의 경우에는 position을 'fixed'로 설정
     scrollTo.style.position = 'fixed';
+    scrollTo.classList.remove('ab');
   }
 
   if (scrollPosition >= window.innerHeight * 2.5) {

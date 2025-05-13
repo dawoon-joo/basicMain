@@ -38,7 +38,7 @@ class Header {
 
   bindEvents() {
     this.depth1Items.forEach(item => { item.addEventListener('mouseenter', this.handleGnbMouseEnter.bind(this)); });
-    this.HEADER.addEventListener('mouseleave', this.handleGnbMouseLeave.bind(this));
+    this.GNB.addEventListener('mouseleave', this.handleGnbMouseLeave.bind(this));
     window.addEventListener('resize', () => this.updateHeaderDimensions());
     window.addEventListener('scroll', () => {
       if (!this.option.ticking) {
@@ -52,6 +52,7 @@ class Header {
     });
     window.addEventListener('load', ()=> {
       this.variableHeader();
+      this.searchEvent();
     })
   }
 
@@ -154,6 +155,38 @@ class Header {
     function changeTheme(name){
       header.dataset.label = name;
     }
+  }
+
+  searchEvent(){
+    const searchBtn = this.HEADER.querySelector('.header-search');
+    const searchWrap = this.HEADER.querySelector('.search-wrap');
+    const contentTop = searchWrap.querySelector('.content-top');
+    const closeBtn = searchWrap.querySelector('.close');
+    let isOpen = false;
+    gsap.set(searchWrap, { maxHeight: '0%', autoAlpha: 0});
+    gsap.set(contentTop, { y: -100, autoAlpha: 0});
+
+    const toggleSearch = ()=>{
+      if(isOpen){
+        lenis.start();
+        document.body.style.overflow = 'auto';
+        const tl = gsap.timeline();
+        tl.to(searchWrap, { maxHeight: '0%', duration: 0, ease: 'none'}, 'search')
+          .to(searchWrap, { autoAlpha: 0,}, 'search')
+          .to(contentTop, { y: -100, autoAlpha: 0,}, 'search')
+      }else{
+        lenis.stop();
+        document.body.style.overflow = 'hidden';
+        const tl = gsap.timeline();
+        tl.to(searchWrap, { maxHeight: '100vh', duration: 0, ease: 'none'}, 'search')
+          .to(searchWrap, { autoAlpha: 1,}, 'search')
+          .to(contentTop, { y: 0, autoAlpha: 1,}, 'search')
+      }
+
+      isOpen = !isOpen;
+    }
+    searchBtn.addEventListener('click', toggleSearch);
+    closeBtn.addEventListener('click', toggleSearch);
   }
 
   // 햄버거 관련 메서드

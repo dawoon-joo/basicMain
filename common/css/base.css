@@ -35,7 +35,7 @@ button,
 fieldset,
 blockquote { margin:0; padding:0; border:0; outline:0;}
 body { line-height:1.5; }
-a { margin:0; padding:0; font-size:100%; color: #000; }
+a { margin:0; padding:0; font-size: inherit; color: #000; }
 table { border-collapse:collapse; border-spacing:0; }
 ul, ol { list-style:none; }
 input, textarea { vertical-align:middle; }
@@ -57,7 +57,7 @@ input[type=checkbox],
 input[type=radio] { vertical-align:middle; }
 input[type=submit],
 input[type=button] { -webkit-appearance:none; border-radius:0; cursor:pointer; }
-button { border:0; cursor:pointer; width:auto; overflow:visible; background: transparent;}
+button { border:0; cursor:pointer; width:auto; overflow:visible; background: transparent; font-size: inherit; font-weight: inherit;}
 textarea { resize:none; border:1px solid #ebebeb; }
 address, em { font-style:normal; }
 th, td { padding:0; vertical-align:middle; font-weight:normal; }

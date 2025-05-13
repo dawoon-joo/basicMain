@@ -120,13 +120,18 @@
           <li><a href="#" target="_blank" title="새창으로 열림">Family Site 2</a></li>
         </ul>
       </div>
-      <div class="header-language">
-        <button class="current" aria-pressed="false"><span class="text">KR</span></button>
-        <ul>
-          <li><a href="javascript:lang_chg('ko')">KR</a></li>
-          <li><a href="javascript:lang_chg('en')">EN</a></li>
-          <li><a href="javascript:lang_chg('cn')">CN</a></li>
-        </ul>
+      <div class="header-row">
+        <div class="header-language">
+          <button class="current" aria-pressed="false"><span class="text">KR</span></button>
+          <ul>
+            <li><a href="javascript:lang_chg('ko')">KR</a></li>
+            <li><a href="javascript:lang_chg('en')">EN</a></li>
+            <li><a href="javascript:lang_chg('cn')">CN</a></li>
+          </ul>
+        </div>
+        <div class="header-search">
+          <button class="ico-search"></button>
+        </div>
       </div>
       <div class="hamburger">
         <a href="javascript:">
@@ -136,6 +141,20 @@
           <span class="blind">Open Menu</span>
         </a>
       </div>
+    </div>
+    <div class="search-wrap">
+      <div class="content-top">
+        <form action="/search">
+          <div class="input-box">
+            <input type="text" name="s" class="input-text" placeholder="검색어를 입력해 주세요.">
+            <button type="submit" class="btn-search"><span class="blind">검색</span></button>
+          </div>
+        </form>
+      </div>
+      <button class="close">
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
   <div class="wrap">
@@ -203,11 +222,11 @@
         </h3>
       </div>
       <div class="main-content">
-        <div class="line" data-aos=""></div>
+        <div class="line disabled"></div>
         <div class="sidebar">
           <div class="sticky">
             <div class="sidebar-section active">
-              <div class="sidebar-title">Expertise</div>
+              <div class="sidebar-title">Expertise <i class="sidebar-label"></i></div>
               <div class="sidebar-desc">
                 법무법인 디엘지는 빠른 속도로 변화하는 
                 기업과 사회의 상황속에서 글로벌한 업무능력과 산업에 대한 깊은 통찰력으로, 고객이 성장할 수 있도록 지원하며 고객의 혁신에 필요한 자문을 
@@ -216,7 +235,7 @@
               <a href="javascript:" class="view-more">View More →</a>
             </div>
             <div class="sidebar-section">
-              <div class="sidebar-title">Social Impact</div>
+              <div class="sidebar-title">Social Impact <i class="sidebar-label"></i></div>
               <div class="sidebar-desc">
                 공익은 디엘지의 문화이자 목표입니다.
                 법무법인 디엘지는 "디엘지의 모든 구성원은 
@@ -227,7 +246,7 @@
               <a href="javascript:" class="view-more">View More →</a>
             </div>
             <div class="sidebar-section">
-              <div class="sidebar-title">Insights</div>
+              <div class="sidebar-title">Insights <i class="sidebar-label"></i></div>
               <div class="sidebar-desc">
                 법무법인 디엘지는 법률에 대한 독자적인 시각을 
                 바탕으로 더 쉽고 친숙한 접근방식을 통하여 고객
@@ -241,7 +260,7 @@
               <a href="javascript:" class="view-more">View More →</a>
             </div>
             <div class="sidebar-section">
-              <div class="sidebar-title">Location</div>
+              <div class="sidebar-title">Location <i class="sidebar-label"></i></div>
               <div class="sidebar-desc">
                 법무법인 디엘지 찾아오시는 길을 
                 안내해드립니다.
@@ -487,127 +506,347 @@
                   <h4 class="title">디엘지 언론보도</h4>
                   <a href="javascript:avascript:" class="view-more">View More →</a>
                 </div>
+                <div class="card-wrap">
+                  <a href="javascript:" class="board-card" data-card="press">
+                    <div class="card-title"><img class="card-profile" src="/images/main/press-profile1.png" alt=""></div>
+                    <div class="card-desc">
+                      [기고] 10분 영화의 저작권은? 홍보와 위법의 경계[별별법] - 장현지...
+                    </div>
+                  </a>
+                  <a href="javascript:" class="board-card" data-card="press">
+                    <div class="card-title"><img class="card-profile" src="/images/main/press-profile2.png" alt=""></div>
+                    <div class="card-desc">
+                      [기고] [안희철의 M&A 나침반] 자금 조달을 위한 LBO 유형 및 법률...
+                    </div>
+                  </a>
+                  <a href="javascript:" class="board-card" data-card="press">
+                    <div class="card-title"></div>
+                    <div class="card-desc">
+                      [언론보도] 정신장애인단체 “부천W진병원 사건, 의협에만 의존 말고...
+                    </div>
+                  </a>
+                  <a href="javascript:" class="board-card" data-card="press">
+                    <div class="card-title"></div>
+                    <div class="card-desc">
+                      [언론보도] 집회서 난무하는 ‘혐오 표현’…“ 인권위 조사·차별금지법...
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content-section" data-section="location">
+            <div class="line" data-aos=""></div>
+            <div class="location-map">
+              <div class="map-btns">
+                <button type="button" data-country="korea" class="active">대한민국</button>
+                <button type="button" data-country="use">미국</button>
+                <button type="button" data-country="germany">독일</button>
+                <button type="button" data-country="china">중국</button>
+                <button type="button" data-country="vietnam">베트남</button>
+                <button type="button" data-country="myanmar">미얀마</button>
+                <button type="button" data-country="cambodia">캄보디아</button>
+                <button type="button" data-country="thailand">태국</button>
+                <button type="button" data-country="mongolia">몽골</button>
+              </div>
+              <div class="map-wrap">
+                <div class="map-bg">
+                  <div class="bg"><img src="/images/main/location-map.jpg" alt="지도"></div>
+                  <button type="button" class="map-pin active" data-country="korea"></button>
+                  <button type="button" class="map-pin" data-country="use"></button>
+                  <button type="button" class="map-pin" data-country="germany"></button>
+                </div>
+                <div class="map-content">
+                  <div class="map-area active" data-country="korea">
+                    <div class="area-title">
+                      <a href="javascript:">KOREA <i class="ico ico-arrow"></i></a>
+                    </div>
+                    <div class="area-btns">
+                      <button type="button" class="area-btn active" data-city="seoul">서울</button>
+                      <button type="button" class="area-btn" data-city="daejeon">대전</button>
+                      <button type="button" class="area-btn" data-city="busan">부산</button>
+                    </div>
+                    <div class="area-content">
+                      <div class="area-info active" data-city="seoul">
+                        <div class="info-row">
+                          <dl class="info-item">
+                            <dt><i class="ico ico-hugeicons"></i>본사</dt>
+                            <dd>서울특별시 서초구 강남대로 311 8층 (서초2동,한화생명보험빌딩)</dd>
+                          </dl>
+                        </div>
+                        <div class="info-row">
+                          <dl class="info-item">
+                            <dt><i class="ico ico-phone"></i>대표번호</dt>
+                            <dd>02-2051-1870,</dd>
+                          </dl>
+                          <dl class="info-item">
+                            <dt>송무</dt>
+                            <dd>02-2051-1876,</dd>
+                          </dl>
+                          <dl class="info-item">
+                            <dt>회계</dt>
+                            <dd>02-2051-1871</dd>
+                          </dl>
+                          <dl class="info-item">
+                            <dt><i class="ico ico-fax"></i>팩스</dt>
+                            <dd>02-2051-1877</dd>
+                          </dl>
+                        </div>
+                        <div class="info-row">
+                          <dl class="info-item">
+                            <dt><i class="ico ico-email"></i>E-mail</dt>
+                            <dd><a href="mailto:info@dlglaw.co.kr">info@dlglaw.co.kr</a></dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="area-info" data-city="daejeon">
+                        <div class="info-row">
+                          <dl class="info-item">
+                            <dt><i class="ico ico-hugeicons"></i>본사</dt>
+                            <dd>서울특별시 서초구 강남대로 311 8층 (서초2동,한화생명보험빌딩)</dd>
+                          </dl>
+                        </div>
+                        <div class="info-row">
+                          <dl class="info-item">
+                            <dt><i class="ico ico-phone"></i>대표번호</dt>
+                            <dd>02-2051-1870,</dd>
+                          </dl>
+                          <dl class="info-item">
+                            <dt>송무</dt>
+                            <dd>02-2051-1876,</dd>
+                          </dl>
+                          <dl class="info-item">
+                            <dt>회계</dt>
+                            <dd>02-2051-1871</dd>
+                          </dl>
+                          <dl class="info-item">
+                            <dt><i class="ico ico-fax"></i>팩스</dt>
+                            <dd>02-2051-1877</dd>
+                          </dl>
+                        </div>
+                        <div class="info-row">
+                          <dl class="info-item">
+                            <dt><i class="ico ico-email"></i>E-mail</dt>
+                            <dd><a href="mailto:info@dlglaw.co.kr">info@dlglaw.co.kr</a></dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="area-info" data-city="busan">
+                        <div class="info-row">
+                          <dl class="info-item">
+                            <dt><i class="ico ico-hugeicons"></i>본사</dt>
+                            <dd>서울특별시 서초구 강남대로 311 8층 (서초2동,한화생명보험빌딩)</dd>
+                          </dl>
+                        </div>
+                        <div class="info-row">
+                          <dl class="info-item">
+                            <dt><i class="ico ico-phone"></i>대표번호</dt>
+                            <dd>02-2051-1870,</dd>
+                          </dl>
+                          <dl class="info-item">
+                            <dt>송무</dt>
+                            <dd>02-2051-1876,</dd>
+                          </dl>
+                          <dl class="info-item">
+                            <dt>회계</dt>
+                            <dd>02-2051-1871</dd>
+                          </dl>
+                          <dl class="info-item">
+                            <dt><i class="ico ico-fax"></i>팩스</dt>
+                            <dd>02-2051-1877</dd>
+                          </dl>
+                        </div>
+                        <div class="info-row">
+                          <dl class="info-item">
+                            <dt><i class="ico ico-email"></i>E-mail</dt>
+                            <dd><a href="mailto:info@dlglaw.co.kr">info@dlglaw.co.kr</a></dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="map-area" data-country="use">
+                    <div class="area-title">
+                      <a href="javascript:">USA <i class="ico ico-arrow"></i></a>
+                    </div>
+                    <div class="area-content">
+                      <div class="area-info active">
+                        <div class="info-row">
+                          <dl class="info-item">
+                            <dt><i class="ico ico-hugeicons"></i>본사</dt>
+                            <dd>서울특별시 서초구 강남대로 311 8층 (서초2동,한화생명보험빌딩)</dd>
+                          </dl>
+                        </div>
+                        <div class="info-row">
+                          <dl class="info-item">
+                            <dt><i class="ico ico-phone"></i>대표번호</dt>
+                            <dd>02-2051-1870,</dd>
+                          </dl>
+                          <dl class="info-item">
+                            <dt>송무</dt>
+                            <dd>02-2051-1876,</dd>
+                          </dl>
+                          <dl class="info-item">
+                            <dt>회계</dt>
+                            <dd>02-2051-1871</dd>
+                          </dl>
+                          <dl class="info-item">
+                            <dt><i class="ico ico-fax"></i>팩스</dt>
+                            <dd>02-2051-1877</dd>
+                          </dl>
+                        </div>
+                        <div class="info-row">
+                          <dl class="info-item">
+                            <dt><i class="ico ico-email"></i>E-mail</dt>
+                            <dd><a href="mailto:info@dlglaw.co.kr">info@dlglaw.co.kr</a></dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <footer id="footer" class="footer">
     <div class="floating-container">
       <div class="scroll-to">
         <a href="javascript:" class="btn-top scroll-top"></a>
       </div>
     </div>
-  </div>
-  <footer id="footer" class="footer">
     <div class="inner">
-      <div class="content-top">
-        <div class="sitemap">
-          <article>
-            <dl>
-              <dt><a href="javascript:">Menu 1</a></dt>
-              <dd><a href="#">Sub Menu 1-1</a></dd>
-              <dd><a href="#">Sub Menu 1-2</a></dd>
-              <dd><a href="#">Sub Menu 1-3</a></dd>
-              <dd><a href="#">Sub Menu 1-4</a></dd>
-              <dd class="w-100"><a href="#">Sub Menu 1-5</a></dd>
-              <dd class="w-100"><a href="#">Sub Menu 1-6</a></dd>
-            </dl>
-          </article>
-          <article>
-            <dl>
-              <dt><a href="javascript:">Menu 2</a></dt>
-              <dd><a href="#">Sub Menu 2-1</a></dd>
-              <dd><a href="#">Sub Menu 2-2</a></dd>
-              <dd><a href="#">Sub Menu 2-3</a></dd>
-              <dd><a href="#">Sub Menu 2-4</a></dd>
-              <dd><a href="#">Sub Menu 2-5</a></dd>
-              <dd><a href="#">Sub Menu 2-6</a></dd>
-              <dd><a href="#">Sub Menu 2-7</a></dd>
-              <dd><a href="#">Sub Menu 2-8</a></dd>
-            </dl>
-          </article>
-          <article>
-            <dl>
-              <dt><a href="javascript:">Menu 3</a></dt>
-              <dd class="w-100"><a href="#">Sub Menu 3-1</a></dd>
-              <dd class="w-100"><a href="#">Sub Menu 3-2</a></dd>
-            </dl>
-          </article>
-          <article>
-            <dl>
-              <dt><a href="javascript:">Menu 4</a></dt>
-              <dd class="w-100"><a href="#">Sub Menu 4-1</a></dd>
-              <dd class="w-100"><a href="#">Sub Menu 4-2</a></dd>
-            </dl>
-          </article>
-          <article>
-            <dl>
-              <dt><a href="javascript:">Menu 5</a></dt>
-              <dd class="w-100"><a href="#">Sub Menu 5-1</a></dd>
-              <dd class="w-100"><a href="#">Sub Menu 5-2</a></dd>
-              <dd class="w-100"><a href="#">Sub Menu 5-3</a></dd>
-              <dd class="w-100"><a href="#">Sub Menu 5-4</a></dd>
-            </dl>
-          </article>
+      <div class="footer-top">
+        <div class="footer-logo">
+          <a href="/" aria-label="DLG 법무법인 디엘지 홈페이지로 이동">
+            <img src="/images/logo-ft.svg" alt="DLG 법무법인 디엘지">
+          </a>
         </div>
-        <div class="con-right">
-          <div class="phone"><a href="tel:0000000000">000-0000-0000</a></div>
-          <ul class="footer-link">
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li class="active"><a href="#">Link 3</a></li>
-          </ul>
-          <ul class="footer-sns">
-            <li><a href="javascript:" title="새창으로 열림" target="_blank"><i class="icon icon-youtube"></i></a></li>
-            <li><a href="javascript:" title="새창으로 열림" target="_blank"><i class="icon icon-kakao"></i></a></li>
-            <li><a href="javascript:" title="새창으로 열림" target="_blank"><i class="icon icon-instagram"></i></a></li>
-            <li><a href="javascript:" title="새창으로 열림" target="_blank"><i class="icon icon-facebook"></i></a></li>
-            <li><a href="javascript:" title="새창으로 열림" target="_blank"><i class="icon icon-linkedin"></i></a></li>
+        
+        <div class="footer-social">
+          <ul class="social-links">
+            <li><a href="#" aria-label="네이버 블로그"><i class="ico-blog" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="인스타그램"><i class="ico-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="페이스북"><i class="ico-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="유튜브"><i class="ico-youtube" aria-hidden="true"></i></a></li>
           </ul>
         </div>
       </div>
-      <div class="content-bottom">
-        <div class="logo-box">
-          <img src="/common/images/logo.png" alt="Test Logo">
+      
+      <!-- 중간 영역: 사이트맵 링크 -->
+      <nav class="footer-nav">
+        <ul class="footer-links">
+          <li><a href="/about">법적고지</a></li>
+          <li><a href="/privacy">이용약관</a></li>
+          <li><a href="https://usa.dlglaw.co.kr" target="_blank" rel="noopener">DLG USA <i class="ico-blank"></i></a></li>
+          <li><a href="https://thailand.dlglaw.co.kr" target="_blank" rel="noopener">DLG THAILAND <i class="ico-blank"></i></a></li>
+          <li><a href="https://myanmar.dlglaw.co.kr" target="_blank" rel="noopener">새롭게먼 디엘지 <i class="ico-blank"></i></a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-info">
+        <address class="company-info">
+          <dl class="info-list">
+            <div class="info-item">
+              <dt>대표&nbsp:&nbsp</dt>
+              <dd> 조원희, 인희철</dd>
+            </div>
+            <div class="info-item">
+              <dt>사업자등록번호&nbsp:&nbsp</dt>
+              <dd>464-87-00618</dd>
+            </div>
+            <div class="info-item">
+              <dt>주소&nbsp:&nbsp</dt>
+              <dd>서울특별시 서초구 강남대로 311, 8층</dd>
+            </div>
+            <div class="info-item">
+              <dt>대표번호&nbsp:&nbsp</dt>
+              <dd><a href="tel:02-2051-1870">02-2051-1870</a></dd>
+            </div>
+            <div class="info-item">
+              <dt>팩스번호&nbsp:&nbsp</dt>
+              <dd>02-2051-1877</dd>
+            </div>
+            <div class="info-item">
+              <dt>대표메일&nbsp:&nbsp</dt>
+              <dd><a href="mailto:info@dlglaw.co.kr">info@dlglaw.co.kr</a></dd>
+            </div>
+          </dl>
+        </address>
+        
+        <!-- 저작권 정보 -->
+        <div class="copyright">
+          <p>&copy; 2025 DLG. All Rights Reserved.</p>
         </div>
-        <p class="copyright">©<span id="copyYear">2024</span> Test Company.</p>
       </div>
     </div>
   </footer>
 </body>
 <script>
-  document.addEventListener('DOMContentLoaded', ()=> {
-    gsapMotion();
-    removeTaggboxBranding();
-
-  })
+  // Taggbox 브랜딩 제거 함수를 Promise를 반환하도록 수정
   const removeTaggboxBranding = () => {
-    function removeBranding() {
-      var brandingDivs = document.querySelectorAll('.tb_theme_container > div[style*="justify-content: end"]');
-      
-      if (brandingDivs.length === 0) {
-        brandingDivs = document.querySelectorAll('.tb_theme_container > div:first-child');
+    return new Promise((resolve) => {
+      function removeBranding() {
+        var brandingDivs = document.querySelectorAll('.tb_theme_container > div[style*="justify-content: end"]');
+        
+        if (brandingDivs.length === 0) {
+          brandingDivs = document.querySelectorAll('.tb_theme_container > div:first-child');
+        }
+        
+        brandingDivs.forEach(function(div) {
+          if (!div.classList.contains('tb_hc_post_container')) {
+            div.remove();
+          }
+        });
+        
+        resolve();
       }
       
-      brandingDivs.forEach(function(div) {
-        if (!div.classList.contains('tb_hc_post_container')) {
-          div.remove();
+      const observer = new MutationObserver(function(mutations) {
+        if (document.querySelector('.tb_theme_container > div')) {
+          setTimeout(function() {
+            removeBranding();
+            observer.disconnect();
+          }, 500);
         }
       });
-    }
-    
-    const observer = new MutationObserver(function(mutations) {
+      
+      // Taggbox 요소가 이미 존재하는 경우 바로 처리
       if (document.querySelector('.tb_theme_container > div')) {
         setTimeout(function() {
           removeBranding();
+        }, 500);
+      } else {
+        observer.observe(document.body, { childList: true, subtree: true });
+        
+        setTimeout(() => {
           observer.disconnect();
-        }, 100);
+          resolve();
+        }, 5000);
       }
     });
+  };
+  // 비동기 초기화 함수
+  async function initPage() {
+    // 1. Taggbox 브랜딩 제거 완료 대기
+    await removeTaggboxBranding();
     
-    observer.observe(document.body, { childList: true, subtree: true });
+    // 2. ScrollTrigger 새로고침 (필요한 경우)
+    if (window.ScrollTrigger) {
+      ScrollTrigger.refresh();
+    }
+    
+    gsapMotion();
+    AOS.init();
+    ScrollReveal().reveal(".main-content .content-section", {...fadeUp});
+    ScrollReveal().reveal("[data-section='board'] .board-area", {...fadeUp});
   }
+  document.addEventListener('DOMContentLoaded', () => {
+    initPage();
+  });
   const mainVisualMotion = (triggerClass, isMobile) => {
     const section = document.querySelector(triggerClass);
     const header = document.querySelector('.header');
@@ -629,8 +868,8 @@
     const tl = gsap.timeline();
     const tl2 = gsap.timeline();
     
-    // lenis.stop();
-    // document.body.style.overflow = 'hidden';
+    lenis.stop();
+    document.body.style.overflow = 'hidden';
     
     gsap.set(header, { autoAlpha: 0 });
     gsap.set(allHeadings, { autoAlpha: 0, y: 50 });
@@ -831,6 +1070,107 @@
       });
     }
   }
+  const initLocationMap = () => {
+    const mapBtns = document.querySelectorAll('.map-btns button');
+    const mapPins = document.querySelectorAll('.map-pin');
+    const mapAreas = document.querySelectorAll('.map-area');
+    
+    function changeCountry(country) {
+      mapBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.country === country);
+      });
+      
+      mapPins.forEach(pin => {
+        pin.classList.toggle('active', pin.dataset.country === country);
+      });
+      
+      mapAreas.forEach(area => {
+        const isActive = area.dataset.country === country;
+        area.classList.toggle('active', isActive);
+        
+        if (isActive) {
+          const firstCityBtn = area.querySelector('.area-btn');
+          if (firstCityBtn) {
+            changeCity(area, firstCityBtn.dataset.city);
+            firstCityBtn.classList.add('active');
+          }
+        }
+      });
+    }
+    
+    function changeCity(mapArea, city) {
+      const cityBtns = mapArea.querySelectorAll('.area-btn');
+      cityBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.city === city);
+      });
+      
+      const cityInfos = mapArea.querySelectorAll('.area-info');
+      cityInfos.forEach(info => {
+        info.classList.toggle('active', info.dataset.city === city);
+      });
+    }
+        
+    mapBtns.forEach(btn => {
+      btn.addEventListener('click', () => changeCountry(btn.dataset.country));
+    });
+    
+    mapPins.forEach(pin => {
+      pin.addEventListener('click', () => changeCountry(pin.dataset.country));
+    });
+    
+    document.querySelectorAll('.area-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const mapArea = this.closest('.map-area');
+        if (mapArea && mapArea.classList.contains('active')) {
+          changeCity(mapArea, this.dataset.city);
+        }
+      });
+    });
+    
+    if (mapBtns.length > 0) {
+      changeCountry(mapBtns[0].dataset.country);
+    }
+  }
+  const sideBar = (isMobile) => {
+    const section = document.querySelector('.main-container');
+    const sideBarBtns = section.querySelectorAll('.sidebar-section');
+    const sideBarBtnsLabels = section.querySelectorAll('.sidebar-label');
+    const contents = section.querySelectorAll('.content-section');
+    const triggers = [];
+    
+    contents.forEach((content, index) => {
+      ScrollTrigger.create({
+        trigger: content,
+        start: "top center",
+        end: "bottom center",
+        // markers: true,
+        onEnter: () => {
+          updateActiveItem(index, 'enter');
+        },
+        onEnterBack: () => {
+          updateActiveItem(index, 'enterBack');
+        },
+      });
+    });
+
+    const updateActiveItem = (index, direction) => {
+      gsap.set(sideBarBtns, { autoAlpha: 0, y: 50 });
+      gsap.set(sideBarBtns[0], { autoAlpha: 1, y: 0 });
+      gsap.set(sideBarBtnsLabels, { clipPath: 'inset(0 0% 100% 0)' });
+      gsap.set(sideBarBtnsLabels[0], { clipPath: 'inset(0 0% 0% 0)' });
+      if (direction === 'enter') {
+        gsap.to(sideBarBtns[index], { autoAlpha: 1, y: 0, duration: 1, ease: 'power1.inOut' });
+      } else {
+        gsap.fromTo(sideBarBtns[index], 
+          { autoAlpha: 0, y: 50 }, 
+          { autoAlpha: 1, y: 0, duration: 1, ease: 'power1.inOut' }
+        );
+      }
+      gsap.to(sideBarBtnsLabels[index], { clipPath: 'inset(0 0% 0% 0)', duration: 0.5, delay: 0.5, ease: 'none' });
+      sideBarBtns.forEach(btn => btn.classList.remove('active'));
+      sideBarBtns[index].classList.add('active');
+    }
+  }
   const gsapMotion= () => {
     let mm = gsap.matchMedia();
   
@@ -842,6 +1182,8 @@
   
       mainVisualMotion('.main-visual', isMobile);
       socialMotion('.content-section[data-section="social"]', isMobile);
+      initLocationMap();
+      sideBar(isMobile);
     });
   }
 </script>
