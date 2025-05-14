@@ -37,8 +37,13 @@ class Header {
   }
 
   bindEvents() {
-    this.depth1Items.forEach(item => { item.addEventListener('mouseenter', this.handleGnbMouseEnter.bind(this)); });
-    this.GNB.addEventListener('mouseleave', this.handleGnbMouseLeave.bind(this));
+    this.depth1Items.forEach(item => { 
+      item.addEventListener('mouseenter', (e) => this.handleGnbMouseEnter(e)); 
+    });
+    this.GNB.querySelectorAll('.depth2').forEach(item => {
+      item.addEventListener('mouseleave', (e) => this.handleGnbMouseEnter(e));
+    });
+    // this.GNB.addEventListener('mouseleave', (e) => this.handleGnbMouseLeave(e));
     window.addEventListener('resize', () => this.updateHeaderDimensions());
     window.addEventListener('scroll', () => {
       if (!this.option.ticking) {
@@ -57,16 +62,41 @@ class Header {
   }
 
   // GNB 관련 메서드
-  handleGnbMouseEnter() {
+  handleGnbMouseEnter(event) {
     if (this.device.isTablet || window.innerWidth <= this.option.maxDeviceWidth) return;
-
+  
+    // 현재 호버된 메뉴 아이템 찾기
+    const currentItem = event.currentTarget;
+    const depth2 = currentItem.querySelector('.depth2');
+    
+    // 모든 depth2 요소 숨기기
+    this.depth1Items.forEach(item => {
+      const itemDepth2 = item.querySelector('.depth2');
+      if (itemDepth2 && itemDepth2 !== depth2) {
+        gsap.set(itemDepth2, { display: 'none', autoAlpha: 0 });
+      }
+    });
+    
+    // 현재 호버된 아이템의 depth2만 표시
+    if (depth2) {
+      gsap.set(depth2, { display: 'flex', autoAlpha: 1 });
+    }
+  
     this.setHeaderTheme('light', 'opened');
     this.animateGnb(this.headerMaxHeight, 0.5);
   }
 
   handleGnbMouseLeave() {
     if (this.device.isTablet || window.innerWidth <= this.option.maxDeviceWidth) return;
-
+  
+    // 모든 depth2 요소 원래대로 되돌리기
+    this.depth1Items.forEach(item => {
+      const itemDepth2 = item.querySelector('.depth2');
+      if (itemDepth2) {
+        gsap.set(itemDepth2, { display: '', autoAlpha: '' });
+      }
+    });
+  
     this.setHeaderTheme(this.originalTheme);
     this.animateGnb(this.headerMinHeight, 0.3);
   }

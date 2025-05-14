@@ -21,7 +21,7 @@ html { scrollbar-gutter: stable;}
 .blind { position: absolute; width: 1px; height: 1px; clip: rect(0 0 0 0); overflow: hidden; }
 .hide { position: absolute; left: -9999%; font-size: 0; height: 0; line-height: 0; text-indent: -9999px;}
 h1 { font-size: 80px; font-weight: bold; line-height: normal; }
-h2 { font-size: 96px; font-weight: bold; line-height: 1.25; }
+h2 { font-size: 96px; font-weight: 500; line-height: 1.25; }
 h3 { font-size: 36px; font-weight: 500; line-height: 1.3;}
 h4 { font-size: 22px; font-weight: 500;}
 .mo { display: none;}
@@ -35,6 +35,7 @@ h4 { font-size: 22px; font-weight: 500;}
 .tac { text-align: center !important;}
 .tal { text-align: left !important;}
 .tar { text-align: right !important;}
+.desc { color: #1d1d1d;}
 .accent { vertical-align: baseline; color: var(--accent-color); display: inline;}
 .grid-box { display: grid; }
 .flex-box { display: flex; }
@@ -104,23 +105,23 @@ figure img { display: block;}
 
 /* line */
 .line { position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: #000; z-index: 2; transform-origin: left; transform: scaleX(0);}
-.line.disabled { transform: scaleX(1);}
-.line.vertical { width: 1px; height: 100%; transform-origin: top; transform: scaleY(0) scaleX(1);}
 .line.bottom { bottom: 0; top: auto;}
 .line.right { right: 0; left: auto; transform-origin: right;}
+.line.vertical { width: 1px; height: 100%; transform-origin: top; transform: scaleY(0) scaleX(1);}
 .line.aos-animate { transform: scale(1); transition: transform 0.8s !important;}
+.line.disabled { transform: scale(1);}
 
 /* header */
 .header { position: fixed; width: 100%; height: 100px; z-index: 10;}
 .header .header-inner { max-width: 1800px; width: 95%; height: 100%; margin: 0 auto; position: relative;}
 .header .logo { position: absolute; top: 50%; left: 60px; transform: translateY(-50%); width: 84px; height: 30px; background: url(/images/logo-hd.svg) no-repeat center/cover; z-index: 3;}
-.header .gnb { position: absolute; top: 0; display: flex; justify-content: center; width: 100%; height: 100%; overflow: hidden; z-index: 2; transition: background 0.3s; background: #fff;}
-.header::before { content:''; display: block; position: absolute; top: 100px; left: 0; width: 100%; height: 1px; background: #000;}
+.header .gnb { position: absolute; top: 0; display: flex; justify-content: center; width: 100%; height: 100%; z-index: 2; transition: background 0.3s; background: #fff;}
+.header::before { content:''; display: block; position: absolute; top: 100px; left: 0; width: 100%; height: 1px; background: #000; z-index: 3;}
 .header .gnb .depth1 { display: flex;}
 .header .gnb a { padding: 10px 30px; font-weight: 500; display: flex;}
 .header .gnb .depth1 > li > a { padding: 15px 30px; position: relative; height: 100px; display: flex; align-items: center; justify-content: center; font-weight: 500; white-space: nowrap;}
 .header .gnb .depth1 > li > a::before { content: ''; display: none; width: 20px; height: 20px; position: absolute; right: 5%; top: 50%; transform: translateY(-50%); background: url(/images/ico-arrow.png) no-repeat center/cover; filter: invert(1);}
-.header .gnb .depth2{ position: relative; padding:20px 0 40px;}
+.header .gnb .depth2{ position: absolute; top: 100px; left: 0; width: 100%; padding:20px 0 40px; background: #fff; display: none;}
 .header .gnb .depth2::before { content: ''; display: block; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 0%; height: 2px; background: var(--accent-color); transition: 0.2s;}
 .header .gnb .depth2 > li > a { display: block; text-align: center; font-size: 16px; font-weight: 400;}
 .header .gnb .close { display: none; position: fixed; top: 30px; right: 2.5%; width: 40px; height: 40px; }

@@ -35,9 +35,9 @@
 .main-content .sidebar { flex: 0 0 27.3%; padding: 60px; position: relative; background-color: #F0F2F6;}
 .main-content .sidebar .sticky { top: 160px;}
 .main-content .sidebar .sidebar-section { display: none; padding-bottom: 100px;}
-.main-content .sidebar .sidebar-title { font-size: 24px; font-weight: 500; padding-right: 20px; position: relative; margin-bottom: 32px; width: fit-content;}
-.main-content .sidebar .sidebar-title .sidebar-label { position: absolute; top: 2px; right: 0; width: 13px; height: 20px; background: url(/images/main/ico-sidebar-title.svg) no-repeat center/ auto 100%;}
-.main-content .sidebar .sidebar-desc { font-size: 22px; margin-bottom: 40px;}
+.main-content .sidebar .sidebar-title { font-size: 24px; font-weight: 500; padding-right: 12px; position: relative; margin-bottom: 32px; width: fit-content;}
+.main-content .sidebar .sidebar-title .sidebar-label { position: absolute; top: 5px; right: 0; width: 8px; height: 13px; background: url(/images/main/ico-sidebar-title.svg) no-repeat center/ auto 100%;}
+.main-content .sidebar .sidebar-desc { font-size: 20px; margin-bottom: 40px; font-weight: 400;}
 .main-content .content-wrap { flex: 1; position: relative; padding-bottom: 100px;}
 .main-content .content-wrap > .line.vertical { transition: transform 1.5s !important;}
 .main-content .content-section { padding: 60px 60px 120px; position: relative;}
@@ -74,7 +74,7 @@
 [data-section="board"] .board-area .board-list li a { display: block; padding: 20px 20px 20px 0; border-top: 1px solid #bbb; transition: border-color 0.3s;}
 [data-section="board"] .board-area .board-list li:last-child a { padding-bottom: 0;}
 [data-section="board"] .board-area .board-list .list-title { font-size: 20px; text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; margin-bottom: 8px;}
-[data-section="board"] .board-area .board-list .list-desc { font-size: 16px; text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color: #1d1d1d; line-height: 1.65;}
+[data-section="board"] .board-area .board-list .list-desc { font-size: 16px; text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color: #1d1d1d; line-height: 1.65; font-weight: 400;}
 [data-section="board"] .board-area.area1 > div { min-height: 245px;}
 [data-section="board"] .board-area.area1 { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 600px), 1fr)); grid-template-rows: 1fr; gap: 16px; }
 [data-section="board"] .board-area.area3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 600px), 1fr)); grid-template-rows: 1fr; gap: 16px; }
