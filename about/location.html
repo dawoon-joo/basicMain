@@ -309,6 +309,7 @@
       
       const setItemState = (item, isActive) => {
         const content = item.querySelector('.location-body');
+        const map = item.querySelector('figure iframe');
         const toggleBtn = item.querySelector('.toggle-btn');
         
         if (toggleBtn) {
@@ -317,9 +318,11 @@
         
         if (content) {
           if (isActive) {
-            gsap.to(content, { maxHeight: content.scrollHeight + 'px', duration: 0.3, ease: 'power2.inOut'});
+            gsap.to(content, { maxHeight: content.scrollHeight + 'px', duration: 0.5, ease: 'power2.inOut'});
+            gsap.to(map, { opacity: 1, delay: 0.2, duration: 0.2, ease: 'power2.inOut'});
           } else {
-            gsap.to(content, { maxHeight: 0, duration: 0.3, ease: 'power2.inOut' });
+            gsap.to(content, { maxHeight: 0, duration: 0.5, ease: 'power2.inOut' });
+            gsap.to(map, { opacity: 0, duration: 0.2, ease: 'power2.inOut'});
           }
         }
       };

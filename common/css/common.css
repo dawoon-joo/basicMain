@@ -39,7 +39,7 @@ h4 { font-size: 22px; font-weight: 500;}
 .accent { vertical-align: baseline; color: var(--accent-color); display: inline;}
 .grid-box { display: grid; }
 .flex-box { display: flex; }
-.sticky { position: sticky; top: 0;}
+.sticky { position: sticky; top: 100px;}
 figure { position: relative; width: 100%; height: 0; padding-bottom: 50%; overflow: hidden; }
 figure img,
 figure video,
@@ -99,6 +99,7 @@ figure img { display: block;}
 .ico-fax { width: 19px; height: 19px; background: url(/images/ico-fax.svg) no-repeat center/auto 100%; display: inline-block;}
 .ico-blank { width: 18px; height: 18px; background: url(/images/ico-blank.svg) no-repeat center/auto 100%; display: inline-block;}
 .ico-search { width: 21px; height: 21px; background: url(/images/ico-search.svg) no-repeat center/auto 100%; display: inline-block;}
+.ico-download { width: 24px; height: 24px; background: url(/images/ico-download.svg) no-repeat center/auto 100%; display: inline-block;}
 @media screen and (max-width: 767px) {
   .ico-down-green { width: 30px; height: 30px; margin-left: 10px;}
 }
