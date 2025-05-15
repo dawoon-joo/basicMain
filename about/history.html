@@ -155,7 +155,202 @@
       </button>
     </div>
   </header>
-  
+  <div class="sub-visual">
+    <div class="inner">
+      <h2 class="heading">History</h2>
+    </div>
+    <div class="bg">
+      <img src="/images/sub/visual-history.jpg" alt="">
+    </div>
+  </div>
+  <div class="history">
+    <div class="inner">
+      <div class="history-timeline">
+        <div class="timeline-year">
+          <div class="year-label">2024</div>
+          <div class="year-items">
+            <article>
+              <figure>
+                <img src="/images/sub/about/history-img1.png" alt="">
+              </figure>
+              <ul class="year-list">
+                <li>
+                  <div class="month">04</div>
+                  <div class="text-wrap">
+                    <p class="text">법무법인 디엘지 사명 변경</p>
+                    <p class="text">더벨 M&A 리그테이블 4위(발표기준)</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="month">03</div>
+                  <div class="text-wrap">
+                    <p class="text">국내 로펌 최초 비콥 인증</p>
+                  </div>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+      <div class="history-timeline">
+        <div class="timeline-year">
+          <div class="year-label">2023</div>
+          <div class="year-items">
+            <article>
+              <figure>
+                <img src="/images/sub/about/history-img2.jpg" alt="">
+              </figure>
+              <ul class="year-list">
+                <li>
+                  <div class="month">04</div>
+                  <div class="text-wrap">
+                    <p class="text">
+                      ▲최고의 부티크 로펌 <br>
+                      ▲데이터 컴플라이언스(준법경영)&사이버 보안 <br>
+                      ▲TMT(기술, 미디어, 정보통신) 선정 (Asia Business Law Journal)
+                    </p>
+                    <p class="text">베트남(하노이, 호치민시), 미얀마, 캄보디아, 태국 사무소 및 현지 데스크</p>
+                    <p class="text">안희철 변호사 액셀러레이터 산업전문화 기여상 수상</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="month">10</div>
+                  <div class="text-wrap">
+                    <p class="text">안희철 변호사 2023 차세대 리더 선정(시사저널)</p>
+                    <p class="text">
+                      조원희 변호사 2023 TMT 분야 리딩 로이어(Leading Lawyers 2023) 선정 <br>
+                      (리걸타임즈)
+                    </p>
+                    <p class="text">조원희 변호사 A-List(Korea’s Top 100 Lawyers) 선정(리걸타임즈)</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="month">09</div>
+                  <div class="text-wrap">
+                    <p class="text">조원희 변호사 A-List(Korea’s Top 100 Lawyers) 선정(리걸타임즈)</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="month">05</div>
+                  <div class="text-wrap">
+                    <p class="text">김동환 변호사 2023 라이징 스타(Rising Stars 2023) 선정(리걸타임즈)</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="month">03</div>
+                  <div class="text-wrap">
+                    <p class="text">독일 프랑크푸르트 사무소 설립</p>
+                  </div>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+      <div class="history-timeline">
+        <div class="timeline-year">
+          <div class="year-label">2022</div>
+          <div class="year-items">
+            <article>
+              <figure>
+                <img src="/images/sub/about/history-img3.png" alt="">
+              </figure>
+              <ul class="year-list">
+                <li>
+                  <div class="month">12</div>
+                  <div class="text-wrap">
+                    <p class="text">안희철 변호사 중소기업벤처부 장관상</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="month">11</div>
+                  <div class="text-wrap">
+                    <p class="text">조원희 대표변호사 한국 슈퍼변호사 30인 선정(Asian Legal Business)</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="month">10</div>
+                  <div class="text-wrap">
+                    <p class="text">캐나다 밴쿠버 사무소 설립</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="month">03</div>
+                  <div class="text-wrap">
+                    <p class="text">황혜진 변호사 라이징 스타(Rising Stars 2022) 선정(리걸타임즈)</p>
+                    <p class="text">안희철 변호사 라이징 스타(Rising Stars 2022) 선정(리걸타임즈)</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="month">02</div>
+                  <div class="text-wrap">
+                    <p class="text">
+                      Entertainment & sports(엔터테인먼트&스포츠) 분야 최우수 로펌 <br class="pc">
+                      (Asian Legal Business)
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=> {
+      gsapMotion();
+    })
+    const historyMotion = (triggerClass, isMobile,) => {
+      const section = document.querySelector(triggerClass);
+      const timeline = section.querySelectorAll('.history-timeline');
+      const timelineYear = section.querySelectorAll('.year-items');
+
+      timeline.forEach((item, index) => {
+        const yearItem = timelineYear[index].querySelectorAll('.year-list li');
+        gsap.set(yearItem, { autoAlpha: 0});
+        gsap.set(timelineYear[index], { y: '150px',});
+        ScrollTrigger.create({
+          trigger: item,
+          start: "top 90%",
+          end: "bottom bottom",
+          // markers: true,
+          onEnter: () => {
+            triggerMotion(timelineYear, yearItem, index);
+          },
+          onEnterBack: () => {
+            triggerMotion(timelineYear, yearItem, index);
+          },
+          onLeaveBack: () => {
+            resetMotion(timelineYear, yearItem, index);
+          }
+        })
+      })
+      
+      const triggerMotion = (item, yearItem, index) => {
+        const tl = gsap.timeline();
+        tl.to(item[index], { y: '0px'}, 'motion')
+          .to(yearItem, { autoAlpha: 1, stagger: 0.1}, 'motion')
+      }
+      const resetMotion = (item, yearItem, index) => {
+        const tl = gsap.timeline();
+        tl.to(item[index], { y: '150px'}, 'motion')
+          .to(yearItem, { autoAlpha: 0, stagger: 0.1}, 'motion')
+      }
+    }
+    const gsapMotion= () => {
+      let mm = gsap.matchMedia();
+    
+      mm.add({
+        isMobile: "(max-width: 767px)",
+        isDesktop: "(min-width: 768px)"
+      }, (context) => {
+        let { isMobile, isDesktop } = context.conditions;
+    
+        historyMotion('.history', isMobile);
+      });
+    }
+  </script>
   <footer id="footer" class="footer">
     <div class="floating-container">
       <div class="scroll-to">

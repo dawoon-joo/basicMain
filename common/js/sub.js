@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+  ScrollReveal().reveal(".sub-visual .heading", {...fadeUp});
+  ScrollReveal().reveal(".sub-visual .bg", {...fadeUp, delay: 200, distance: '100px', duration: 1500});
   gsap.registerPlugin(ScrollTrigger);
   floating();
   initBackgroundAnimation();

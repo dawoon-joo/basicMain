@@ -40,7 +40,7 @@
             <a href="#">About Us</a>
             <ul class="depth2">
               <li><a href="/about/">소개</a></li>
-              <li><a href="#">연혁</a></li>
+              <li><a href="/about/history.html">연혁</a></li>
               <li><a href="#">수상</a></li>
               <li><a href="#">오시는 길</a></li>
               <li><a href="#">Careers</a></li>
@@ -203,9 +203,9 @@
               법무법인 디엘지(DLG Law Corporation)는 기존 법률 서비스의 경계를 넘어, 고객의 비즈니스와 사회적 가치를 <br class="pc">
               동시에 확장하는 혁신적인 Total Advisory & Consulting Firm입니다.
             </p>
-            <div class="img-box">
+            <figure class="img-box">
               <img src="/images/sub/about/introduction-business-img1.jpg" alt="">
-            </div>
+            </figure>
           </div>
           <div class="business-area">
             <h3 class="heading">
@@ -215,9 +215,9 @@
               검찰, 대형 로펌, 글로벌 기업에서 풍부한 경험을 쌓은 법률 전문가들이 모여 고객 맞춤형 솔루션과 전략적 자문을 제공하며, <br class="pc">
               지속 가능한 성장과 긍정적인 사회 변화를 이끌어갑니다.
             </p>
-            <div class="img-box">
+            <figure class="img-box">
               <img src="/images/sub/about/introduction-business-img2.jpg" alt="">
-            </div>
+            </figure>
           </div>
         </div>
       </div>
@@ -283,8 +283,6 @@
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', ()=> {
-      ScrollReveal().reveal(".sub-visual .heading", {...fadeUp});
-      ScrollReveal().reveal(".sub-visual .bg", {...fadeUp, delay: 200, distance: '100px', duration: 1500});
       ScrollReveal().reveal(".slogan .text", {...fadeUp});
       ScrollReveal().reveal(".introduction .profile .heading", {...fadeUp});
       ScrollReveal().reveal(".introduction .profile .desc", {...fadeUp});
@@ -322,20 +320,19 @@
       })
       gsap.set(businessArea[0], { attr: { style: "flex: 2.1" } });
       gsap.set(businessArea[1], { attr: { style: "flex: 1" } });
-      gsap.set(businessArea[0].querySelector('.desc'), { autoAlpha: 1, y:0, maxHeight: '100%', paddingBottom: '60px'})
-      gsap.set(businessArea[1].querySelector('.desc'), { autoAlpha: 0, y: 50, maxHeight: '0%', paddingBottom: '0px'})
-      gsap.set(businessArea[0].querySelector('.heading'), { fontSize: '32px'});
-      gsap.set(businessArea[1].querySelector('.heading'), { fontSize: '24px'});
+      gsap.set(businessArea[0].querySelector('.desc'), { autoAlpha: 1, y:0, })
+      gsap.set(businessArea[1].querySelector('.desc'), { autoAlpha: 0, y: 50, })
+      gsap.set(businessArea[0].querySelector('.heading'), { autoAlpha: 1, y: 0 });
+      gsap.set(businessArea[1].querySelector('.heading'), { autoAlpha: 0, y: 50});
       
       // 애니메이션
-      tl.to(businessArea[0], { attr: { style: "flex: 1" } }, 'motion')
-        .to(businessArea[1], { attr: { style: "flex: 2.1" } }, 'motion')
-        .to(businessArea[0].querySelector('.heading'), { fontSize: '24px'}, 'motion')
-        .to(businessArea[1].querySelector('.heading'), { fontSize: '32px'}, 'motion')
+      tl.to(businessArea[0].querySelector('.heading'), { autoAlpha: 0, y: 50, duration: 0.2}, 'motion')
         .to(businessArea[0].querySelector('.desc'), { autoAlpha: 0, y: 50, duration: 0.2 }, 'motion')
-        .to(businessArea[0].querySelector('.desc'), { maxHeight: '0%', paddingBottom: '0px' }, 'motion')
-        .to(businessArea[1].querySelector('.desc'), { maxHeight: '100%', paddingBottom: '60px' }, 'motion')
-        .to(businessArea[1].querySelector('.desc'), { autoAlpha: 1, y:0, duration: 0.2 }, 'motion+=0.3')
+        .to(businessArea[0], { attr: { style: "flex: 1" } }, 'motion2')
+        .to(businessArea[1], { attr: { style: "flex: 2.1" } }, 'motion2')
+        .to(businessArea[1].querySelector('.heading'), { autoAlpha: 1, y: 0, duration: 0.2}, 'motion3')
+        .to(businessArea[1].querySelector('.desc'), { autoAlpha: 1, y:0, duration: 0.2 }, 'motion3')
+        .to({}, { duration: 0.5})
     }
     const valuesMotion = (triggerClass, isMobile,) => {
       const section = document.querySelector(triggerClass);

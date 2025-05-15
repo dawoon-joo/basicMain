@@ -6,6 +6,15 @@
 .tb_hc_time, .tb_hc_username { font-size: 13px !important;}
 .tb_hc_fixed_height .tb_hc_content { -webkit-line-clamp: 2 !important; line-height: 1.65 !important; font-size: 16px !important;}
 
+/* sidebar */
+.sidebar { flex: 0 0 27.3%; padding: 60px; position: relative; background-color: #F0F2F6;}
+.sidebar .sticky { top: 160px;}
+.sidebar .sidebar-section { display: none; padding-bottom: 100px;}
+.sidebar .sidebar-title { font-size: 24px; font-weight: 500; padding-right: 12px; position: relative; margin-bottom: 32px; width: fit-content;}
+.sidebar .sidebar-title .sidebar-label { position: absolute; top: 5px; right: 0; width: 8px; height: 13px; background: url(/images/main/ico-sidebar-title.svg) no-repeat center/ auto 100%;}
+.sidebar .sidebar-desc { font-size: 20px; margin-bottom: 40px; font-weight: 400;}
+.sidebar .sidebar-section.active { display: block;}
+
 .main-visual { width: 100%; height: 250vh; padding-top: 100px; position: relative;}
 .main-visual .sticky { top: 100px; width: 100%; height: calc(100vh - 100px); overflow: hidden; display: flex; justify-content: flex-end;}
 .main-visual .col { position: relative;}
@@ -32,16 +41,9 @@
 
 .main-container > .inner .heading { padding: 160px 0 60px;}
 .main-content { display: flex; position: relative;}
-.main-content .sidebar { flex: 0 0 27.3%; padding: 60px; position: relative; background-color: #F0F2F6;}
-.main-content .sidebar .sticky { top: 160px;}
-.main-content .sidebar .sidebar-section { display: none; padding-bottom: 100px;}
-.main-content .sidebar .sidebar-title { font-size: 24px; font-weight: 500; padding-right: 12px; position: relative; margin-bottom: 32px; width: fit-content;}
-.main-content .sidebar .sidebar-title .sidebar-label { position: absolute; top: 5px; right: 0; width: 8px; height: 13px; background: url(/images/main/ico-sidebar-title.svg) no-repeat center/ auto 100%;}
-.main-content .sidebar .sidebar-desc { font-size: 20px; margin-bottom: 40px; font-weight: 400;}
 .main-content .content-wrap { flex: 1; position: relative; padding-bottom: 100px;}
 .main-content .content-wrap > .line.vertical { transition: transform 1.5s !important;}
 .main-content .content-section { padding: 60px 60px 120px; position: relative;}
-.main-content .sidebar .sidebar-section.active { display: block;}
 
 [data-section="expertise"] figure { padding-bottom: 42.7%; margin-bottom: 20px;}
 [data-section="expertise"] .expertise-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr)); grid-template-rows: 1fr; gap: 32px;}
