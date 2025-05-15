@@ -9,6 +9,14 @@
 .slogan { padding-block: 120px;}
 .slogan .text { font-size: 40px; line-height: 1.5;}
 
+/* toggle-btn */
+.toggle-btn { position: relative; width: 60px; height: 60px; background: transparent; border: none; cursor: pointer; }
+.toggle-btn::before,
+.toggle-btn::after { content: ''; position: absolute; top: 50%; left: 50%; width: 32px; height: 2px; background-color: #000; transition: transform 0.3s ease; }
+.toggle-btn::before { transform: translate(-50%, -50%); }
+.toggle-btn::after { transform: translate(-50%, -50%) rotate(90deg); }
+.toggle-btn.active::after { transform: translate(-50%, -50%) rotate(0); }
+
 /* about */
 /* about - introduction */
 .introduction .desc { font-size: 20px;}
@@ -73,3 +81,28 @@
 .awards .awards-list figure { padding-bottom: 67%; margin-bottom: 24px; box-shadow: 0 0 0 1px #000;}
 .awards .awards-list .awards-sbj { font-size: 20px; font-weight: 500; margin-bottom: 8px;}
 .awards .awards-list .awards-desc { font-size: 16px; font-weight: 400; color: #1d1d1d;}
+
+/* about - location */
+.location { position: relative; padding-bottom: 160px;}
+.location .location-btns { display: flex; padding: 8px; border-radius: 35px; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,.1); filter-backdrop: blur(30px); z-index: 9; transition: background 0.3s ease;}
+.location .location-btns button { padding: 6px 20px; border-radius: 35px; color: #999; display: flex; align-items: center; gap: 6px;}
+.location .location-btns button .num { font-size: 12px; color: #000; background-color: rgba(255,255,255,.3); border-radius: 50%;; width: 20px; height: 20px; align-content: center; text-align: center;}
+.location .location-btns button.active { background: #fff; color: #000;}
+.location .location-btns button.active .num { color: #fff; background: #f32735;}
+.location .location-btns.active { background: rgb(5,5,5,.9);}
+
+.location .location-content { display: none;}
+.location .location-content.active { display: block;}
+.location .location-title { padding: 30px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px;}
+.location .location-title .heading { font-size: 32px; display: flex; align-items: center; gap: 30px;}
+.location .location-title .heading .text-line { display: block; width: 1px; height: 25px; background: #000;}
+.location .location-body { display: flex; flex-wrap: wrap; gap: 60px; overflow: hidden;}
+.location .location-body figure,
+.location .location-body .location-info { width: calc((100% - 60px) / 2);}
+.location .location-body figure { padding-bottom: 34.2%;}
+.location .location-body .info-title { font-size: 52px; margin-bottom: 60px;}
+.location .location-body .info-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); gap: 60px 30px;}
+.location .location-body .info-list dt { display: flex; align-items: center; gap: 8px; font-size: 20px; margin-bottom: 20px;}
+.location .location-body .info-list dt i { width: 24px; height: 24px;}
+.location .location-body .info-list dd { color: #3f3f3f;}
+
