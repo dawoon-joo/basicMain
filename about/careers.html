@@ -294,24 +294,24 @@
         item.classList.add("active");
 
         if(index === 0) {
-          const listItems = item.querySelectorAll('.corporation-list li');
-          listAnimation ? listAnimation.kill() : null;
-          listAnimation = gsap.timeline({
-            repeat: -1,
-            defaults: { duration: 0.4 }
-          });
-          listItems.forEach(li => li.classList.remove('active'));
-          listItems.forEach((li, i) => {
-            listAnimation.to(li, { 
-              duration: 0.3,
-              onStart: () => li.classList.add('active')
-            }, i * 1.5);
+          // const listItems = item.querySelectorAll('.corporation-list li');
+          // listAnimation ? listAnimation.kill() : null;
+          // listAnimation = gsap.timeline({
+          //   repeat: -1,
+          //   defaults: { duration: 0.4 }
+          // });
+          // listItems.forEach(li => li.classList.remove('active'));
+          // listItems.forEach((li, i) => {
+          //   listAnimation.to(li, { 
+          //     duration: 0.3,
+          //     onStart: () => li.classList.add('active')
+          //   }, i * 1.5);
             
-            listAnimation.to(li, { 
-              duration: 0.3,
-              onStart: () => li.classList.remove('active')
-            }, i * 1.5 + 1.5);
-          });
+          //   listAnimation.to(li, { 
+          //     duration: 0.3,
+          //     onStart: () => li.classList.remove('active')
+          //   }, i * 1.5 + 1.5);
+          // });
         }
       }
       const hoverOut = (item) => {
@@ -321,6 +321,22 @@
       area.forEach((item, index) => {
         item.addEventListener("mouseenter", () => hoverAnimate(item, index));
         item.addEventListener("mouseleave", () => hoverOut(item, index));
+        const listItems = item.querySelectorAll('.corporation-list li');
+        listAnimation = gsap.timeline({
+          repeat: -1,
+          defaults: { duration: 0.4 }
+        });
+        listItems.forEach((li, i) => {
+          listAnimation.to(li, { 
+            duration: 0.3,
+            onStart: () => li.classList.add('active')
+          }, i * 1);
+          
+          listAnimation.to(li, { 
+            duration: 0.3,
+            onStart: () => li.classList.remove('active')
+          }, i * 1 + 1);
+        });
       })
     }
     const gsapMotion= () => {

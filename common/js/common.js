@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   sublinkWrap();
   initDragScroll();
   splitText
+  dropdown();
   AOS.init();
 });
 
@@ -169,6 +170,65 @@ function scrollBtn() {
 
 		window.requestAnimationFrame(scrollAnimation);
 	});
+}
+
+const dropdown = () => {
+  const container = document.querySelectorAll('.dropdown');
+  if (!container) return;
+  
+  const setItemState = (item, isActive) => {
+    const content = item.querySelector('.dropdown-body');
+    const toggleBtn = item.querySelector('.dropdown-btn');
+    
+    if (toggleBtn) {
+      isActive ? toggleBtn.classList.add('active') : toggleBtn.classList.remove('active');
+    }
+    
+    if (content) {
+      if (isActive) {
+        gsap.to(content, { maxHeight: content.scrollHeight + 'px', duration: 0.5, ease: 'power2.inOut'});
+      } else {
+        gsap.to(content, { maxHeight: 0, duration: 0.5, ease: 'power2.inOut' });
+      }
+    }
+  };
+  
+  // 초기 설정
+  container.forEach((item, index) => {
+    const content = item.querySelector('.dropdown-body');
+    const toggleBtn = item.querySelector('.dropdown-btn');
+    
+    // 첫번째 요소만 열리도록 설정
+    // if (index === 0) {
+    //   toggleBtn.classList.add('active');
+    //   gsap.set(content, { maxHeight: content.scrollHeight + 'px' });
+    // } else {
+    //   gsap.set(content, { maxHeight: 0 });
+    // }
+    toggleBtn.classList.add('active');
+    gsap.set(content, { maxHeight: content.scrollHeight + 'px' });
+    
+    toggleBtn.addEventListener('click', () => {
+      const isCurrentlyActive = toggleBtn.classList.contains('active');
+      setItemState(item, !isCurrentlyActive);
+    });
+  });
+  
+  const updateActiveHeights = () => {
+    container.forEach(item => {
+      const toggleBtn = item.querySelector('.dropdown-btn');
+      if (toggleBtn && toggleBtn.classList.contains('active')) {
+        const content = item.querySelector('.dropdown-body');
+        gsap.set(content, { maxHeight: content.scrollHeight + 'px' });
+      }
+    });
+  };
+  
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(updateActiveHeights, 100);
+  });
 }
 
 // 텍스트 분리 애니메이션
