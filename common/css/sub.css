@@ -1,6 +1,6 @@
 /* visual */
 .sub-visual { position: relative; width: 100%; height: 100vh; display: flex; flex-direction: column; padding-top: 100px; overflow: hidden;}
-.sub-visual .inner { padding-block: 20px;}
+.sub-visual .inner { padding-block: 20px; border-bottom: 1px solid #000;}
 .sub-visual .heading { text-align: center;;}
 .sub-visual .bg { flex: 1; overflow: hidden;}
 .sub-visual .bg img { width: 100%; height: 100%; object-fit: cover;}
@@ -18,6 +18,7 @@
 .toggle-btn.active::after { transform: translate(-50%, -50%) rotate(0); }
 
 /* view-info */
+.view { position: relative; overflow: hidden;}
 .view-info { position: relative; flex: 1; padding: 120px 0 220px;}
 .view-info .title-btns { display: flex; gap: 8px; margin-left: auto;}
 .view-info .title-btns a { width: 48px; height: 48px; background-repeat: no-repeat; background-position: center; background-size: auto 100%;;}
@@ -52,17 +53,21 @@
 .view-info .board-card { height: 420px;}
 .view-floationg { display: flex; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 9;}
 .view-floationg .floationg-wrap { position: relative;}
-.view-floationg .floationg-btn { display: flex; width: 144px; padding: 8px; border-radius: 35px; background: rgb(5,5,5,.9); filter-backdrop: blur(30px); z-index: 9; cursor: pointer;}
+.view-floationg .floationg-btn { display: flex; padding: 8px; border-radius: 35px; background: rgb(5,5,5,.9); filter-backdrop: blur(30px); z-index: 9; cursor: pointer;}
 .view-floationg .ico-arrow-drop { width: 40px; height: 40px; background: #fff url(/images/ico-language-arrow.svg) no-repeat center/auto 15%; display: inline-block; border-radius: 50%; transform: scaleY(-1); }
-.view-floationg .floationg-btn span { flex: 1; text-align: center; align-content: center; color: #fff;}
+.view-floationg .floationg-btn span { flex: 1; text-align: center; align-content: center; color: #fff; padding: 0 28px;}
 .view-floationg .floationg-body { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); width: fit-content; min-width: 100%; white-space: nowrap; text-align: center; background: rgb(5,5,5,.9); border-radius: 10px; margin-bottom: 10px; overflow: hidden; max-height: 0;}
 .view-floationg .floationg-body .floationg-list { padding: 10px;}
 .view-floationg .floationg-body a { display: block; color: #fff; padding: 5px;}
-.view-floationg .floationg-btn.active .ico-arrow-drop { transform: scaleY(1);}
+.view-floationg .floationg-prev { display: flex; align-items: center; justify-content: center; width: 56px; height: auto; border-radius: 50%; background-color: rgba(5,5,5,.9); margin-left: 8px;}
+.view-floationg .floationg-btn.active .ico-arrow -drop { transform: scaleY(1);}
 
 /* global */
-.global { position: relative; padding-left: calc(max((100vw - 900px) / 2, 5vw)); overflow: hidden;}
-.global .view-info { max-width: 900px; width: 70%;}
+.view.global { padding-left: calc(max((100vw - 900px) / 2, 5vw));}
+.view.global .view-info { max-width: 900px; width: 70%;}
+/* practices-view */
+.practices-view { padding-left: calc(max((100vw - 900px) / 2, 5vw));}
+.practices-view .view-info { max-width: 900px; width: 70%;}
 
 
 
@@ -100,7 +105,7 @@
 .introduction .values .values-list .list-desc { padding-bottom: 30px; padding-top: 100px; line-height: 1.7;}
 
 /* about - history */
-.history { position: relative;}
+.history { position: relative; border-top: 1px solid #000;}
 .history::before { content:''; display: block; width: 1px; height: 100%; background: #000; position: absolute; top: 0; left: 50%; transform: translateX(-50%);}
 .history .history-timeline:not(:nth-child(even)) { display: flex; justify-content: flex-end;}
 .history .history-timeline .timeline-year { display: flex; width: 50%; padding: 120px 0;}
@@ -202,3 +207,29 @@
 .careers-corporation .corporation-group .corporation-list li.active span.text,
 .careers-corporation .corporation-group .corporation-list li.active span.num { opacity: 1;}
 .careers-corporation .corporation-group .corporation-list li.active span.text::before { background: #F32735;}
+
+/* practices */
+.practices { padding: 95px 0 220px;}
+.practices .inner { max-width: 1540px; width: 90%; padding: 0; margin: 0 auto;}
+.practices-search { position: relative; margin-bottom: 80px;}
+.practices-search .search-box { max-width: 762px; height: 100%; display: flex; margin: 0 auto;}
+.practices-search .search-box input, .practices-search .search-box button { height: 80px; background: #fff; border-bottom: 1px solid #000; color: #000;}
+.practices-search .search-box input { padding: 23px 0px; border-radius: 0; font-size: 22px; font-weight: 500; width: 100%; border-left: none; border-right: none; border-top: none; }
+.practices-search .search-box input:focus { outline: none;}
+.practices-search .search-box input::placeholder { color: #888;}
+.practices-search .search-box button { width: 60px; height: auto; padding: 20px; background-repeat: no-repeat; background-size: auto 36%; background-position: right center; background-image: url(/images/ico-search.svg); border-radius: 0; border-left: none; }
+.practices-search .search-result { display: none; padding: 60px 60px 80px; border-bottom: 1px solid #bbb; text-align: center; font-size: 20px; color: #888;}
+.practices-search .search-result p { margin-bottom: 40px;}
+.practices-search .search-result p > span { color: #000; vertical-align: baseline;}
+.practices-search .search-result.active { display: block;}
+.practices-categories { display: flex; gap: 60px; margin: 0 auto 80px; justify-content: center; }
+.practices-categories button { font-size: 28px; opacity: .4;}
+.practices-categories button.active { opacity: 1;}
+.practices-list { display: none; grid-template-columns: repeat(auto-fill, minmax(min(100%, 500px), 1fr)); gap: 30px;}
+.practices-list.active { display: grid;}
+.practices-list .practices-item a { position: relative; display: flex; justify-content: space-between; align-items: center; padding: 20px; padding: 30px; background: #f0f2f6; font-size: 24px; transition: all 0.3s ease;}
+.practices-list .practices-item a::before { content: ''; display: block; position: absolute; top: 50%; right: 30px; transform: translateY(-50%); width: 36px; height: 36px; background: url(/images/ico-arrow-right.svg) no-repeat center / auto 100%;}
+@media (hover: hover) and (pointer: fine) {
+  .practices-list .practices-item a:hover { background: #050505; color: #fff;}
+  .practices-list .practices-item a:hover::before { filter: invert(1);}
+}

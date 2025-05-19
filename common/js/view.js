@@ -46,6 +46,7 @@ function viewDropdown() {
   const setItemState = (item, isActive) => {
     const content = item.querySelector('.floationg-body');
     const toggleBtn = item.querySelector('.floationg-btn');
+    const btnText = toggleBtn.querySelector('span');
     const tl = gsap.timeline();
     
     if (toggleBtn) {
@@ -54,11 +55,13 @@ function viewDropdown() {
     
     if (content) {
       if (isActive) {
-        tl.to(toggleBtn, { width: '226px', fontSize: '22px', duration: 0.3, ease: 'power2.inOut'})
+        tl.to(toggleBtn, { padding: '12px 8px', fontSize: '22px', duration: 0.3, ease: 'power2.inOut'})
+          .to(btnText, { padding: '0 58px', duration: 0.3, ease: 'power2.inOut'}, '<')
           .to(content, { maxHeight: content.scrollHeight + 'px', duration: 0.3, ease: 'power2.inOut'})
       } else {
         tl.to(content, { maxHeight: 0, duration: 0.3, ease: 'power2.inOut' })
-          .to(toggleBtn, { width: '146px', fontSize: '18px', duration: 0.3, ease: 'power2.inOut'})
+        .to(toggleBtn, { padding: '8px', fontSize: '18px', duration: 0.3, ease: 'power2.inOut'})
+        .to(btnText, { padding: '0 28px', duration: 0.3, ease: 'power2.inOut'}, '<')
       }
     }
   };

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/common/css/font/font.css">
+  <link rel="stylesheet" href="/common/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="/common/css/jquery.fullpage.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="/common/css/base.css">
+  <link rel="stylesheet" href="/common/css/sub.css">
+  <link rel="stylesheet" href="/common/css/main.css">
+  <link rel="stylesheet" href="/common/css/common.css">
+  <script src="/common/js/gsap.min.js"></script>
+  <script src="/common/js/ScrollTrigger.min.js"></script>
+  <script src="/common/js/ScrollToPlugin.min.js"></script>
+  <script src="/common/js/ScrollMagic.min.js"></script>
+  <script src="/common/js/scrollreveal.min.js"></script>
+  <script src="/common/js/lenis.min.js"></script>
+  <script src="/common/js/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="/common/js/main.js"></script>
+  <script src="/common/js/sub.js"></script>
+  <script src="/common/js/device.js"></script>
+  <script src="/common/js/header.js"></script>
+  <script src="/common/js/common.js"></script>
+</head>
+<body>
+  <header id="header" class="header">
+    <h1>
+      <a href="/" class="logo">
+        <span class="blind">Test Logo</span>
+      </a>
+    </h1>
+    <div class="gnb">
+      <nav class="nav">
+        <ul class="depth1" data-lenis-prevent>
+          <li>
+            <a href="#">About Us</a>
+            <ul class="depth2">
+              <li><a href="/about">소개</a></li>
+              <li><a href="/about/history.html">연혁</a></li>
+              <li><a href="/about/awards.html">수상</a></li>
+              <li><a href="/about/location.html">오시는 길</a></li>
+              <li><a href="/about/careers.html">Careers</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Global Competence</a>
+            <ul class="depth2">
+              <li><a href="/global/index.html">미국</a></li>
+              <li><a href="#">캐나다</a></li>
+              <li><a href="#">독일</a></li>
+              <li><a href="#">중국</a></li>
+              <li><a href="#">베트남</a></li>
+              <li><a href="#">미얀마</a></li>
+              <li><a href="#">캄보디아</a></li>
+              <li><a href="#">태국</a></li>
+              <li><a href="#">몽골</a></li>
+              <li><a href="#">Asia Practice Circle</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Expertise</a>
+            <ul class="depth2">
+              <li><a href="/expertise/index.html">분야별</a></li>
+              <li><a href="#">산업별</a></li>
+              <li><a href="#">센터</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Professionals</a>
+            <ul class="depth2">
+              <li><a href="#">변호사</a></li>
+              <li><a href="#">외국변호사</a></li>
+              <li><a href="#">고문</a></li>
+              <li><a href="#">전문위원</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Insights</a>
+            <ul class="depth2">
+              <li><a href="#">최근 업무사례</a></li>
+              <li><a href="#">콘텐츠 아카이브</a></li>
+              <li><a href="#">언론보도</a></li>
+              <li><a href="#">법인소식</a></li>
+              <li><a href="#">뉴스레터</a></li>
+              <li><a href="#">Seminar</a></li>
+              <li><a href="#">발간자료</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Social Impact</a>
+            <ul class="depth2">
+              <li><a href="#">사회공헌</a></li>
+              <li><a href="#">D-TECH</a></li>
+              <li><a href="#">D'CHANGE</a></li>
+              <li><a href="#">TIME BANK</a></li>
+              <li><a href="#">B-Corp</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="close">
+        <a href="javascript:">
+          <span class="circle"></span>
+          <span class="blind">Close Menu</span>
+        </a>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="site-wrap">
+        <button type="button" class="btn-site">Family Site 바로가기</button>
+        <div class="ico ico-arrow-drop"><span class="hide">Arrow</span></div>
+        <ul class="familyLink">
+          <li><a href="#" target="_blank" title="새창으로 열림">Family Site 1</a></li>
+          <li><a href="#" target="_blank" title="새창으로 열림">Family Site 2</a></li>
+        </ul>
+      </div>
+      <div class="header-row">
+        <div class="header-language">
+          <button class="current" aria-pressed="false"><span class="text">KR</span></button>
+          <ul>
+            <li><a href="javascript:lang_chg('ko')">KR</a></li>
+            <li><a href="javascript:lang_chg('en')">EN</a></li>
+            <li><a href="javascript:lang_chg('cn')">CN</a></li>
+          </ul>
+        </div>
+        <div class="header-search">
+          <button class="ico-search"></button>
+        </div>
+      </div>
+      <div class="hamburger">
+        <a href="javascript:">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="blind">Open Menu</span>
+        </a>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <div class="content-top">
+        <form action="/search">
+          <div class="input-box">
+            <input type="text" name="s" class="input-text" placeholder="검색어를 입력해 주세요.">
+            <button type="submit" class="btn-search"><span class="blind">검색</span></button>
+          </div>
+        </form>
+      </div>
+      <button class="close">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  <div class="sub-visual">
+    <div class="inner">
+      <h2 class="heading">Practices</h2>
+    </div>
+    <div class="bg">
+      <img src="/images/sub/visual-practices.jpg" alt="">
+    </div>
+  </div>
+  <div class="practices">
+    <form action="" class="practices-search">
+      <div class="search-box">
+        <input type="text" name="search" class="input-text" placeholder="검색어를 입력해 주세요.">
+        <button type="submit" class="btn-search"><span class="blind">검색</span></button>
+      </div>
+      <div class="search-result active">
+        <p>
+          <span class="result-text">‘기술’</span> 
+          에 대한 검색 결과는 총
+          <span class="result-count">3건</span>
+          입니다.
+        </p>
+        <button type="button" class="reset-btn">
+          <i class="ico-reset"></i>
+          초기화 
+        </button>
+      </div>
+    </form>
+    <div class="inner">
+      <div class="practices-categories">
+        <button type="button" class="active">전체</button>
+        <button type="button">산업별</button>
+        <button type="button">분야별</button>
+        <button type="button">센터</button>
+        <button type="button">지역별</button>
+      </div>
+      <div class="practices-content">
+        <div class="practices-list active">
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">ICT/AI</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">헬스케어</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">블록체인</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">핀테크</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">콘텐츠/미디어</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">모빌리티/물류</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">우주/항공/드론</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">에너지/환경</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">농업/F&B</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">기업법무/기술M&A</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">지적재산권</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">소송/중재</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">스타트업/VC</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">개인정보/빅데이터</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">PEF/기업금융</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">부동산/건설</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">규제샌드박스</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">아시아 프랙티스 그룹</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">정책센터</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">인사/노무</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">해외업무</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">중국 Desk</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">ESG 지속가능센터</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">중대재해</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">공정거래</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">AI센터</span>
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="practices-list">
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">ICT/AI</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">헬스케어</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">블록체인</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">핀테크</span>
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="practices-list">
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">ICT/AI</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">헬스케어</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">블록체인</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">핀테크</span>
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="practices-list">
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">ICT/AI</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">헬스케어</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">블록체인</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">핀테크</span>
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="practices-list">
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">ICT/AI</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">헬스케어</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">블록체인</span>
+              </a>
+            </h4>
+          </div>
+          <div class="practices-item">
+            <h4 class="practices-title">
+              <a href="#">
+                <span class="text">핀테크</span>
+              </a>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      ScrollReveal().reveal(".practices-search", {...fadeUp});
+      ScrollReveal().reveal(".practices-categories", {...fadeUp});
+      ScrollReveal().reveal(".practices-content", {...fadeUp});
+      practicesTabs();
+    })
+    const practicesTabs =() => {
+      const tabs = document.querySelectorAll('.practices-categories button');
+      const lists = document.querySelectorAll('.practices-list');
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(tab => { tab.classList.remove('active');});
+          lists.forEach(list => { list.classList.remove('active');});
+          tab.classList.add('active');
+          lists[index].classList.add('active');
+        })
+      })
+    }
+  </script>
+  <footer id="footer" class="footer">
+    <div class="floating-container">
+      <div class="scroll-to">
+        <a href="javascript:" class="btn-top scroll-top"></a>
+      </div>
+    </div>
+    <div class="inner">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <a href="/" aria-label="DLG 법무법인 디엘지 홈페이지로 이동">
+            <img src="/images/logo-ft.svg" alt="DLG 법무법인 디엘지">
+          </a>
+        </div>
+        
+        <div class="footer-social">
+          <ul class="social-links">
+            <li><a href="#" aria-label="네이버 블로그"><i class="ico-blog" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="인스타그램"><i class="ico-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="페이스북"><i class="ico-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="유튜브"><i class="ico-youtube" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- 중간 영역: 사이트맵 링크 -->
+      <nav class="footer-nav">
+        <ul class="footer-links">
+          <li><a href="/about">법적고지</a></li>
+          <li><a href="/privacy">이용약관</a></li>
+          <li><a href="https://usa.dlglaw.co.kr" target="_blank" rel="noopener">DLG USA <i class="ico-blank"></i></a></li>
+          <li><a href="https://thailand.dlglaw.co.kr" target="_blank" rel="noopener">DLG THAILAND <i class="ico-blank"></i></a></li>
+          <li><a href="https://myanmar.dlglaw.co.kr" target="_blank" rel="noopener">새롭게먼 디엘지 <i class="ico-blank"></i></a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-info">
+        <address class="company-info">
+          <dl class="info-list">
+            <div class="info-item">
+              <dt>대표&nbsp:&nbsp</dt>
+              <dd> 조원희, 인희철</dd>
+            </div>
+            <div class="info-item">
+              <dt>사업자등록번호&nbsp:&nbsp</dt>
+              <dd>464-87-00618</dd>
+            </div>
+            <div class="info-item">
+              <dt>주소&nbsp:&nbsp</dt>
+              <dd>서울특별시 서초구 강남대로 311, 8층</dd>
+            </div>
+            <div class="info-item">
+              <dt>대표번호&nbsp:&nbsp</dt>
+              <dd><a href="tel:02-2051-1870">02-2051-1870</a></dd>
+            </div>
+            <div class="info-item">
+              <dt>팩스번호&nbsp:&nbsp</dt>
+              <dd>02-2051-1877</dd>
+            </div>
+            <div class="info-item">
+              <dt>대표메일&nbsp:&nbsp</dt>
+              <dd><a href="mailto:info@dlglaw.co.kr">info@dlglaw.co.kr</a></dd>
+            </div>
+          </dl>
+        </address>
+        
+        <!-- 저작권 정보 -->
+        <div class="copyright">
+          <p>&copy; 2025 DLG. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
