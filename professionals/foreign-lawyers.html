@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/common/css/font/font.css">
+  <link rel="stylesheet" href="/common/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="/common/css/jquery.fullpage.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="/common/css/base.css">
+  <link rel="stylesheet" href="/common/css/sub.css">
+  <link rel="stylesheet" href="/common/css/main.css">
+  <link rel="stylesheet" href="/common/css/common.css">
+  <script src="/common/js/gsap.min.js"></script>
+  <script src="/common/js/ScrollTrigger.min.js"></script>
+  <script src="/common/js/ScrollToPlugin.min.js"></script>
+  <script src="/common/js/ScrollMagic.min.js"></script>
+  <script src="/common/js/scrollreveal.min.js"></script>
+  <script src="/common/js/lenis.min.js"></script>
+  <script src="/common/js/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="/common/js/main.js"></script>
+  <script src="/common/js/sub.js"></script>
+  <script src="/common/js/device.js"></script>
+  <script src="/common/js/header.js"></script>
+  <script src="/common/js/common.js"></script>
+</head>
+<body>
+  <header id="header" class="header">
+    <h1>
+      <a href="/" class="logo">
+        <span class="blind">Test Logo</span>
+      </a>
+    </h1>
+    <div class="gnb">
+      <nav class="nav">
+        <ul class="depth1" data-lenis-prevent>
+          <li>
+            <a href="#">About Us</a>
+            <ul class="depth2">
+              <li><a href="/about">소개</a></li>
+              <li><a href="/about/history.html">연혁</a></li>
+              <li><a href="/about/awards.html">수상</a></li>
+              <li><a href="/about/location.html">오시는 길</a></li>
+              <li><a href="/about/careers.html">Careers</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Global Competence</a>
+            <ul class="depth2">
+              <li><a href="/global/index.html">미국</a></li>
+              <li><a href="#">캐나다</a></li>
+              <li><a href="#">독일</a></li>
+              <li><a href="#">중국</a></li>
+              <li><a href="#">베트남</a></li>
+              <li><a href="#">미얀마</a></li>
+              <li><a href="#">캄보디아</a></li>
+              <li><a href="#">태국</a></li>
+              <li><a href="#">몽골</a></li>
+              <li><a href="#">Asia Practice Circle</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Expertise</a>
+            <ul class="depth2">
+              <li><a href="/expertise/index.html">분야별</a></li>
+              <li><a href="#">산업별</a></li>
+              <li><a href="#">센터</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Professionals</a>
+            <ul class="depth2">
+              <li><a href="/professionals/index.html">변호사</a></li>
+              <li><a href="/professionals/foreign-lawyers.html">외국변호사</a></li>
+              <li><a href="/professionals/advisors.html">고문</a></li>
+              <li><a href="/professionals/specialists.html">전문위원</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Insights</a>
+            <ul class="depth2">
+              <li><a href="#">최근 업무사례</a></li>
+              <li><a href="#">콘텐츠 아카이브</a></li>
+              <li><a href="#">언론보도</a></li>
+              <li><a href="#">법인소식</a></li>
+              <li><a href="#">뉴스레터</a></li>
+              <li><a href="#">Seminar</a></li>
+              <li><a href="#">발간자료</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Social Impact</a>
+            <ul class="depth2">
+              <li><a href="#">사회공헌</a></li>
+              <li><a href="#">D-TECH</a></li>
+              <li><a href="#">D'CHANGE</a></li>
+              <li><a href="#">TIME BANK</a></li>
+              <li><a href="#">B-Corp</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="close">
+        <a href="javascript:">
+          <span class="circle"></span>
+          <span class="blind">Close Menu</span>
+        </a>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="site-wrap">
+        <button type="button" class="btn-site">Family Site 바로가기</button>
+        <div class="ico ico-arrow-drop"><span class="hide">Arrow</span></div>
+        <ul class="familyLink">
+          <li><a href="#" target="_blank" title="새창으로 열림">Family Site 1</a></li>
+          <li><a href="#" target="_blank" title="새창으로 열림">Family Site 2</a></li>
+        </ul>
+      </div>
+      <div class="header-row">
+        <div class="header-language">
+          <button class="current" aria-pressed="false"><span class="text">KR</span></button>
+          <ul>
+            <li><a href="javascript:lang_chg('ko')">KR</a></li>
+            <li><a href="javascript:lang_chg('en')">EN</a></li>
+            <li><a href="javascript:lang_chg('cn')">CN</a></li>
+          </ul>
+        </div>
+        <div class="header-search">
+          <button class="ico-search"></button>
+        </div>
+      </div>
+      <div class="hamburger">
+        <a href="javascript:">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="blind">Open Menu</span>
+        </a>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <div class="content-top">
+        <form action="/search">
+          <div class="input-box">
+            <input type="text" name="s" class="input-text" placeholder="검색어를 입력해 주세요.">
+            <button type="submit" class="btn-search"><span class="blind">검색</span></button>
+          </div>
+        </form>
+      </div>
+      <button class="close">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  <div class="sub-visual">
+    <div class="inner">
+      <h2 class="heading">Professionals</h2>
+    </div>
+    <div class="bg">
+      <img src="/images/sub/visual-professionals.jpg" alt="">
+    </div>
+  </div>
+  <div class="professionals">
+    <div class="inner">
+      <ul class="professionals-tabs">
+        <li><a href="/professionals/index.html">변호사</a></li>
+        <li><a href="/professionals/foreign-lawyers.html" class="active">외국변호사</a></li>
+        <li><a href="/professionals/advisors.html">고문</a></li>
+        <li><a href="/professionals/specialists.html">전문위원</a></li>
+      </ul>
+      <div class="professionals-list">
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile1.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">강송욱</h4>
+                <p class="professionals-position">
+                  <span>변호사</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile2.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">김나래</h4>
+                <p class="professionals-position">
+                  <span>변호사</span>
+                  <span>공학박사</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile3.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">김동환</h4>
+                <p class="professionals-position">
+                  <span>파트너 변호사</span>
+                  <span>해외투자대응센터장</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile4.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">김민혜</h4>
+                <p class="professionals-position">
+                  <span>변호사</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile5.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">김용하</h4>
+                <p class="professionals-position">
+                  <span>파트너 변호사</span>
+                  <span>변리사</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile6.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">김용혁</h4>
+                <p class="professionals-position">
+                  <span>파트너 변호사</span>
+                  <span>물류 관리사</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile7.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">노경종</h4>
+                <p class="professionals-position">
+                  <span>파트너 변호사</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile8.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">민승현</h4>
+                <p class="professionals-position">
+                  <span>파트너 변호사</span>
+                  <span>변리사</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile9.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">박신애</h4>
+                <p class="professionals-position">
+                  <span>파트너 변호사</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile10.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">박재영</h4>
+                <p class="professionals-position">
+                  <span>파트너 변호사</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile11.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">박정현</h4>
+                <p class="professionals-position">
+                  <span>변호사</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile12.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">서지원</h4>
+                <p class="professionals-position">
+                  <span>변호사</span>
+                  <span>약사</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile13.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">안희철</h4>
+                <p class="professionals-position">
+                  <span>대표 변호사</span>
+                  <span>세무사</span>
+                  <span>정책센터장</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile14.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">양재석</h4>
+                <p class="professionals-position">
+                  <span>파트너 변호사</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile15.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">염형국</h4>
+                <p class="professionals-position">
+                  <span>파트너 변호사</span>
+                  <span>공익인권센터센터장</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile16.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">유정훈</h4>
+                <p class="professionals-position">
+                  <span>변호사</span>
+                  <span>아시아프랙티스그룹그룹장</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile15.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">염형국</h4>
+                <p class="professionals-position">
+                  <span>파트너 변호사</span>
+                  <span>공익인권센터센터장</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+        <article class="professionals-item">
+          <a href="javascript:">
+            <figure>
+              <img src="/images/sub/professionals/professionals-profile16.png" alt="">
+            </figure>
+            <div class="professionals-info">
+              <div class="professionals-title">
+                <h4 class="professionals-name">유정훈</h4>
+                <p class="professionals-position">
+                  <span>변호사</span>
+                  <span>아시아프랙티스그룹그룹장</span>
+                </p>
+              </div>
+              <button type="button" onclick="location.href='mailto:info@dlglaw.co.kr'" class="professionals-email"></button>
+            </div>
+          </a>
+        </article>
+      </div>
+      <div class="pagination"></div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pagination = new Pagination(
+        '.professionals-list', 
+        '.professionals-item', 
+        '.pagination', 
+        { itemsPerPage: 16 }
+      );
+    });
+  </script>
+  <footer id="footer" class="footer">
+    <div class="floating-container">
+      <div class="scroll-to">
+        <a href="javascript:" class="btn-top scroll-top"></a>
+      </div>
+    </div>
+    <div class="inner">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <a href="/" aria-label="DLG 법무법인 디엘지 홈페이지로 이동">
+            <img src="/images/logo-ft.svg" alt="DLG 법무법인 디엘지">
+          </a>
+        </div>
+        
+        <div class="footer-social">
+          <ul class="social-links">
+            <li><a href="#" aria-label="네이버 블로그"><i class="ico-blog" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="인스타그램"><i class="ico-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="페이스북"><i class="ico-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="유튜브"><i class="ico-youtube" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- 중간 영역: 사이트맵 링크 -->
+      <nav class="footer-nav">
+        <ul class="footer-links">
+          <li><a href="/about">법적고지</a></li>
+          <li><a href="/privacy">이용약관</a></li>
+          <li><a href="https://usa.dlglaw.co.kr" target="_blank" rel="noopener">DLG USA <i class="ico-blank"></i></a></li>
+          <li><a href="https://thailand.dlglaw.co.kr" target="_blank" rel="noopener">DLG THAILAND <i class="ico-blank"></i></a></li>
+          <li><a href="https://myanmar.dlglaw.co.kr" target="_blank" rel="noopener">새롭게먼 디엘지 <i class="ico-blank"></i></a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-info">
+        <address class="company-info">
+          <dl class="info-list">
+            <div class="info-item">
+              <dt>대표&nbsp:&nbsp</dt>
+              <dd> 조원희, 인희철</dd>
+            </div>
+            <div class="info-item">
+              <dt>사업자등록번호&nbsp:&nbsp</dt>
+              <dd>464-87-00618</dd>
+            </div>
+            <div class="info-item">
+              <dt>주소&nbsp:&nbsp</dt>
+              <dd>서울특별시 서초구 강남대로 311, 8층</dd>
+            </div>
+            <div class="info-item">
+              <dt>대표번호&nbsp:&nbsp</dt>
+              <dd><a href="tel:02-2051-1870">02-2051-1870</a></dd>
+            </div>
+            <div class="info-item">
+              <dt>팩스번호&nbsp:&nbsp</dt>
+              <dd>02-2051-1877</dd>
+            </div>
+            <div class="info-item">
+              <dt>대표메일&nbsp:&nbsp</dt>
+              <dd><a href="mailto:info@dlglaw.co.kr">info@dlglaw.co.kr</a></dd>
+            </div>
+          </dl>
+        </address>
+        
+        <!-- 저작권 정보 -->
+        <div class="copyright">
+          <p>&copy; 2025 DLG. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

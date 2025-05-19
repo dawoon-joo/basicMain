@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+  device = new Device();
   viewSwiper();
   viewMotion();
   viewDropdown();
+  professionalsSticky();
 })
 document.addEventListener('scroll', () => {
   viewFloating();
@@ -10,7 +12,7 @@ function viewSwiper() {
   const viewSwiper = document.querySelector('.view-sw');
   if(!viewSwiper) { return;}
   const swiper = new Swiper(viewSwiper, {
-    slidesPerView: 2.1,
+    slidesPerView: 'auto',
     spaceBetween: 30,
   });
 }
@@ -96,5 +98,48 @@ function viewDropdown() {
   //   gsap.to(dropdownBtn, { width: '226px', padding: '12px 8px', fontSize: '22px', duration: 0.5, ease: 'power2.inOut'});
   // })
 }
-
+function professionalsSticky() {
+  const section = document.querySelector('.professionals-view');
+  if (!section) { return;}
+  const btns = section.querySelectorAll('.title-scroll button');
+  const items = document.querySelectorAll('.info-area');
+  
+  btns.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+      if(items[idx]) {
+        const offset = device.isMobile ? 80 : 230;
+        gsap.to(window, {
+          duration: 0.5,
+          scrollTo: {
+            y: items[idx],
+            offsetY: offset,
+            autoKill: false
+          },
+          ease: "power2.inOut"
+        });
+      }
+    });
+  });
+  
+  items.forEach((item, index) => {
+    ScrollTrigger.create({
+      trigger: item,
+      start: 'top 40%',
+      end: 'bottom 40%',
+      markers: true,
+      onEnter: () => {
+        btns.forEach(btn => {
+          btn.classList.remove('active');
+        })
+        btns[index].classList.add('active');
+      },
+      onEnterBack: () => {
+        btns.forEach(btn => {
+          btn.classList.remove('active');
+        })
+        btns[index].classList.add('active');
+      }
+    })
+  })
+}
 

@@ -186,9 +186,9 @@ const dropdown = () => {
     
     if (content) {
       if (isActive) {
-        gsap.to(content, { maxHeight: content.scrollHeight + 'px', duration: 0.5, ease: 'power2.inOut'});
+        gsap.to(content, { maxHeight: content.scrollHeight + 'px', duration: 0.5, ease: 'power2.inOut', onComplete: () => { ScrollTrigger.refresh();}});
       } else {
-        gsap.to(content, { maxHeight: 0, duration: 0.5, ease: 'power2.inOut' });
+        gsap.to(content, { maxHeight: 0, duration: 0.5, ease: 'power2.inOut', onComplete: () => { ScrollTrigger.refresh();}});
       }
     }
   };
@@ -409,4 +409,154 @@ function initDragScroll() {
     updateDragIndicator();
     window.addEventListener('resize', updateDragIndicator);
   });
+}
+
+// 페이지네이션
+class Pagination {
+  /**
+   * @param {HTMLElement|string} listContainer - 아이템 컨테이너 요소 또는 선택자
+   * @param {string} itemSelector - 아이템 선택자
+   * @param {HTMLElement|string} paginationContainer - 페이지네이션 컨테이너 요소 또는 선택자
+   * @param {object} options - 추가 옵션
+   */
+  constructor(listContainer, itemSelector, paginationContainer, options = {}) {
+    // 기본 옵션 설정
+    this.options = {
+      itemsPerPage: 12,
+      scrollToList: true,
+      ...options
+    };
+    
+    // 컨테이너 및 요소 설정
+    this.listContainer = typeof listContainer === 'string' 
+      ? document.querySelector(listContainer) 
+      : listContainer;
+      
+    this.paginationContainer = typeof paginationContainer === 'string'
+      ? document.querySelector(paginationContainer)
+      : paginationContainer;
+      
+    this.items = this.listContainer 
+      ? Array.from(this.listContainer.querySelectorAll(itemSelector))
+      : [];
+      
+    // 상태 초기화
+    this.totalPages = Math.ceil(this.items.length / this.options.itemsPerPage);
+    this.currentPage = 1;
+    
+    // 페이지네이션 초기화
+    this.init();
+  }
+  
+  init() {
+    if (this.items.length > this.options.itemsPerPage) {
+      this.paginationContainer.style.display = '';
+      this.renderPagination();
+      this.renderPage(1);
+    } else {
+      this.paginationContainer.style.display = 'none';
+      this.items.forEach(el => el.style.display = '');
+    }
+  }
+  
+  renderPage(page) {
+    this.items.forEach((el, idx) => {
+      el.style.display = (idx >= (page-1) * this.options.itemsPerPage && 
+                         idx < page * this.options.itemsPerPage) ? '' : 'none';
+    });
+  }
+  
+  goToPage(page) {
+    this.currentPage = page;
+    this.renderPage(page);
+    this.updateButtonStates();
+    this.renderPagination();
+    
+    if (this.options.scrollToList && this.listContainer) {
+      const offsetTop = this.listContainer.offsetTop;
+      lenis.stop();
+      
+      const scrollPromise = new Promise(resolve => {
+        window.scrollTo({
+          top: offsetTop - 200,
+          behavior: 'smooth'
+        });
+        resolve();
+      });
+      
+      scrollPromise.then(() => {
+        lenis.start();
+      });
+    }
+  }
+  
+  updateButtonStates() {
+    this.paginationContainer.querySelectorAll('.page').forEach((btn, idx) => {
+      btn.classList.toggle('active', idx + 1 === this.currentPage);
+    });
+    
+    this.paginationContainer.querySelector('.prev-end').disabled = this.currentPage === 1;
+    this.paginationContainer.querySelector('.prev').disabled = this.currentPage === 1;
+    this.paginationContainer.querySelector('.next').disabled = this.currentPage === this.totalPages;
+    this.paginationContainer.querySelector('.next-end').disabled = this.currentPage === this.totalPages;
+  }
+  
+  renderPagination() {
+    this.paginationContainer.innerHTML = '';
+    
+    // 처음으로 버튼
+    const prevEndBtn = document.createElement('button');
+    prevEndBtn.className = 'prev-end';
+    prevEndBtn.disabled = this.currentPage === 1;
+    prevEndBtn.addEventListener('click', () => this.goToPage(1));
+    this.paginationContainer.appendChild(prevEndBtn);
+    
+    // 이전 버튼
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'prev';
+    prevBtn.disabled = this.currentPage === 1;
+    prevBtn.addEventListener('click', () => {
+      if (this.currentPage > 1) {
+        this.goToPage(this.currentPage - 1);
+      }
+    });
+    this.paginationContainer.appendChild(prevBtn);
+    
+    // 페이지 그룹 계산 (5개씩 그룹화)
+    const maxButtons = 5;
+    const currentGroup = Math.ceil(this.currentPage / maxButtons);
+    const startPage = (currentGroup - 1) * maxButtons + 1;
+    const endPage = Math.min(this.totalPages, startPage + maxButtons - 1);
+    
+    // 페이지 버튼 생성
+    for (let i = startPage; i <= endPage; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'page' + (i === this.currentPage ? ' active' : '');
+      btn.textContent = i;
+      if (i === this.currentPage) {
+        btn.disabled = true;
+      } else {
+        btn.addEventListener('click', () => this.goToPage(i));
+      }
+      this.paginationContainer.appendChild(btn);
+    }
+    
+    // 다음 버튼
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'next';
+    nextBtn.disabled = this.currentPage === this.totalPages;
+    nextBtn.addEventListener('click', () => {
+      if (this.currentPage < this.totalPages) {
+        this.goToPage(this.currentPage + 1);
+      }
+    });
+    this.paginationContainer.appendChild(nextBtn);
+    
+    // 마지막으로 버튼
+    const nextEndBtn = document.createElement('button');
+    nextEndBtn.className = 'next-end';
+    nextEndBtn.disabled = this.currentPage === this.totalPages;
+    nextEndBtn.addEventListener('click', () => this.goToPage(this.totalPages));
+    this.paginationContainer.appendChild(nextEndBtn);
+  }
 }

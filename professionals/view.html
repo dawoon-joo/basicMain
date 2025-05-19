@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/common/css/font/font.css">
+  <link rel="stylesheet" href="/common/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="/common/css/jquery.fullpage.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="/common/css/base.css">
+  <link rel="stylesheet" href="/common/css/sub.css">
+  <link rel="stylesheet" href="/common/css/main.css">
+  <link rel="stylesheet" href="/common/css/common.css">
+  <script src="/common/js/gsap.min.js"></script>
+  <script src="/common/js/ScrollTrigger.min.js"></script>
+  <script src="/common/js/ScrollToPlugin.min.js"></script>
+  <script src="/common/js/ScrollMagic.min.js"></script>
+  <script src="/common/js/scrollreveal.min.js"></script>
+  <script src="/common/js/lenis.min.js"></script>
+  <script src="/common/js/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="/common/js/main.js"></script>
+  <script src="/common/js/sub.js"></script>
+  <script src="/common/js/device.js"></script>
+  <script src="/common/js/header.js"></script>
+  <script src="/common/js/common.js"></script>
+</head>
+<body>
+  <header id="header" class="header">
+    <h1>
+      <a href="/" class="logo">
+        <span class="blind">Test Logo</span>
+      </a>
+    </h1>
+    <div class="gnb">
+      <nav class="nav">
+        <ul class="depth1" data-lenis-prevent>
+          <li>
+            <a href="#">About Us</a>
+            <ul class="depth2">
+              <li><a href="/about">소개</a></li>
+              <li><a href="/about/history.html">연혁</a></li>
+              <li><a href="/about/awards.html">수상</a></li>
+              <li><a href="/about/location.html">오시는 길</a></li>
+              <li><a href="/about/careers.html">Careers</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Global Competence</a>
+            <ul class="depth2">
+              <li><a href="/global/index.html">미국</a></li>
+              <li><a href="#">캐나다</a></li>
+              <li><a href="#">독일</a></li>
+              <li><a href="#">중국</a></li>
+              <li><a href="#">베트남</a></li>
+              <li><a href="#">미얀마</a></li>
+              <li><a href="#">캄보디아</a></li>
+              <li><a href="#">태국</a></li>
+              <li><a href="#">몽골</a></li>
+              <li><a href="#">Asia Practice Circle</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Expertise</a>
+            <ul class="depth2">
+              <li><a href="/expertise/index.html">분야별</a></li>
+              <li><a href="#">산업별</a></li>
+              <li><a href="#">센터</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Professionals</a>
+            <ul class="depth2">
+              <li><a href="/professionals/index.html">변호사</a></li>
+              <li><a href="/professionals/foreign-lawyers.html">외국변호사</a></li>
+              <li><a href="/professionals/advisors.html">고문</a></li>
+              <li><a href="/professionals/specialists.html">전문위원</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Insights</a>
+            <ul class="depth2">
+              <li><a href="#">최근 업무사례</a></li>
+              <li><a href="#">콘텐츠 아카이브</a></li>
+              <li><a href="#">언론보도</a></li>
+              <li><a href="#">법인소식</a></li>
+              <li><a href="#">뉴스레터</a></li>
+              <li><a href="#">Seminar</a></li>
+              <li><a href="#">발간자료</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Social Impact</a>
+            <ul class="depth2">
+              <li><a href="#">사회공헌</a></li>
+              <li><a href="#">D-TECH</a></li>
+              <li><a href="#">D'CHANGE</a></li>
+              <li><a href="#">TIME BANK</a></li>
+              <li><a href="#">B-Corp</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="close">
+        <a href="javascript:">
+          <span class="circle"></span>
+          <span class="blind">Close Menu</span>
+        </a>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="site-wrap">
+        <button type="button" class="btn-site">Family Site 바로가기</button>
+        <div class="ico ico-arrow-drop"><span class="hide">Arrow</span></div>
+        <ul class="familyLink">
+          <li><a href="#" target="_blank" title="새창으로 열림">Family Site 1</a></li>
+          <li><a href="#" target="_blank" title="새창으로 열림">Family Site 2</a></li>
+        </ul>
+      </div>
+      <div class="header-row">
+        <div class="header-language">
+          <button class="current" aria-pressed="false"><span class="text">KR</span></button>
+          <ul>
+            <li><a href="javascript:lang_chg('ko')">KR</a></li>
+            <li><a href="javascript:lang_chg('en')">EN</a></li>
+            <li><a href="javascript:lang_chg('cn')">CN</a></li>
+          </ul>
+        </div>
+        <div class="header-search">
+          <button class="ico-search"></button>
+        </div>
+      </div>
+      <div class="hamburger">
+        <a href="javascript:">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="blind">Open Menu</span>
+        </a>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <div class="content-top">
+        <form action="/search">
+          <div class="input-box">
+            <input type="text" name="s" class="input-text" placeholder="검색어를 입력해 주세요.">
+            <button type="submit" class="btn-search"><span class="blind">검색</span></button>
+          </div>
+        </form>
+      </div>
+      <button class="close">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  <div class="professionals-view" id="print">
+    <div class="view-floationg">
+      <div class="floationg-wrap">
+        <div class="floationg-btn">
+          <i class="ico ico-arrow-drop"></i>
+          <span>안희철</span>
+        </div>
+        <div class="floationg-body">
+          <ul class="floationg-list">
+            <li><a href="javascript:">미국</a></li>
+            <li><a href="javascript:">캐나다</a></li>
+            <li><a href="javascript:">독일</a></li>
+            <li><a href="javascript:">중국</a></li>
+            <li><a href="javascript:">베트남</a></li>
+            <li><a href="javascript:">미얀마</a></li>
+            <li><a href="javascript:">캄보디아</a></li>
+            <li><a href="javascript:">태국</a></li>
+            <li><a href="javascript:">몽골</a></li>
+          </ul>
+        </div>
+      </div>
+      <a href="javascript:" class="floationg-prev">
+        <div class="ico ico-hamburger-light"></div>
+        <span class="blind">전체 리스트 이동</span>
+      </a>
+    </div>
+    <section class="view-section">
+      <div class="sidebar">
+        <div class="sticky">
+          <div class="sidebar-view">
+            <figure>
+              <img src="/images/sub/professionals/view-profile.png" alt="">
+            </figure>
+            <div class="sidebar-view-info">
+              <div class="sidebar-view-title">
+                <h4 class="heading">안희철</h4>
+                <p class="sidebar-view-position">
+                  <span>대표 변호사</span>
+                  <span>세무사</span>
+                  <span>정책센터장</span>
+                </p>
+              </div>
+              <dl class="sidebar-view-address">
+                <div class="view-address-item">
+                  <dt>Tel.</dt>
+                  <dd>02-2051-1870</dd>
+                </div>
+                <div class="view-address-item">
+                  <dt>E-mail.</dt>
+                  <dd>heechul.an@dlglaw.co.kr</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="view-info">
+        <span class="line vertical" data-aos=""></span>
+        <div class="info-top">
+          <ul class="title-scroll">
+            <button type="button" class="active">주요 업무분야</button>
+            <button type="button">프로필</button>
+            <button type="button">주요 업무사례</button>
+            <button type="button">경력</button>
+            <button type="button">학력/자격/언어</button>
+            <button type="button">수상</button>
+            <button type="button">저서/논문</button>
+            <button type="button">관련 소식</button>
+          </ul>
+          <div class="title-btns">
+            <a href="javascript:window.print();" class="btn-print" title="인쇄"><span class="blind">인쇄</span></a>
+            <a href="mailto:heechul.an@dlglaw.co.kr" class="btn-mail" title="메일"><span class="blind">메일</span></a>
+            <a href="#" class="btn-vcard" title="vCard" download=""><span class="blind">vCard</span></a>
+            <a href="#" class="btn-download" download="" title="다운로드"><span class="blind">다운로드</span></a>
+          </div>
+        </div>
+        <div class="info-content">
+          <div class="info-area">
+            <div class="dropdown">
+              <h4 class="info-title dropdown-btn">주요 업무분야 <span class="toggle-btn"></span></h4>
+              <div class="info-body dropdown-body">
+                <ul class="info-links">
+                  <li><a href="javascript:">#스타트업</a></li>
+                  <li><a href="javascript:">#VC/PE</a></li>
+                  <li><a href="javascript:">#기업법무/M&A</a></li>
+                  <li><a href="javascript:">#개인정보/데이터</a></li>
+                  <li><a href="javascript:">#인공지능</a></li>
+                  <li><a href="javascript:">#블록체인</a></li>
+                  <li><a href="javascript:">#금융/핀테크</a></li>
+                  <li><a href="javascript:">#소송/분쟁해결</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="info-area">
+            <div class="dropdown">
+              <h4 class="info-title dropdown-btn">프로필 <span class="toggle-btn"></span></h4>
+              <div class="info-body dropdown-body">
+                <p class="info-desc">
+                  안희철 변호사는 법무법인 디엘지의 대표변호사이자 정책센터장으로 활동하고 있고 포항공과대학교 산업경영공학과 겸직교수, 한국엔젤투자협회 이사로 재직하고 있습니다. 안 변호사는 스타트업, 기업 및 금융, M&A, 개인정보/데이터 및 인공지능 관련 산업, 민∙형사 송무 등 다양한 영역에서 자문을 제공하고 소송을 수행하고 있습니다. 특히, 안 변호사는 스타트업의 해외진출을 도와 플립(Flip) 업무를 전문적으로 진행하고 인바운드/아웃바운드 M&A deal 자문을 주도하고 있습니다.
+                  <br><br>
+                  안희철 변호사는 스타트업과 벤처캐피탈, 액셀러레이터 자문 경험을 바탕으로 『스타트업법률가이드 3.0』과 『투자계약서 가이드북』을 출간했으며, 한국엔젤투자협회, 한국액셀러레이터협회, 창업진흥원, 서울경제진흥원(SBA) 등 다양한 스타트업 유관기관을 위해 자문을 제공하고 있고 K-M&A School에서 M&A 강의를 진행하고 있습니다. 또한, 서울 스마트시티 리더스포럼 자문의원, 서울시 정보공개심의회 심사위원으로 활동했으며, 분당서울대병원 등 주요 병원의 기관생명윤리위원회 위원을 역임했습니다.
+                  <br><br>
+                  안 변호사는 이러한 성과를 바탕으로 2021년 ALB Korea Law Awards Young Lawyer Of The Year Finalist 선정, 2022년 리걸타임즈 라이징스타즈 선정 및 중소벤처기업부장관 표창, 2023년 액셀러레이터산업 전문화기여상 수상 및 시사저널 차세대리더 100인에 선정되는 등 그 전문성을 인정받고 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="info-area">
+            <div class="dropdown">
+              <h4 class="info-title dropdown-btn">주요 업무사례 <span class="toggle-btn"></span></h4>
+              <div class="info-body dropdown-body">
+                <div class="info-list">
+                  <h5 class="list-title">[해외]</h5>
+                  <ul>
+                    <li class="list-item">한국 기업의 미국 진출을 위한 플립(Flip) 자문</li>
+                    <li class="list-item">미국 기업이 한국 진출을 위한 플립(Flip) 및 역플립 자문</li>
+                    <li class="list-item">중국 법인과 중국 및 한국 내 합자회사 설립, 기술 이전 자문</li>
+                    <li class="list-item">미국 게임 스튜디오 인수 관련 법률 실사 및 주식매매계약서 작성</li>
+                    <li class="list-item">미국 법인에 대한 CPS 투자계약 및 SAFE 투자 계약 자문, 외국환거래신고 자문</li> 
+                    <li class="list-item">스타트업 M&A 및 법률 실사, M&A 계약(SPA/SHA 등) 자문</li>
+                    <li class="list-item">상장사의 RSU 부여 계약 자문</li>
+                    <li class="list-item">스타트업 복수의결권 주식 발행 자문</li>
+                    <li class="list-item">기업 지분율 방어 방안 검토 및 대응</li>
+                    <li class="list-item">회생 M&A를 위한 법률 실사 및 자문</li>
+                    <li class="list-item">합자회사(Joint Venture) 설립 및 주주간 계약 자문</li>
+                  </ul>
+                </div>
+                <div class="info-list">
+                  <h5 class="list-title">[기업법무/M&A]</h5>
+                  <ul>
+                    <li class="list-item">스타트업 M&A 및 법률 실사, M&A 계약(SPA/SHA 등) 자문</li>
+                    <li class="list-item">상장사의 RSU 부여 계약 자문</li>
+                    <li class="list-item">스타트업 복수의결권 주식 발행 자문</li>
+                    <li class="list-item">기업 지분율 방어 방안 검토 및 대응</li>
+                    <li class="list-item">회생 M&A를 위한 법률 실사 및 자문</li>
+                    <li class="list-item">합자회사(Joint Venture) 설립 및 주주간 계약 자문</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="info-area">
+            <div class="dropdown">
+              <h4 class="info-title dropdown-btn">경력 <span class="toggle-btn"></span></h4>
+              <div class="info-body dropdown-body">
+                <div class="info-list">
+                  <h5 class="list-title">[2025 - 현재]</h5>
+                  <ul>
+                    <li class="list-item">티디에스이노베이션 감사</li>
+                  </ul>
+                </div>
+                <div class="info-list">
+                  <h5 class="list-title">[2024 - 현재]</h5>
+                  <ul>
+                    <li class="list-item">포항공과대학교 산업경영공학과 겸직교수</li>
+                    <li class="list-item">사단법인 한국엔젤투자협회 이사</li>
+                    <li class="list-item">K-M&A School 교수</li>
+                    <li class="list-item">주식회사 에이치에너지 사외이사</li>
+                    <li class="list-item">중소벤처기업부 스타트업 온라인 법률지원사업 법률자문단 위원</li>
+                    <li class="list-item">농업정책보험금융원 농식품투자조합 투자심의위원회 준법감시인</li>
+                    <li class="list-item">전라북도 벤처투자위원회 위원</li>
+                    <li class="list-item">울산창조경제혁신센터 외부전문가</li>
+                    <li class="list-item">한국관광공사 관광글로벌선도기업 육성사업운영위원</li>
+                  </ul>
+                </div>
+                <div class="info-list">
+                  <h5 class="list-title">[2023 - 현재]</h5>
+                  <ul>
+                    <li class="list-item">포항공과대학교 대학평의원</li>
+                    <li class="list-item">포항공과대학교 창업멘토</li>
+                    <li class="list-item">바이오아이코어사업단 자문위원</li>
+                    <li class="list-item">전라북도 창창(創昌) 자문단 위원</li>
+                    <li class="list-item">정책센터 디엘지 센터장</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="info-area">
+            <div class="dropdown">
+              <h4 class="info-title dropdown-btn">학력 <span class="toggle-btn"></span></h4>
+              <div class="info-body dropdown-body">
+                <div class="info-list">
+                  <h5 class="list-title">[2025]</h5>
+                  <ul>
+                    <li class="list-item">서울대학교 법학전문대학원 졸업 (변시 4회)</li>
+                  </ul>
+                </div>
+                <div class="info-list">
+                  <h5 class="list-title">[2011]</h5>
+                  <ul>
+                    <li class="list-item">포항공과대학교 물리학과 졸업</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="dropdown">
+              <h4 class="info-title dropdown-btn">자격 <span class="toggle-btn"></span></h4>
+              <div class="info-body dropdown-body">
+                <div class="info-list">
+                  <h5 class="list-title">[2019]</h5>
+                  <ul>
+                    <li class="list-item">세무사, 대한민국</li>
+                  </ul>
+                </div>
+                <div class="info-list">
+                  <h5 class="list-title">[2015]</h5>
+                  <ul>
+                    <li class="list-item">변호사, 대한민국</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="dropdown">
+              <h4 class="info-title dropdown-btn">언어 <span class="toggle-btn"></span></h4>
+              <div class="info-body dropdown-body">
+                <div class="info-list">
+                  <ul>
+                    <li class="list-item">한국어</li>
+                    <li class="list-item">영어</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="info-area">
+            <div class="dropdown">
+              <h4 class="info-title dropdown-btn">수상 <span class="toggle-btn"></span></h4>
+              <div class="info-body dropdown-body">
+                <div class="info-list">
+                  <ul>
+                    <li class="list-item">시사저널 선정 차세대리더 100인 (2023)</li>
+                    <li class="list-item">한국액셀러레이터협회 액셀러레이터산업 전문화기여상 (2023)</li>
+                    <li class="list-item">사단법인 양해연·양육비해결총연합회 감사장 (2023)</li>
+                    <li class="list-item">중소벤처기업부장관 표창(엔젤투자 활성화 공로) (2022)</li>
+                    <li class="list-item">리걸타임즈 라이징스타즈 (2022)</li>
+                    <li class="list-item">ALB Korea Law Awards Young Lawyer Of The Year Finalist (2021)</li>
+                    <li class="list-item">서울특별시장 감사장 (2020)</li>
+                    <li class="list-item">제2회 국회입법조사처 입법 및 정책 제안대회 대상 (2011)</li>
+                    <li class="list-item">한국공학한림원 NAEK 차세대 리더 (2007)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="info-area">
+            <div class="dropdown">
+              <h4 class="info-title dropdown-btn">저서/논문 <span class="toggle-btn"></span></h4>
+              <div class="info-body dropdown-body">
+                <div class="info-list">
+                  <ul>
+                    <li class="list-item">스타트업법률가이드 3.0 (안희철 변호사 외 공저, 박영사, 2024)</li>
+                    <li class="list-item">투자계약서 가이드북 (안희철 변호사 외 공저, 스타트업얼라이언스/법무법인 디엘지, 2022)</li>
+                    <li class="list-item">스타트업법률가이드 2.0 (안희철 변호사 외 공저, 박영사, 2020)</li>
+                    <li class="list-item">스타트업법률가이드 (안희철 변호사 외 공저, 박영사, 2018)</li>
+                    <li class="list-item">Simulation of asymmetric solar wind electron distributions (Chang-Mo Ryu; Hee-Chul Ahn; Tongnyeol Rhee; P. H. Yoon; L. F. Ziebell; R. Gaelzer; A. F. Viñas, Physics of Plasmas, June 04 2009, Physics of Plasmas)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="view-section">
+      <span class="line" data-aos=""></span>
+      <div class="view-info">
+        <div class="info-area">
+          <div class="info-title v2">관련 소식</div>
+          <div class="info-slide">
+            <div class="swiper view-sw">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="javascript:" class="board-card" data-card="view-press">
+                    <div class="card-title"></div>
+                    <div class="card-content">
+                      <span class="card-year">2025-04-16</span>
+                      <p class="card-desc">[기고] 벤처기업법상 ‘성과조건부주식’ 제도의 도입과 활용법 – 안희철 대표변호사</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="javascript:" class="board-card" data-card="view-newsletter">
+                    <div class="card-title"></div>
+                    <div class="card-content">
+                      <span class="card-year">2025-04-16</span>
+                      <p class="card-desc">국가 R&D 사업의 필수 지침서 ‘대학·연구소 R&D 법률 가이드라인’ 출간(무료배포)</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="javascript:" class="board-card" data-card="view-newsletter">
+                    <div class="card-title"></div>
+                    <div class="card-content">
+                      <span class="card-year">2025-04-16</span>
+                      <p class="card-desc">국가 R&D 사업의 필수 지침서 ‘대학·연구소 R&D 법률 가이드라인’ 출간(무료배포)</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="javascript:" class="board-card" data-card="view-newsletter">
+                    <div class="card-title"></div>
+                    <div class="card-content">
+                      <span class="card-year">2025-04-16</span>
+                      <p class="card-desc">국가 R&D 사업의 필수 지침서 ‘대학·연구소 R&D 법률 가이드라인’ 출간(무료배포)</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="javascript:" class="board-card" data-card="view-newsletter">
+                    <div class="card-title"></div>
+                    <div class="card-content">
+                      <span class="card-year">2025-04-16</span>
+                      <p class="card-desc">국가 R&D 사업의 필수 지침서 ‘대학·연구소 R&D 법률 가이드라인’ 출간(무료배포)</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="/common/js/view.js"></script>
+  <footer id="footer" class="footer">
+    <div class="floating-container">
+      <div class="scroll-to">
+        <a href="javascript:" class="btn-top scroll-top"></a>
+      </div>
+    </div>
+    <div class="inner">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <a href="/" aria-label="DLG 법무법인 디엘지 홈페이지로 이동">
+            <img src="/images/logo-ft.svg" alt="DLG 법무법인 디엘지">
+          </a>
+        </div>
+        
+        <div class="footer-social">
+          <ul class="social-links">
+            <li><a href="#" aria-label="네이버 블로그"><i class="ico-blog" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="인스타그램"><i class="ico-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="페이스북"><i class="ico-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="유튜브"><i class="ico-youtube" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- 중간 영역: 사이트맵 링크 -->
+      <nav class="footer-nav">
+        <ul class="footer-links">
+          <li><a href="/about">법적고지</a></li>
+          <li><a href="/privacy">이용약관</a></li>
+          <li><a href="https://usa.dlglaw.co.kr" target="_blank" rel="noopener">DLG USA <i class="ico-blank"></i></a></li>
+          <li><a href="https://thailand.dlglaw.co.kr" target="_blank" rel="noopener">DLG THAILAND <i class="ico-blank"></i></a></li>
+          <li><a href="https://myanmar.dlglaw.co.kr" target="_blank" rel="noopener">새롭게먼 디엘지 <i class="ico-blank"></i></a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-info">
+        <address class="company-info">
+          <dl class="info-list">
+            <div class="info-item">
+              <dt>대표&nbsp:&nbsp</dt>
+              <dd> 조원희, 인희철</dd>
+            </div>
+            <div class="info-item">
+              <dt>사업자등록번호&nbsp:&nbsp</dt>
+              <dd>464-87-00618</dd>
+            </div>
+            <div class="info-item">
+              <dt>주소&nbsp:&nbsp</dt>
+              <dd>서울특별시 서초구 강남대로 311, 8층</dd>
+            </div>
+            <div class="info-item">
+              <dt>대표번호&nbsp:&nbsp</dt>
+              <dd><a href="tel:02-2051-1870">02-2051-1870</a></dd>
+            </div>
+            <div class="info-item">
+              <dt>팩스번호&nbsp:&nbsp</dt>
+              <dd>02-2051-1877</dd>
+            </div>
+            <div class="info-item">
+              <dt>대표메일&nbsp:&nbsp</dt>
+              <dd><a href="mailto:info@dlglaw.co.kr">info@dlglaw.co.kr</a></dd>
+            </div>
+          </dl>
+        </address>
+        
+        <!-- 저작권 정보 -->
+        <div class="copyright">
+          <p>&copy; 2025 DLG. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -19,7 +19,7 @@
 
 /* view-info */
 .view { position: relative; overflow: hidden;}
-.view-info { position: relative; flex: 1; padding: 120px 0 220px;}
+.view-info { position: relative; flex: 1; padding: 120px 0 220px; max-width: 100%;}
 .view-info .title-btns { display: flex; gap: 8px; margin-left: auto;}
 .view-info .title-btns a { width: 48px; height: 48px; background-repeat: no-repeat; background-position: center; background-size: auto 100%;;}
 .view-info .title-btns a.btn-print { background-image: url(/images/view-info-print.svg);}
@@ -29,6 +29,7 @@
 .view-info .info-top { display: flex; gap: 20px; margin-bottom: 60px;}
 .view-info .info-area { position: relative;}
 .view-info .info-area + .info-area { margin-top: 60px;}
+.view-info .dropdown + .dropdown { margin-top: 60px;}
 .view-info .info-desc { font-weight: 400; color: #1d1d1d; line-height: 1.7;}
 .view-info .info-member { position: absolute; left: 100%; top: 0; width: max-content; padding-left: 9%; padding-top: 20px;}
 .view-info .info-member .member-title { font-size: 22px; margin-bottom: 30px;}
@@ -44,13 +45,16 @@
 .view-info .info-list .list-title { font-size: 18px; font-weight: 500; margin-bottom: 4px; line-height: 1.9;}
 .view-info .info-list .list-item { position: relative; padding-left: 12px; font-weight: 400; color: #1d1d1d; line-height: 1.9;}
 .view-info .info-list .list-item::before { content: ''; display: block; position: absolute; top: 14px; left: 0; width: 4px; height: 4px; border-radius: 50%; background: #000;}
+.view-info .info-links { display: flex; flex-wrap: wrap; gap: 10px;}
+.view-info .info-links a { display: block; padding: 8px 20px; border-radius: 35px; background: #f0f2f6; font-size: 16px; transition: all 0.3s ease;}
 .view-info .info-location figure { padding-bottom: 41.3%; border: 1px solid #ddd; margin-bottom: 30px;}
 .view-info .location-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 30px;}
 .view-info .location-list dt { display: flex; align-items: center; gap: 8px; font-size: 20px; margin-bottom: 20px;}
 .view-info .location-list dt i { width: 24px; height: 24px;}
 .view-info .location-list dd { color: #3f3f3f; padding-right: 60px;}
 .view-info .view-sw { overflow: visible;}
-.view-info .board-card { height: 420px;}
+.view-info .view-sw .swiper-slide { width: 420px;}
+.view-info .board-card { height: 420px; }
 .view-floationg { display: flex; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 9;}
 .view-floationg .floationg-wrap { position: relative;}
 .view-floationg .floationg-btn { display: flex; padding: 8px; border-radius: 35px; background: rgb(5,5,5,.9); filter-backdrop: blur(30px); z-index: 9; cursor: pointer;}
@@ -61,14 +65,15 @@
 .view-floationg .floationg-body a { display: block; color: #fff; padding: 5px;}
 .view-floationg .floationg-prev { display: flex; align-items: center; justify-content: center; width: 56px; height: auto; border-radius: 50%; background-color: rgba(5,5,5,.9); margin-left: 8px;}
 .view-floationg .floationg-btn.active .ico-arrow -drop { transform: scaleY(1);}
-
 /* global */
 .view.global { padding-left: calc(max((100vw - 900px) / 2, 5vw));}
 .view.global .view-info { max-width: 900px; width: 70%;}
 /* practices-view */
 .practices-view { padding-left: calc(max((100vw - 900px) / 2, 5vw));}
 .practices-view .view-info { max-width: 900px; width: 70%;}
-
+@media (hover: hover) and (pointer: fine) {
+  .view-info .info-links a:hover { background: #050505; color: #fff;}
+}
 
 
 /* about */
@@ -213,8 +218,8 @@
 .practices .inner { max-width: 1540px; width: 90%; padding: 0; margin: 0 auto;}
 .practices-search { position: relative; margin-bottom: 80px;}
 .practices-search .search-box { max-width: 762px; height: 100%; display: flex; margin: 0 auto;}
-.practices-search .search-box input, .practices-search .search-box button { height: 80px; background: #fff; border-bottom: 1px solid #000; color: #000;}
-.practices-search .search-box input { padding: 23px 0px; border-radius: 0; font-size: 22px; font-weight: 500; width: 100%; border-left: none; border-right: none; border-top: none; }
+.practices-search .search-box input, .practices-search .search-box button { height: 68px; background: #fff; border-bottom: 1px solid #000; color: #000;}
+.practices-search .search-box input { padding: 23px 0px; border-radius: 0; font-size: 20px; font-weight: 500; width: 100%; border-left: none; border-right: none; border-top: none; }
 .practices-search .search-box input:focus { outline: none;}
 .practices-search .search-box input::placeholder { color: #888;}
 .practices-search .search-box button { width: 60px; height: auto; padding: 20px; background-repeat: no-repeat; background-size: auto 36%; background-position: right center; background-image: url(/images/ico-search.svg); border-radius: 0; border-left: none; }
@@ -233,3 +238,43 @@
   .practices-list .practices-item a:hover { background: #050505; color: #fff;}
   .practices-list .practices-item a:hover::before { filter: invert(1);}
 }
+
+/* professionals */
+.professionals { padding: 120px 0 220px;}
+.professionals .inner { max-width: 1540px; width: 90%; padding: 0; margin: 0 auto;}
+.professionals .professionals-tabs { display: flex; justify-content: center; margin-bottom: 80px;}
+.professionals .professionals-tabs li a { padding: 0 30px; font-size: 28px; opacity: .4;}
+.professionals .professionals-tabs li a.active { opacity: 1;}
+.professionals .professionals-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); grid-template-rows: 1fr; gap: 80px 30px; margin-bottom: 80px;}
+.professionals .professionals-list .professionals-item { border: 1px solid #bbb;}
+.professionals .professionals-list figure { padding-bottom: 95%; border-bottom: 1px solid #bbb;}
+.professionals .professionals-list .professionals-info { padding: 20px; display: flex; justify-content: space-between; align-items: flex-start; gap: 20px 5px;}
+.professionals .professionals-list .professionals-name { font-size: 24px; margin-bottom: 9px;}
+.professionals .professionals-list .professionals-position { font-weight: 400; font-size: 18px; color: #1D1D1D;}
+.professionals .professionals-list .professionals-position span { position: relative; margin-right: 16px;}
+.professionals .professionals-list .professionals-position span:not(:first-child)::before { content: ''; display: block; position: absolute; top: 3px; left: -10px; width: 1px; height: 16px; background: #bbb;}
+.professionals .professionals-list .professionals-email { width: 48px; aspect-ratio: 1; background: #F5F5F5 url(/images/ico-email.svg) no-repeat center/ auto 50%; border-radius: 50%;}
+
+/* professionals-view */
+.professionals-view { padding-bottom: 220px; padding-top: 100px; position: relative;}
+.professionals-view .view-section { display: flex; position: relative;}
+.professionals-view .view-section:last-child { overflow: hidden;}
+.professionals-view .sidebar { flex: 0 0 37.2%; padding: 0; background: transparent;}
+.professionals-view .sidebar .sticky { top: 100px;}
+.professionals-view .sidebar-view-info { padding: 20px 30px;}
+.professionals-view .sidebar-view figure { padding-bottom: 87.7%;}
+.professionals-view .sidebar-view-title { display: flex; align-items: center; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 12px;}
+.professionals-view .sidebar-view-title .heading { font-size: 40px;}
+.professionals-view .sidebar-view-position span { position: relative; display: inline-block;}
+.professionals-view .sidebar-view-position span:not(:first-child) { margin-left: 16px;}
+.professionals-view .sidebar-view-position span:not(:first-child)::before { content: ''; display: block; position: absolute; left: -10px; top: 2px; width: 1px; height: 18px; background: #bbb;}
+.professionals-view .view-address-item { display: flex; gap: 4px; }
+.professionals-view .view-address-item + .view-address-item { margin-top: 5px;}
+.professionals-view .view-address-item dd { font-weight: 400; color: #1d1d1d;}
+.professionals-view .view-info { padding: 40px 60px 0px;}
+.professionals-view .view-info .info-top { align-items: center; position: sticky; top: 100px; padding: 20px 0; background: #fff; z-index: 1; margin-bottom: 0px;}
+.professionals-view .view-info .info-content .info-area:first-child { margin-top: 40px;}
+.professionals-view .view-info .info-content .info-area:last-child { padding-bottom: 120px;}
+.professionals-view .view-info .title-scroll { display: flex; gap: 20px;}
+.professionals-view .view-info .title-scroll button { opacity: .4;}
+.professionals-view .view-info .title-scroll button.active { opacity: 1;} 

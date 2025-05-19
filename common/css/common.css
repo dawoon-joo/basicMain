@@ -236,7 +236,7 @@ figure img { display: block;}
 .header .search-wrap .content-top .text span { color: #00AFD7;}
 .header .search-wrap .input-box { max-width: 762px; height: 100%; display: flex; margin: 0 auto; margin-bottom: 80px;}
 .header .search-wrap .input-box input, .search-wrap .input-box button { height: 80px; background: #fff; border-bottom: 1px solid #000;}
-.header .search-wrap .input-box input { padding: 23px 0px; border-radius: 0; font-size: 22px; width: 100%; border-left: none; border-right: none; border-top: none; height: 80px; font-size: 22px; font-weight: 500;}
+.header .search-wrap .input-box input { padding: 23px 0px; border-radius: 0; width: 100%; border-left: none; border-right: none; border-top: none; height: 68px; font-size: 20px; font-weight: 500;}
 .header .search-wrap .input-box input:focus { outline: none;}
 .header .search-wrap .input-box input::placeholder { color: #888;}
 .header .search-wrap .input-box button { width: 60px; height: auto; padding: 20px; background-repeat: no-repeat; background-size: auto 36%; background-position: right center; background-image: url(/images/ico-search.svg); border-radius: 0; border-left: none; }
@@ -316,3 +316,17 @@ footer .copyright { margin-top: 12px;}
   .site-wrap:hover { border-color: #fff;}
   .site-wrap .familyLink li a:hover { color: #000;}
 }
+
+/* pagination */
+.pagination { display: flex; justify-content: center; align-items: center; gap: 5px;}
+.pagination button { width: 48px; aspect-ratio: 1; background-repeat: no-repeat; background-position: center; background-size: auto 100%;}
+.pagination button.prev { background-image: url(/images/pagination-prev.svg);}
+.pagination button.prev-end { background-image: url(/images/pagination-prev-end.svg);}
+.pagination button.next { background-image: url(/images/pagination-next.svg);}
+.pagination button.next-end { background-image: url(/images/pagination-next-end.svg);}
+.pagination .prev[disabled], .pagination .next[disabled], .pagination .prev-end[disabled], .pagination .next-end[disabled] { opacity: 0.5; cursor: default; }
+.pagination .page[disabled] { cursor: default;}
+.pagination .page { border-radius: 50%;}
+.pagination .page.active { background-color: #F32735; color: #fff;}
+
+
