@@ -1250,19 +1250,19 @@
     });
 
     const updateActiveItem = (index, direction) => {
-      gsap.set(sideBarBtns, { autoAlpha: 0, y: 50 });
+      gsap.set(sideBarBtns, { autoAlpha: 0, y: 5 });
       gsap.set(sideBarBtns[0], { autoAlpha: 1, y: 0 });
       gsap.set(sideBarBtnsLabels, { clipPath: 'inset(0 0% 100% 0)' });
       gsap.set(sideBarBtnsLabels[0], { clipPath: 'inset(0 0% 0% 0)' });
       if (direction === 'enter') {
-        gsap.to(sideBarBtns[index], { autoAlpha: 1, y: 0, duration: 1, ease: 'power1.inOut' });
+        gsap.to(sideBarBtns[index], { autoAlpha: 1, y: 0, duration: 0.3, ease: 'power1.inOut' });
       } else {
         gsap.fromTo(sideBarBtns[index], 
-          { autoAlpha: 0, y: 50 }, 
-          { autoAlpha: 1, y: 0, duration: 1, ease: 'power1.inOut' }
+          { autoAlpha: 0, y: 5 }, 
+          { autoAlpha: 1, y: 0, duration: 0.3, ease: 'power1.inOut' }
         );
       }
-      gsap.to(sideBarBtnsLabels[index], { clipPath: 'inset(0 0% 0% 0)', duration: 0.5, delay: 0.5, ease: 'none' });
+      gsap.to(sideBarBtnsLabels[index], { clipPath: 'inset(0 0% 0% 0)', duration: 0.25, delay: 0.25, ease: 'none' });
       sideBarBtns.forEach(btn => btn.classList.remove('active'));
       sideBarBtns[index].classList.add('active');
     }

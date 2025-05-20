@@ -71,7 +71,6 @@ figure video,
 figure iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
 .img-box img,
 figure img { display: block;}
-.view { font-weight: 700; }
 .heading-sub { font-size: 20px; color: var(--accent-color); margin-bottom: 20px;}
 .sec-wrap { display: flex; flex-direction: column; min-height: 100vh;}
 .sec-group { position: relative;}
@@ -157,7 +156,7 @@ figure img { display: block;}
 .header .gnb a { padding: 10px 30px; font-weight: 500; display: flex;}
 .header .gnb .depth1 > li > a { padding: 15px 30px; position: relative; height: 100px; display: flex; align-items: center; justify-content: center; font-weight: 500; white-space: nowrap;}
 .header .gnb .depth1 > li > a::before { content: ''; display: none; width: 20px; height: 20px; position: absolute; right: 5%; top: 50%; transform: translateY(-50%); background: url(/images/ico-arrow.png) no-repeat center/cover; filter: invert(1);}
-.header .gnb .depth2{ position: absolute; top: 100px; left: 0; width: 100%; padding:20px 0 40px; background: #fff; display: none; justify-content: center;}
+.header .gnb .depth2{ position: absolute; top: 100px; left: 0; width: 100%; padding:20px 0; background: #fff; display: none; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.03), 0 4px 6px -2px rgba(0, 0, 0, 0.05);}
 /* .header .gnb .depth2::before { content: ''; display: block; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 0%; height: 2px; background: var(--accent-color); transition: 0.2s;} */
 .header .gnb .depth2 > li > a { display: block; text-align: center; font-size: 16px; font-weight: 400;}
 .header .gnb .close { display: none; position: fixed; top: 30px; right: 2.5%; width: 40px; height: 40px; }
@@ -306,15 +305,20 @@ footer .copyright { margin-top: 12px;}
 /* card-profile-list  */
 .card-profile-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); grid-template-rows: 1fr; gap: 80px 30px; margin-bottom: 80px;}
 .card-profile-list .profile-item { border: 1px solid #bbb;}
-.card-profile-list figure { padding-bottom: 95%; border-bottom: 1px solid #bbb;}
+.card-profile-list figure { padding-bottom: 95%; border-bottom: 1px solid #bbb; background-color: #C9D5DD;}
 .card-profile-list .profile-info { padding: 20px; display: flex; justify-content: space-between; align-items: flex-start; gap: 20px 5px;}
 .card-profile-list .profile-name { font-size: 24px; margin-bottom: 9px;}
 .card-profile-list .profile-position { font-weight: 400; font-size: 18px; color: #1D1D1D;}
 .card-profile-list .profile-position span { position: relative; margin-right: 16px;}
 .card-profile-list .profile-position span:not(:first-child)::before { content: ''; display: block; position: absolute; top: 3px; left: -10px; width: 1px; height: 16px; background: #bbb;}
-.card-profile-list .profile-email { width: 48px; aspect-ratio: 1; background: #F5F5F5 url(/images/ico-email.svg) no-repeat center/ auto 50%; border-radius: 50%;}
+.card-profile-list .profile-email { width: 48px; aspect-ratio: 1; border-radius: 50%; overflow: hidden; position: relative; background: #f5f5f5; transition: all .3s ease;}
+.card-profile-list .profile-email::before { content: ''; display: block; background: url(/images/ico-email.svg) no-repeat center/ auto 50%; position: absolute; top: 0; left: 0; width: 100%; height: 100%; transition: all .3s ease;}
 .card-more-btn { border: 1px solid #ccc; background: #fff; width: fit-content; margin: 0 auto;}
 .card-more-btn button { display: flex; align-items: center; gap: 12px; padding: 10px 40px; height: 56px;}
+@media (hover: hover) and (pointer: fine) {
+  .card-profile-list .profile-email:hover { background: #F32735;}
+  .card-profile-list .profile-email:hover::before { filter: invert(1);}
+}
 
 .site-wrap.open .familyLink { display: block}
 .site-wrap { position: relative; width: 172px; cursor: pointer; padding: 8px 33px 8px 16px; display: flex; align-items: center; margin-left: auto; border-radius: 35px; background-color: #F0F2F6;}
@@ -325,7 +329,7 @@ footer .copyright { margin-top: 12px;}
 .site-wrap.open .icon_box { border-top: 0; border-bottom: 10px solid #5285a2}
 .site-wrap.active .familyLink { display: block;}
 .site-wrap.active .ico { transform: rotate(180deg);}
-@media (pointer: fine) {
+@media (hover: hover) and (pointer: fine) {
   .site-wrap:hover { border-color: #fff;}
   .site-wrap .familyLink li a:hover { color: #000;}
 }
