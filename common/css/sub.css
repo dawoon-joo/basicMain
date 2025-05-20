@@ -245,15 +245,15 @@
 .professionals .professionals-tabs { display: flex; justify-content: center; margin-bottom: 80px;}
 .professionals .professionals-tabs li a { padding: 0 30px; font-size: 28px; opacity: .4;}
 .professionals .professionals-tabs li a.active { opacity: 1;}
-.professionals .professionals-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); grid-template-rows: 1fr; gap: 80px 30px; margin-bottom: 80px;}
-.professionals .professionals-list .professionals-item { border: 1px solid #bbb;}
-.professionals .professionals-list figure { padding-bottom: 95%; border-bottom: 1px solid #bbb;}
-.professionals .professionals-list .professionals-info { padding: 20px; display: flex; justify-content: space-between; align-items: flex-start; gap: 20px 5px;}
-.professionals .professionals-list .professionals-name { font-size: 24px; margin-bottom: 9px;}
-.professionals .professionals-list .professionals-position { font-weight: 400; font-size: 18px; color: #1D1D1D;}
-.professionals .professionals-list .professionals-position span { position: relative; margin-right: 16px;}
-.professionals .professionals-list .professionals-position span:not(:first-child)::before { content: ''; display: block; position: absolute; top: 3px; left: -10px; width: 1px; height: 16px; background: #bbb;}
-.professionals .professionals-list .professionals-email { width: 48px; aspect-ratio: 1; background: #F5F5F5 url(/images/ico-email.svg) no-repeat center/ auto 50%; border-radius: 50%;}
+.professionals .card-profile-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); grid-template-rows: 1fr; gap: 80px 30px; margin-bottom: 80px;}
+.professionals .card-profile-list .profile-item { border: 1px solid #bbb;}
+.professionals .card-profile-list figure { padding-bottom: 95%; border-bottom: 1px solid #bbb;}
+.professionals .card-profile-list .profile-info { padding: 20px; display: flex; justify-content: space-between; align-items: flex-start; gap: 20px 5px;}
+.professionals .card-profile-list .profile-name { font-size: 24px; margin-bottom: 9px;}
+.professionals .card-profile-list .profile-position { font-weight: 400; font-size: 18px; color: #1D1D1D;}
+.professionals .card-profile-list .profile-position span { position: relative; margin-right: 16px;}
+.professionals .card-profile-list .profile-position span:not(:first-child)::before { content: ''; display: block; position: absolute; top: 3px; left: -10px; width: 1px; height: 16px; background: #bbb;}
+.professionals .card-profile-list .profile-email { width: 48px; aspect-ratio: 1; background: #F5F5F5 url(/images/ico-email.svg) no-repeat center/ auto 50%; border-radius: 50%;}
 
 /* professionals-view */
 .professionals-view { padding-bottom: 220px; padding-top: 100px; position: relative;}

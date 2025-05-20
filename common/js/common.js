@@ -1,3 +1,4 @@
+const SR = ScrollReveal();
 const revealOption = { duration: 1200, distance: '60px', opacity: 0, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', reset: false, beforeReveal: (el) => { el.classList.add('sr-animate') }, beforeReset: (el) => { el.classList.remove('sr-animate') } }
 const fadeIn = { ...revealOption, distance: 0 }
 const fadeUp = { ...revealOption, origin: 'bottom' }
@@ -186,9 +187,30 @@ const dropdown = () => {
     
     if (content) {
       if (isActive) {
-        gsap.to(content, { maxHeight: content.scrollHeight + 'px', duration: 0.5, ease: 'power2.inOut', onComplete: () => { ScrollTrigger.refresh();}});
+        gsap.to(content, { 
+          maxHeight: content.scrollHeight + 'px', 
+          duration: 0.5, ease: 'power2.inOut', 
+          onComplete: () => { 
+            ScrollTrigger.refresh();
+          }
+        });
       } else {
-        gsap.to(content, { maxHeight: 0, duration: 0.5, ease: 'power2.inOut', onComplete: () => { ScrollTrigger.refresh();}});
+        gsap.to(content, { 
+          maxHeight: 0, 
+          duration: 0.5, ease: 'power2.inOut', 
+          onComplete: () => { 
+            ScrollTrigger.refresh();
+          }
+        });
+      }
+
+      if (document.getElementById('print')) {
+        document.querySelectorAll('.view-info .dropdown').forEach(el => {
+          el.style.visibility = '';
+          el.style.opacity = '';
+          el.style.transform = '';
+          el.removeAttribute('data-sr-id');
+        });
       }
     }
   };

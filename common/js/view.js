@@ -18,8 +18,8 @@ function viewSwiper() {
 }
 function viewMotion() {
   if (!document.getElementById('print')) { return;}
-  ScrollReveal().reveal(".view-info .info-top", {...fadeUp});  
-  ScrollReveal().reveal(".view-info .dropdown", {...fadeUp});  
+  SR.reveal(".view-info .info-top", {...fadeUp});  
+  SR.reveal(".view-info .dropdown", {...fadeUp});  
 }
 function viewFloating() {
   const scrollPosition = window.pageYOffset;
@@ -126,7 +126,7 @@ function professionalsSticky() {
       trigger: item,
       start: 'top 40%',
       end: 'bottom 40%',
-      markers: true,
+      // markers: true,
       onEnter: () => {
         btns.forEach(btn => {
           btn.classList.remove('active');
