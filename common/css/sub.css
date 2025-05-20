@@ -245,15 +245,6 @@
 .professionals .professionals-tabs { display: flex; justify-content: center; margin-bottom: 80px;}
 .professionals .professionals-tabs li a { padding: 0 30px; font-size: 28px; opacity: .4;}
 .professionals .professionals-tabs li a.active { opacity: 1;}
-.professionals .card-profile-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); grid-template-rows: 1fr; gap: 80px 30px; margin-bottom: 80px;}
-.professionals .card-profile-list .profile-item { border: 1px solid #bbb;}
-.professionals .card-profile-list figure { padding-bottom: 95%; border-bottom: 1px solid #bbb;}
-.professionals .card-profile-list .profile-info { padding: 20px; display: flex; justify-content: space-between; align-items: flex-start; gap: 20px 5px;}
-.professionals .card-profile-list .profile-name { font-size: 24px; margin-bottom: 9px;}
-.professionals .card-profile-list .profile-position { font-weight: 400; font-size: 18px; color: #1D1D1D;}
-.professionals .card-profile-list .profile-position span { position: relative; margin-right: 16px;}
-.professionals .card-profile-list .profile-position span:not(:first-child)::before { content: ''; display: block; position: absolute; top: 3px; left: -10px; width: 1px; height: 16px; background: #bbb;}
-.professionals .card-profile-list .profile-email { width: 48px; aspect-ratio: 1; background: #F5F5F5 url(/images/ico-email.svg) no-repeat center/ auto 50%; border-radius: 50%;}
 
 /* professionals-view */
 .professionals-view { padding-bottom: 220px; padding-top: 100px; position: relative;}
@@ -278,3 +269,22 @@
 .professionals-view .view-info .title-scroll { display: flex; gap: 20px;}
 .professionals-view .view-info .title-scroll button { opacity: .4;}
 .professionals-view .view-info .title-scroll button.active { opacity: 1;} 
+
+/* search */
+.search { padding: 120px 0 100px;}
+.search .inner { max-width: 1540px; width: 90%; padding: 0; margin: 0 auto;}
+.search .practices-search { margin-bottom: 0;}
+.search .search-form .heading { text-align: center; margin-bottom: 60px; }
+.search .search-form .search-result { border: 0;}
+.search > section:not(:first-child) { padding: 120px 0;}
+.search > section h3.heading { font-size: 32px; margin-bottom: 30px; display: flex; align-items: center; gap: 4px;}
+.search > section h3.heading .num { font-size: 14px; color: #fff; background: #f32735; border-radius: 50%; padding: 5px 8px; min-width: 32px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center;}
+.search .card-wrap { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); grid-template-rows: 1fr; gap: 80px 30px; margin-bottom: 60px;}
+.search .card-wrap .board-card { min-height: 386px;}
+.search .board-card .card-title span { padding: 5px 16px; border-radius: 35px; background: #F0F2F6; color: #333; font-size: 16px;}
+.search .search-business { background: #F0F2F6; }
+.search .search-business .board-card { background: #fff; padding: 30px;}
+.search .search-business .board-card::after { content: none;}
+.search .search-business .board-card .card-desc { margin-bottom: 24px; font-size: 16px; font-weight: 400;}
+.search .search-business .board-card .card-year { margin-bottom: 0;}
+.search .search-content .card-title span { background: #fff; border: 1px solid #DADDE2;}
