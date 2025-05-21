@@ -67,7 +67,7 @@
 [data-section="board"] .board-area + .board-area { margin-top: 60px;}
 [data-section="board"] .board-area .board-title { display: flex; align-items: center; gap: 12px; justify-content: space-between; margin-bottom: 24px;}
 [data-section="board"] .board-area .board-title .sns-list { display: flex;}
-[data-section="board"] .board-area .board-title .sns-list li a { display: flex; align-items: center; justify-content: center; padding: 0 6px;}
+[data-section="board"] .board-area .board-title .sns-list li a { display: flex; align-items: center; justify-content: center; padding: 0 6px; opacity: .5; transition: opacity 0.3s;}
 [data-section="board"] .board-area .board-title .sns-list li:last-child a { padding-right: 0;}
 [data-section="board"] .board-area .board-card { height: 100%;}
 [data-section="board"] .board-area .board-blog { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 16px;}
@@ -87,6 +87,7 @@
 [data-section="board"] .board-area.area4 .map-btns { display: flex; flex-wrap: wrap; gap: 4px;}
 @media (hover: hover) and (pointer: fine) {
   [data-section="board"] .board-area .board-list li a:hover { border-color: #000;}
+  [data-section="board"] .board-area .board-title .sns-list li a:hover { opacity: 1;}
 }
 
 [data-section="location"] .map-btns button { padding: 5px 16px; border-radius: 35px; background-color: #F0F2F6; font-size: 15px; font-weight: 500;}

@@ -990,16 +990,45 @@
       end: "bottom bottom",
       scrub: 1,
       animation: tl,
+      onUpdate: (self) => {
+        animateTextSize(self.progress);
+      },
       // markers: true
     });
     gsap.set(controlWrap, { autoAlpha: 0, y:30 });
+    gsap.set(allHeadings, { fontSmoothing: 'antialiased', webkitFontSmoothing: 'antialiased' });
+    gsap.set(allDescs, { fontSmoothing: 'antialiased', webkitFontSmoothing: 'antialiased' });
     tl.to(colRight, { flex: '0 0 100%', duration: 1 }, 'motion')
     .to(colLeft, { xPercent: -100, duration: 1 }, 'motion')
     .to(slideBg, { height: '100%', padding: 0, duration: 1 }, 'motion')
-    .to(slideText, { height: '100%', padding: '100px 60px', duration: 1 }, 'motion')
-    .to(allDescs, { fontSize: '24px', duration: 1 }, 'motion')
-    .to(allHeadings, { marginBottom: '8vh', fontSize: '96px', duration: 1 }, 'motion')
+    .to(slideText, { height: '100%', padding: '100px 60px', duration: 1, }, 'motion')
+    // .to(allDescs, { fontSize: '24px', force3D: true, duration: 1 }, 'motion')
+    // .to(allHeadings, { marginBottom: '8vh', fontSize: '96px', force3D: true, duration: 1 }, 'motion')
     
+    function animateTextSize(progress) {
+      // 시작 및 목표 크기
+      const startDescSize = 18;
+      const endDescSize = 24;
+      const startHeadingSize = 40;
+      const endHeadingSize = 96;
+      const startMargin = 20; // vh
+      const endMargin = 8; // vh
+      
+      // 현재 크기 계산 (progress는 0~1)
+      const currentDescSize = startDescSize + (endDescSize - startDescSize) * progress;
+      const currentHeadingSize = startHeadingSize + (endHeadingSize - startHeadingSize) * progress;
+      const currentMargin = startMargin + (endMargin - startMargin) * progress;
+      
+      // 크기 적용
+      allDescs.forEach(desc => {
+        desc.style.fontSize = `${currentDescSize}px`;
+      });
+      
+      allHeadings.forEach(heading => {
+        heading.style.fontSize = `${currentHeadingSize}px`;
+        heading.style.marginBottom = `${currentMargin}vh`;
+      });
+    }
     ScrollTrigger.create({
       trigger: triggerClass,
       start: "10% 30%",
@@ -1141,9 +1170,6 @@
     });
     
     const mouseEnter = () => {
-      socialArea.forEach(area => {
-        area.style.cursor = 'pointer';
-      });
       socialArea.forEach((area, index) => {
         area.addEventListener('mouseenter', () => {
           if (window.getComputedStyle(socialWhite[index]).clipPath.includes('inset(0 0%') || 

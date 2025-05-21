@@ -225,7 +225,7 @@
           </p>
         </div>
         <figure>
-          <img src="/images/sub/about/careers-feature-img1.png" alt="">
+          <img src="/images/sub/about/careers-feature-img3.png" alt="">
         </figure>
       </div>
     </section>
@@ -255,7 +255,7 @@
             <h4 class="corporation-title">
               법학전문대학원생 <br>
               인턴십 프로그램
-              <a href="javascript:" class="btn-download" download="">지원서 다운로드 <i class="ico-download"></i></a>
+              <a href="/common/download/about-careers.docx" class="btn-download" download="DLG_법학전문대학원_인턴_지원양식">지원서 다운로드 <i class="ico-download"></i></a>
             </h4>
             <p class="corporation-desc">
               법무법인 디엘지(DLG)는 법학전문대학원생을 위한 <br class="pc">
@@ -263,10 +263,10 @@
               열정과 역량을 가진 법학전문대학원생 여러분의 많은 지원을 기다립니다.
             </p>
             <ul class="corporation-list">
-              <li><span class="text">지원서 제출</span><span class="desc">법학전문대학원 재학생 또는 졸업 예정자</span></li>
-              <li><span class="text">서류 심사</span></span><span class="desc">실무 사건 참여, 변호사 멘토링, 심화 교육 세미나 제공</span></li>
-              <li><span class="text">면접 전형</span><span class="desc">정식 채용 기회 부여</span></li>
-              <li><span class="text">최종 합격 및 입사</span></span><span class="desc">지원서 다운로드 후 작성하여 <a href="mailto:recruit@dlglaw.co.kr">recruit@dlglaw.co.kr</a>로 접수</span></li>
+              <li><span class="text">지원자격</span><span class="desc">법학전문대학원 재학생 또는 졸업 예정자</span></li>
+              <li><span class="text">프로그램 특징</span></span><span class="desc">실무 사건 참여, 변호사 멘토링, 심화 교육 세미나 제공</span></li>
+              <li><span class="text">우수 인턴 혜택</span><span class="desc">정식 채용 기회 부여</span></li>
+              <li><span class="text">지원 방법</span></span><span class="desc">지원서 다운로드 후 작성하여 <a href="mailto:recruit@dlglaw.co.kr">recruit@dlglaw.co.kr</a>로 접수</span></li>
             </ul>
           </div>
         </div>
@@ -287,6 +287,7 @@
     })
     const corporationMotion = (ScrollTrigger, isMobile) => {
       const section = document.querySelector(ScrollTrigger);
+      const line = document.querySelector('.corporation-line');
       const area = section.querySelectorAll(".corporation-area");
       let listAnimation;
 
@@ -332,9 +333,19 @@
             onStart: () => li.classList.add('active')
           }, i * 1);
           
+          listAnimation.to(line, {
+            duration: 0.3,
+            onStart: () => line.classList.add('active' + i)
+          }, i * 1);
+          
           listAnimation.to(li, { 
             duration: 0.3,
             onStart: () => li.classList.remove('active')
+          }, i * 1 + 1);
+
+          listAnimation.to(line, {
+            duration: 0.3,
+            onStart: () => line.classList.remove('active' + i)
           }, i * 1 + 1);
         });
       })
