@@ -284,7 +284,7 @@ footer .copyright { margin-top: 12px;}
 .board-card .card-title span { font-size: 13px; display: block;}
 .board-card .card-content { margin-top: auto;}
 .board-card .card-sbj { font-size: 20px; font-weight: 500; margin-bottom: 8px; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; overflow: hidden;}
-.board-card .card-year { font-size: 16px; margin-bottom: 20px;}
+.board-card .card-year { font-size: 16px; margin-top: 20px;}
 .board-card .card-desc { font-size: 20px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;}
 .board-card[data-card="newsletter"] .card-title span { background: url('/images/ico-newsletter.png') no-repeat center/auto 100%; width: 18px; height: 18px;}
 .board-card[data-card="newsletter"] .card-desc { -webkit-line-clamp: 2;}

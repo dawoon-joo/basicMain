@@ -299,6 +299,5 @@
 .search .search-business { background: #F0F2F6; }
 .search .search-business .board-card { background: #fff; padding: 30px;}
 .search .search-business .board-card::after { content: none;}
-.search .search-business .board-card .card-desc { margin-bottom: 24px; font-size: 16px; font-weight: 400;}
-.search .search-business .board-card .card-year { margin-bottom: 0;}
+.search .search-business .board-card .card-desc { font-size: 16px; font-weight: 400;}
 .search .search-content .card-title span { background: #fff; border: 1px solid #DADDE2;}
