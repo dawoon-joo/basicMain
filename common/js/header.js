@@ -37,8 +37,13 @@ class Header {
   }
 
   bindEvents() {
-    this.depth1Items.forEach(item => { item.addEventListener('mouseenter', this.handleGnbMouseEnter.bind(this)); });
-    this.HEADER.addEventListener('mouseleave', this.handleGnbMouseLeave.bind(this));
+    this.depth1Items.forEach(item => { 
+      item.addEventListener('mouseenter', (e) => this.handleGnbMouseEnter(e)); 
+    });
+    this.GNB.querySelectorAll('.depth2').forEach(item => {
+      item.addEventListener('mouseleave', (e) => this.handleGnbMouseEnter(e));
+    });
+    // this.GNB.addEventListener('mouseleave', (e) => this.handleGnbMouseLeave(e));
     window.addEventListener('resize', () => this.updateHeaderDimensions());
     window.addEventListener('scroll', () => {
       if (!this.option.ticking) {
@@ -50,26 +55,55 @@ class Header {
         this.option.ticking = true;
       }
     });
+    window.addEventListener('load', ()=> {
+      this.variableHeader();
+      // this.searchEvent();
+    })
   }
 
   // GNB 관련 메서드
-  handleGnbMouseEnter() {
+  handleGnbMouseEnter(event) {
     if (this.device.isTablet || window.innerWidth <= this.option.maxDeviceWidth) return;
-
+  
+    // 현재 호버된 메뉴 아이템 찾기
+    const currentItem = event.currentTarget;
+    const depth2 = currentItem.querySelector('.depth2');
+    
+    // 모든 depth2 요소 숨기기
+    this.depth1Items.forEach(item => {
+      const itemDepth2 = item.querySelector('.depth2');
+      if (itemDepth2 && itemDepth2 !== depth2) {
+        gsap.set(itemDepth2, { display: 'none', autoAlpha: 0 });
+      }
+    });
+    
+    // 현재 호버된 아이템의 depth2만 표시
+    if (depth2) {
+      gsap.set(depth2, { display: 'flex', autoAlpha: 1 });
+    }
+  
     this.setHeaderTheme('light', 'opened');
     this.animateGnb(this.headerMaxHeight, 0.5);
   }
 
   handleGnbMouseLeave() {
     if (this.device.isTablet || window.innerWidth <= this.option.maxDeviceWidth) return;
-
+  
+    // 모든 depth2 요소 원래대로 되돌리기
+    this.depth1Items.forEach(item => {
+      const itemDepth2 = item.querySelector('.depth2');
+      if (itemDepth2) {
+        gsap.set(itemDepth2, { display: '', autoAlpha: '' });
+      }
+    });
+  
     this.setHeaderTheme(this.originalTheme);
     this.animateGnb(this.headerMinHeight, 0.3);
   }
 
   animateGnb(height, duration) {
     gsap.killTweensOf(this.GNB);
-    gsap.to(this.GNB, { duration, height });
+    // gsap.to(this.GNB, { duration, height });
   }
 
   setHeaderTheme(theme, gnbState = '') {
@@ -89,19 +123,19 @@ class Header {
 
   toggleHeader() {
     window.headerControlEnabled = true;
-    const isMainPage = document.querySelector('.wrap.main') !== null;
-    if (isMainPage && !window.headerControlEnabled) return;
-    if (window.scrollY > this.option.scrollY) {
-      if (window.scrollY < 10) {
-        gsap.to('.header', { y: 0 });
-      } else {
-        gsap.to('.header', { y: -170, duration: 0.2 });
-      }
-    }
+    // const isMainPage = document.querySelector('.wrap.main') !== null;
+    // if (isMainPage && !window.headerControlEnabled) return;
+    // if (window.scrollY > this.option.scrollY) {
+    //   if (window.scrollY < 10) {
+    //     gsap.to('.header', { y: 0 });
+    //   } else {
+    //     gsap.to('.header', { y: -260, duration: 0.3 });
+    //   }
+    // }
 
-    if (window.scrollY < this.option.scrollY) {
-      gsap.to('.header', { y: 0 });
-    }
+    // if (window.scrollY < this.option.scrollY) {
+    //   gsap.to('.header', { y: 0 });
+    // }
 
     this.option.scrollY = window.scrollY;
   }
@@ -120,6 +154,69 @@ class Header {
     } catch (error) {
       console.error('Error setting header sticky state:', error);
     }
+  }
+
+  variableHeader(){
+    const sections = document.querySelectorAll('[data-section-header]');
+
+    if(sections === undefined){
+      return;
+    }
+
+    sections.forEach((section, i) => {
+      let theme = section.dataset.sectionHeader;
+
+      if(theme === ''){
+        theme = 'light';
+      }
+      ScrollTrigger.create({
+        trigger: section,
+        start: `-${this.headerMinHeight / 2}px top`,
+        end: `bottom ${this.headerMinHeight / 2}px`,
+        // markers: true,
+        onEnter: () => changeTheme(theme),
+        onEnterBack: () => changeTheme(theme),
+        onLeave: () => changeTheme('light'),
+        onLeaveBack: () => changeTheme('light')
+      });
+
+    });
+
+    function changeTheme(name){
+      header.dataset.label = name;
+    }
+  }
+
+  searchEvent(){
+    const searchBtn = this.HEADER.querySelector('.header-search');
+    const searchWrap = this.HEADER.querySelector('.search-wrap');
+    const contentTop = searchWrap.querySelector('.content-top');
+    const closeBtn = searchWrap.querySelector('.close');
+    let isOpen = false;
+    gsap.set(searchWrap, { maxHeight: '0%', autoAlpha: 0});
+    gsap.set(contentTop, { y: -100, autoAlpha: 0});
+
+    const toggleSearch = ()=>{
+      if(isOpen){
+        lenis.start();
+        document.body.style.overflow = 'auto';
+        const tl = gsap.timeline();
+        tl.to(searchWrap, { maxHeight: '0%', duration: 0, ease: 'none'}, 'search')
+          .to(searchWrap, { autoAlpha: 0,}, 'search')
+          .to(contentTop, { y: -100, autoAlpha: 0,}, 'search')
+      }else{
+        lenis.stop();
+        document.body.style.overflow = 'hidden';
+        const tl = gsap.timeline();
+        tl.to(searchWrap, { maxHeight: '100vh', duration: 0, ease: 'none'}, 'search')
+          .to(searchWrap, { autoAlpha: 1,}, 'search')
+          .to(contentTop, { y: 0, autoAlpha: 1,}, 'search')
+      }
+
+      isOpen = !isOpen;
+    }
+    searchBtn.addEventListener('click', toggleSearch);
+    closeBtn.addEventListener('click', toggleSearch);
   }
 
   // 햄버거 관련 메서드

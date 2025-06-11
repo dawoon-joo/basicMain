@@ -1,4 +1,3 @@
-
 @font-face {
 	font-family: 'Noto Sans KR';
 	font-style: normal;
@@ -57,64 +56,145 @@ http://scripts.sil.org/OFL
 */
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'MultiLangFont';
+	unicode-range: U+AC00-D7AF;
 	font-weight: 900;
 	font-display: swap;
 	src: local('Pretendard Black'),  url(./woff/Pretendard-Black.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'MultiLangFont';
+	unicode-range: U+AC00-D7AF;
 	font-weight: 800;
 	font-display: swap;
 	src: local('Pretendard ExtraBold'), url(./woff/Pretendard-ExtraBold.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'MultiLangFont';
+	unicode-range: U+AC00-D7AF;
 	font-weight: 700;
 	font-display: swap;
 	src: local('Pretendard Bold'), url(./woff/Pretendard-Bold.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'MultiLangFont';
+	unicode-range: U+AC00-D7AF;
 	font-weight: 600;
 	font-display: swap;
 	src: local('Pretendard SemiBold'), url(./woff/Pretendard-SemiBold.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'MultiLangFont';
+	unicode-range: U+AC00-D7AF;
 	font-weight: 500;
 	font-display: swap;
 	src: local('Pretendard Medium'), url(./woff/Pretendard-Medium.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'MultiLangFont';
+	unicode-range: U+AC00-D7AF;
 	font-weight: 400;
 	font-display: swap;
 	src: local('Pretendard Regular'), url(./woff/Pretendard-Regular.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'MultiLangFont';
+	unicode-range: U+AC00-D7AF;
 	font-weight: 300;
 	font-display: swap;
 	src: local('Pretendard Light'), url(./woff/Pretendard-Light.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'MultiLangFont';
+	unicode-range: U+AC00-D7AF;
 	font-weight: 200;
 	font-display: swap;
 	src: local('Pretendard ExtraLight'),  url(./woff/Pretendard-ExtraLight.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'MultiLangFont';
+	unicode-range: U+AC00-D7AF;
 	font-weight: 100;
 	font-display: swap;
 	src: local('Pretendard Thin'), url(./woff/Pretendard-Thin.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 400;
+  font-display: swap;
+  src: local('Pretendard Regular'), url(./woff/Pretendard-Regular.woff) format('woff');
+}
+
+/* Noto Sans SC 폰트를 Teko로 사용 */
+@font-face {
+	font-family: 'MultiLangFont';
+	unicode-range: U+0030-0039, U+0041-005A, U+0061-007A;
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: url(./Teko-Light.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'MultiLangFont';
+	unicode-range: U+0030-0039, U+0041-005A, U+0061-007A;
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(./Teko-Regular.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'MultiLangFont';
+	unicode-range: U+0030-0039, U+0041-005A, U+0061-007A;
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url(./Teko-Medium.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'MultiLangFont';
+	unicode-range: U+0030-0039, U+0041-005A, U+0061-007A;
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url(./Teko-SemiBold.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'MultiLangFont';
+	unicode-range: U+0030-0039, U+0041-005A, U+0061-007A;
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(./Teko-Bold.ttf) format('truetype');
+}
+
+/* SEBANG Gothic 폰트 추가 */
+@font-face {
+	font-family: 'SEBANG Gothic';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(SEBANG-Gothic.ttf) format('truetype'),
+	     url(SEBANG-Gothic-OTF.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'SEBANG Gothic';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(SEBANG-Gothic-Bold.ttf) format('truetype'),
+	     url(SEBANG-Gothic-OTF-Bold.otf) format('opentype');
 }

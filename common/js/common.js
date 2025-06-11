@@ -1,6 +1,8 @@
+const SR = ScrollReveal();
 const revealOption = { duration: 1200, distance: '60px', opacity: 0, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', reset: false, beforeReveal: (el) => { el.classList.add('sr-animate') }, beforeReset: (el) => { el.classList.remove('sr-animate') } }
 const fadeIn = { ...revealOption, distance: 0 }
 const fadeUp = { ...revealOption, origin: 'bottom' }
+const fadeDown = { ...revealOption, origin: 'top' }
 const fadeRight = { ...revealOption, origin: 'left' }
 const fadeLeft = { ...revealOption, origin: 'right' }
 const zoomOutUp = { ...revealOption, origin: 'bottom', scale: 0.5 }
@@ -19,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
   scrollBtn();
   sublinkWrap();
   initDragScroll();
+  splitText
+  dropdown();
+  AOS.init();
 });
 
 window.addEventListener('scroll', ()=> {
@@ -44,7 +49,7 @@ function handleLenis(isDesktop) {
 
   if (isDesktop) {
     lenis = new Lenis({
-      duration: 0.6,
+      duration: 1.2,
       infinite: false,
       easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
       gestureOrientation: "vertical",
@@ -124,18 +129,20 @@ function floating(){
   const scrollTo = document.querySelector('.floating-container');
   if(!scrollTo) return;
   const footer = document.querySelector('footer');
-  console.log(scrollTo);
-  console.log(window.innerHeight);
+  // console.log(scrollTo);
+  // console.log(window.innerHeight);
   // 브라우저 창의 하단이 footer에 닿았는지 확인
   if (window.innerHeight >= footer.getBoundingClientRect().top) {
     // footer에 닿았을 때 position을 'absolute'로 설정
     scrollTo.style.position = 'absolute';
+    scrollTo.classList.add('ab');
   } else {
     // 그 외의 경우에는 position을 'fixed'로 설정
     scrollTo.style.position = 'fixed';
+    scrollTo.classList.remove('ab');
   }
 
-  if (scrollPosition >= window.innerHeight / 2) {
+  if (scrollPosition >= window.innerHeight) {
     scrollTo.classList.add('active');
   } else {
     scrollTo.classList.remove('active');
@@ -167,6 +174,86 @@ function scrollBtn() {
 	});
 }
 
+const dropdown = () => {
+  const container = document.querySelectorAll('.dropdown');
+  if (!container) return;
+  
+  const setItemState = (item, isActive) => {
+    const content = item.querySelector('.dropdown-body');
+    const toggleBtn = item.querySelector('.dropdown-btn');
+    
+    if (toggleBtn) {
+      isActive ? toggleBtn.classList.add('active') : toggleBtn.classList.remove('active');
+    }
+    
+    if (content) {
+      if (isActive) {
+        gsap.to(content, { 
+          maxHeight: content.scrollHeight + 'px', 
+          duration: 0.5, ease: 'power2.inOut', 
+          onComplete: () => { 
+            ScrollTrigger.refresh();
+          }
+        });
+      } else {
+        gsap.to(content, { 
+          maxHeight: 0, 
+          duration: 0.5, ease: 'power2.inOut', 
+          onComplete: () => { 
+            ScrollTrigger.refresh();
+          }
+        });
+      }
+
+      if (document.getElementById('print')) {
+        document.querySelectorAll('.view-info .dropdown').forEach(el => {
+          el.style.visibility = '';
+          el.style.opacity = '';
+          el.style.transform = '';
+          el.removeAttribute('data-sr-id');
+        });
+      }
+    }
+  };
+  
+  // 초기 설정
+  container.forEach((item, index) => {
+    const content = item.querySelector('.dropdown-body');
+    const toggleBtn = item.querySelector('.dropdown-btn');
+    
+    // 첫번째 요소만 열리도록 설정
+    // if (index === 0) {
+    //   toggleBtn.classList.add('active');
+    //   gsap.set(content, { maxHeight: content.scrollHeight + 'px' });
+    // } else {
+    //   gsap.set(content, { maxHeight: 0 });
+    // }
+    toggleBtn.classList.add('active');
+    gsap.set(content, { maxHeight: content.scrollHeight + 'px' });
+    
+    toggleBtn.addEventListener('click', () => {
+      const isCurrentlyActive = toggleBtn.classList.contains('active');
+      setItemState(item, !isCurrentlyActive);
+    });
+  });
+  
+  const updateActiveHeights = () => {
+    container.forEach(item => {
+      const toggleBtn = item.querySelector('.dropdown-btn');
+      if (toggleBtn && toggleBtn.classList.contains('active')) {
+        const content = item.querySelector('.dropdown-body');
+        gsap.set(content, { maxHeight: content.scrollHeight + 'px' });
+      }
+    });
+  };
+  
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(updateActiveHeights, 100);
+  });
+}
+
 // 텍스트 분리 애니메이션
 const splitText = () => {
   const textElements = document.querySelectorAll('.split');
@@ -195,42 +282,84 @@ const splitText = () => {
 
 // 카운트 애니메이션
 const createNumberRolling = (selector = '.number_motion .year') => {
+  function formatNumberWithComma(numStr, useComma = true) {
+    numStr = numStr.toString().replace(/,/g, ''); // 기존 콤마 제거
+    
+    if (!useComma) return numStr; // 콤마 사용 안 할 경우 바로 반환
+    
+    let [intPart, decPart] = numStr.split('.');
+    intPart = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ','); // 콤마 추가
+    return decPart ? `${intPart}.${decPart}` : intPart;
+  }
+
   const tl = gsap.timeline();
-  const $element = $(selector);
-  const fromYear = $element.html();
-  const toYear = $element.attr('data-to');
+  const elements = document.querySelectorAll(selector);
   
-  $element.html('');
-  
-  for (let i = 0; i < fromYear.length; i++) {
-    let toNumber = parseInt(fromYear.charAt(i));
-    let fromNumber = parseInt(toYear.charAt(i));
+  elements.forEach(element => {
+    // data-to 값 가져오기
+    let toYearRaw = element.getAttribute('data-to');
+    if (!toYearRaw) return;
     
-    let chars = [];
+    // 콤마 사용 여부 확인 (기본값: true)
+    const useComma = element.getAttribute('data-use-comma') !== 'false';
     
-    // 같은 숫자면 한바퀴 돌기
-    if (fromNumber === toNumber) {
-      for (let n = fromNumber; n >= 0; n--) chars.push(n);
-      for (let n = 9; n >= fromNumber; n--) chars.push(n);
-    } else {
-      // 다른 숫자면 목표까지 감소
-      while (true) {
-        chars.push(fromNumber);
-        if (fromNumber === toNumber) break;
-        fromNumber = (fromNumber - 1 + 10) % 10;
-      }
+    // 콤마 자동 추가 (useComma에 따라)
+    let toYear = formatNumberWithComma(toYearRaw, useComma);
+    
+    // HTML이 비어있으면 0으로 채움
+    if (!element.innerHTML.trim()) {
+      element.innerHTML = toYear.replace(/[0-9]/g, '0');
     }
     
-    // 요소 생성 및 애니메이션 설정
-    let digitEl = $('<span></span>').html(chars.join('<br>')).appendTo(selector);
-    let duration = 3 + i * 0.4;
+    const fromYear = element.innerHTML;
     
-    tl.from(digitEl, duration, {
-      y: -(chars.length - 1) + 'em', 
-      ease: Power3.easeInOut, 
-      delay: (fromYear.length - i - 1) * 0.7
-    }, 0);
-  }
+    // 이하 기존 코드와 동일
+    const numericDigits = toYear.replace(/[^0-9]/g, '').length;    
+    const isLongNumber = numericDigits >= 4;
+    
+    element.innerHTML = '';
+    
+    for (let i = 0; i < fromYear.length; i++) {
+      if (isNaN(parseInt(fromYear.charAt(i))) || fromYear.charAt(i) === ' ') {
+        const staticChar = document.createElement('span');
+        staticChar.textContent = fromYear.charAt(i);
+        element.appendChild(staticChar);
+        continue;
+      }
+      
+      let toNumber = parseInt(fromYear.charAt(i)) || 0;
+      let fromNumber = parseInt(toYear.charAt(i)) || 0;
+      
+      let chars = [];
+      
+      if (fromNumber === toNumber) {
+        for (let n = fromNumber; n >= 0; n--) chars.push(n);
+        for (let n = 9; n >= fromNumber; n--) chars.push(n);
+      } else {
+        let count = 0;
+        const maxIterations = 15;
+        
+        while (count < maxIterations) {
+          chars.push(fromNumber);
+          if (fromNumber === toNumber) break;
+          fromNumber = (fromNumber - 1 + 10) % 10;
+          count++;
+        }
+      }
+      
+      const digitEl = document.createElement('span');
+      digitEl.innerHTML = chars.join('<br>');
+      element.appendChild(digitEl);
+      
+      const duration = 3 + i * (isLongNumber ? 0 : 0.1);
+      const delayFactor = isLongNumber ? 0.2 : 0.5; 
+      tl.from(digitEl, duration, {
+        y: -(chars.length - 1) + 'em', 
+        ease: Power3.easeInOut, 
+        delay: (fromYear.length - i - 1) * delayFactor
+      }, 0);
+    }
+  });
   
   return tl;
 };
@@ -303,4 +432,154 @@ function initDragScroll() {
     updateDragIndicator();
     window.addEventListener('resize', updateDragIndicator);
   });
+}
+
+// 페이지네이션
+class Pagination {
+  /**
+   * @param {HTMLElement|string} listContainer - 아이템 컨테이너 요소 또는 선택자
+   * @param {string} itemSelector - 아이템 선택자
+   * @param {HTMLElement|string} paginationContainer - 페이지네이션 컨테이너 요소 또는 선택자
+   * @param {object} options - 추가 옵션
+   */
+  constructor(listContainer, itemSelector, paginationContainer, options = {}) {
+    // 기본 옵션 설정
+    this.options = {
+      itemsPerPage: 12,
+      scrollToList: true,
+      ...options
+    };
+    
+    // 컨테이너 및 요소 설정
+    this.listContainer = typeof listContainer === 'string' 
+      ? document.querySelector(listContainer) 
+      : listContainer;
+      
+    this.paginationContainer = typeof paginationContainer === 'string'
+      ? document.querySelector(paginationContainer)
+      : paginationContainer;
+      
+    this.items = this.listContainer 
+      ? Array.from(this.listContainer.querySelectorAll(itemSelector))
+      : [];
+      
+    // 상태 초기화
+    this.totalPages = Math.ceil(this.items.length / this.options.itemsPerPage);
+    this.currentPage = 1;
+    
+    // 페이지네이션 초기화
+    this.init();
+  }
+  
+  init() {
+    if (this.items.length > this.options.itemsPerPage) {
+      this.paginationContainer.style.display = '';
+      this.renderPagination();
+      this.renderPage(1);
+    } else {
+      this.paginationContainer.style.display = 'none';
+      this.items.forEach(el => el.style.display = '');
+    }
+  }
+  
+  renderPage(page) {
+    this.items.forEach((el, idx) => {
+      el.style.display = (idx >= (page-1) * this.options.itemsPerPage && 
+                         idx < page * this.options.itemsPerPage) ? '' : 'none';
+    });
+  }
+  
+  goToPage(page) {
+    this.currentPage = page;
+    this.renderPage(page);
+    this.updateButtonStates();
+    this.renderPagination();
+    
+    if (this.options.scrollToList && this.listContainer) {
+      const offsetTop = this.listContainer.offsetTop;
+      lenis.stop();
+      
+      const scrollPromise = new Promise(resolve => {
+        window.scrollTo({
+          top: offsetTop - 200,
+          behavior: 'smooth'
+        });
+        resolve();
+      });
+      
+      scrollPromise.then(() => {
+        lenis.start();
+      });
+    }
+  }
+  
+  updateButtonStates() {
+    this.paginationContainer.querySelectorAll('.page').forEach((btn, idx) => {
+      btn.classList.toggle('active', idx + 1 === this.currentPage);
+    });
+    
+    this.paginationContainer.querySelector('.prev-end').disabled = this.currentPage === 1;
+    this.paginationContainer.querySelector('.prev').disabled = this.currentPage === 1;
+    this.paginationContainer.querySelector('.next').disabled = this.currentPage === this.totalPages;
+    this.paginationContainer.querySelector('.next-end').disabled = this.currentPage === this.totalPages;
+  }
+  
+  renderPagination() {
+    this.paginationContainer.innerHTML = '';
+    
+    // 처음으로 버튼
+    const prevEndBtn = document.createElement('button');
+    prevEndBtn.className = 'prev-end';
+    prevEndBtn.disabled = this.currentPage === 1;
+    prevEndBtn.addEventListener('click', () => this.goToPage(1));
+    this.paginationContainer.appendChild(prevEndBtn);
+    
+    // 이전 버튼
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'prev';
+    prevBtn.disabled = this.currentPage === 1;
+    prevBtn.addEventListener('click', () => {
+      if (this.currentPage > 1) {
+        this.goToPage(this.currentPage - 1);
+      }
+    });
+    this.paginationContainer.appendChild(prevBtn);
+    
+    // 페이지 그룹 계산 (5개씩 그룹화)
+    const maxButtons = 5;
+    const currentGroup = Math.ceil(this.currentPage / maxButtons);
+    const startPage = (currentGroup - 1) * maxButtons + 1;
+    const endPage = Math.min(this.totalPages, startPage + maxButtons - 1);
+    
+    // 페이지 버튼 생성
+    for (let i = startPage; i <= endPage; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'page' + (i === this.currentPage ? ' active' : '');
+      btn.textContent = i;
+      if (i === this.currentPage) {
+        btn.disabled = true;
+      } else {
+        btn.addEventListener('click', () => this.goToPage(i));
+      }
+      this.paginationContainer.appendChild(btn);
+    }
+    
+    // 다음 버튼
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'next';
+    nextBtn.disabled = this.currentPage === this.totalPages;
+    nextBtn.addEventListener('click', () => {
+      if (this.currentPage < this.totalPages) {
+        this.goToPage(this.currentPage + 1);
+      }
+    });
+    this.paginationContainer.appendChild(nextBtn);
+    
+    // 마지막으로 버튼
+    const nextEndBtn = document.createElement('button');
+    nextEndBtn.className = 'next-end';
+    nextEndBtn.disabled = this.currentPage === this.totalPages;
+    nextEndBtn.addEventListener('click', () => this.goToPage(this.totalPages));
+    this.paginationContainer.appendChild(nextEndBtn);
+  }
 }
