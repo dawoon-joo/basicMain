@@ -13,7 +13,7 @@
   --bg-sub-color: #f7f7f7;
 }
 .wrap { position: relative;}
-.inner { max-width: 1500px; margin: 0 auto; width: 90%; }
+.inner { max-width: 1520px; margin: 0 auto; width: 90%; }
 .inner.large { max-width: 1610px;}
 .inner-left { padding-left: calc(max((100vw - 1500px) / 2, 5vw)) !important;}
 .inner-right { padding-right: calc(max((100vw - 1500px) / 2, 5vw)) !important;}

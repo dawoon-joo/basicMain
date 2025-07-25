@@ -45,7 +45,27 @@
 	url(notokr-bold.ttf) format('truetype');
 }
 
+/* RobotoCondensed Font Family */
+@font-face { font-family: 'RobotoCondensed'; font-weight: 100; font-display: swap; src: local('RobotoCondensed Thin'), url(./RobotoCondensed-Thin.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 200; font-display: swap; src: local('RobotoCondensed ExtraLight'), url(./RobotoCondensed-ExtraLight.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 300; font-display: swap; src: local('RobotoCondensed Light'), url(./RobotoCondensed-Light.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 400; font-display: swap; src: local('RobotoCondensed Regular'), url(./RobotoCondensed-Regular.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 500; font-display: swap; src: local('RobotoCondensed Medium'), url(./RobotoCondensed-Medium.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 600; font-display: swap; src: local('RobotoCondensed SemiBold'), url(./RobotoCondensed-SemiBold.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 700; font-display: swap; src: local('RobotoCondensed Bold'), url(./RobotoCondensed-Bold.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 800; font-display: swap; src: local('RobotoCondensed ExtraBold'), url(./RobotoCondensed-ExtraBold.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 900; font-display: swap; src: local('RobotoCondensed Black'), url(./RobotoCondensed-Black.ttf) format('truetype'); }
 
+/* RobotoCondensed Italic */
+@font-face { font-family: 'RobotoCondensed'; font-weight: 100; font-style: italic; font-display: swap; src: local('RobotoCondensed Thin Italic'), url(./RobotoCondensed-ThinItalic.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 200; font-style: italic; font-display: swap; src: local('RobotoCondensed ExtraLight Italic'), url(./RobotoCondensed-ExtraLightItalic.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 300; font-style: italic; font-display: swap; src: local('RobotoCondensed Light Italic'), url(./RobotoCondensed-LightItalic.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 400; font-style: italic; font-display: swap; src: local('RobotoCondensed Italic'), url(./RobotoCondensed-Italic.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 500; font-style: italic; font-display: swap; src: local('RobotoCondensed Medium Italic'), url(./RobotoCondensed-MediumItalic.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 600; font-style: italic; font-display: swap; src: local('RobotoCondensed SemiBold Italic'), url(./RobotoCondensed-SemiBoldItalic.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 700; font-style: italic; font-display: swap; src: local('RobotoCondensed Bold Italic'), url(./RobotoCondensed-BoldItalic.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 800; font-style: italic; font-display: swap; src: local('RobotoCondensed ExtraBold Italic'), url(./RobotoCondensed-ExtraBoldItalic.ttf) format('truetype'); }
+@font-face { font-family: 'RobotoCondensed'; font-weight: 900; font-style: italic; font-display: swap; src: local('RobotoCondensed Black Italic'), url(./RobotoCondensed-BlackItalic.ttf) format('truetype'); }
 
 /*
 Copyright (c) 2021 Kil Hyung-jin, with Reserved Font Name Pretendard.
@@ -118,3 +138,23 @@ http://scripts.sil.org/OFL
 	font-display: swap;
 	src: local('Pretendard Thin'), url(./woff/Pretendard-Thin.woff) format('woff');
 }
+
+/* 복합 폰트 패밀리 설정 - 영어: RobotoCondensed, 한글: Pretendard */
+/* 기본 폰트 */
+body, html { font-family: 'RobotoCondensed', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif; }
+
+/* 제목용 폰트 클래스 */
+.font-main { font-family: 'RobotoCondensed', 'Pretendard', sans-serif; }
+.font-en { font-family: 'RobotoCondensed', sans-serif; }
+.font-kr { font-family: 'Pretendard', sans-serif; }
+
+/* 폰트 굵기 클래스 */
+.font-thin { font-weight: 100; }
+.font-extralight { font-weight: 200; }
+.font-light { font-weight: 300; }
+.font-regular { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.font-extrabold { font-weight: 800; }
+.font-black { font-weight: 900; }
